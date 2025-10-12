@@ -125,9 +125,9 @@ export const Training = () => {
                   </div>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => (
-                      <li key={index} className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg border-l-4 border-accent hover:bg-muted transition-colors">
-                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-evidence rounded-full flex items-center justify-center shadow-evidence">
-                          <CheckCircle2 className="h-5 w-5 text-accent-foreground" />
+                      <li key={index} className="flex items-start gap-4 p-4 bg-gradient-case-file rounded-lg border-l-4 border-accent/50">
+                        <div className="flex-shrink-0 mt-1">
+                          <CheckCircle2 className="h-6 w-6 text-accent" />
                         </div>
                         <p className="text-lg flex-1 leading-relaxed">{tip}</p>
                       </li>
