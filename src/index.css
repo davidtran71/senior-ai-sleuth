@@ -44,13 +44,20 @@ All colors MUST be HSL.
     --radius: 0.75rem;
 
     /* Gradients for detective theme */
-    --gradient-detective: linear-gradient(135deg, hsl(215 60% 25%), hsl(215 60% 35%));
-    --gradient-badge: linear-gradient(135deg, hsl(35 80% 55%), hsl(35 80% 65%));
-    --gradient-evidence: linear-gradient(135deg, hsl(180 60% 45%), hsl(180 60% 55%));
+    --gradient-detective: linear-gradient(135deg, hsl(215 60% 15%), hsl(215 60% 30%), hsl(180 60% 40%));
+    --gradient-badge: linear-gradient(135deg, hsl(35 80% 50%), hsl(45 85% 60%));
+    --gradient-evidence: linear-gradient(135deg, hsl(180 60% 40%), hsl(180 70% 50%));
+    --gradient-case-file: linear-gradient(180deg, hsl(35 30% 90%), hsl(35 25% 85%));
     
-    /* Shadows for depth */
-    --shadow-card: 0 4px 20px -4px hsl(215 60% 25% / 0.15);
-    --shadow-badge: 0 8px 24px -6px hsl(35 80% 55% / 0.4);
+    /* Shadows for depth and drama */
+    --shadow-card: 0 8px 30px -8px hsl(215 60% 25% / 0.25);
+    --shadow-badge: 0 12px 40px -10px hsl(35 80% 55% / 0.6);
+    --shadow-evidence: 0 0 40px hsl(180 60% 45% / 0.3);
+    --shadow-dramatic: 0 20px 60px -15px hsl(215 60% 10% / 0.4);
+    
+    /* Text shadows for emphasis */
+    --text-glow-accent: 0 0 20px hsl(180 60% 45% / 0.5);
+    --text-glow-badge: 0 0 30px hsl(35 80% 55% / 0.6);
   }
 
   .dark {
@@ -83,8 +90,10 @@ All colors MUST be HSL.
     --input: 215 25% 18%;
     --ring: 35 80% 55%;
 
-    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-badge: 0 8px 24px -6px hsl(35 80% 55% / 0.5);
+    --shadow-card: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
+    --shadow-badge: 0 12px 40px -10px hsl(35 80% 55% / 0.7);
+    --shadow-evidence: 0 0 50px hsl(180 60% 45% / 0.4);
+    --shadow-dramatic: 0 20px 60px -15px hsl(0 0% 0% / 0.6);
   }
 }
 
@@ -119,6 +128,76 @@ All colors MUST be HSL.
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  .case-file-border {
+    border: 3px solid hsl(var(--border));
+    border-left: 8px solid hsl(var(--accent));
+    position: relative;
+  }
+  
+  .case-file-border::before {
+    content: "CASE FILE";
+    position: absolute;
+    top: -12px;
+    left: 12px;
+    background: hsl(var(--background));
+    padding: 2px 12px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: hsl(var(--accent));
+  }
+  
+  .evidence-stamp {
+    position: relative;
+  }
+  
+  .evidence-stamp::after {
+    content: "CLASSIFIED";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 8px;
+    color: hsl(var(--accent) / 0.1);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  
+  .badge-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .badge-shine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shine 3s infinite;
+  }
+  
+  @keyframes shine {
+    0%, 100% {
+      left: -100%;
+    }
+    50% {
+      left: 100%;
+    }
+  }
+  
+  .text-glow-accent {
+    text-shadow: var(--text-glow-accent);
+  }
+  
+  .text-glow-badge {
+    text-shadow: var(--text-glow-badge);
   }
 }
 
