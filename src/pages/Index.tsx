@@ -2,71 +2,22 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ProgressTracker } from "@/components/ProgressTracker";
-import { Badge } from "@/components/Badge";
 import { Shield, Play, Award } from "lucide-react";
-
-interface ModuleStatus {
-  id: number;
-  title: string;
-  completed: boolean;
-}
 
 const Index = () => {
   const navigate = useNavigate();
-  const [modules, setModules] = useState<ModuleStatus[]>([
-    { id: 1, title: "What is AI?", completed: false },
-    { id: 2, title: "Spotting AI Text", completed: false },
-    { id: 3, title: "Spotting AI Images", completed: false },
-    { id: 4, title: "Spotting AI Audio", completed: false },
-    { id: 5, title: "Spotting AI Video", completed: false },
-    { id: 6, title: "Detection Tools", completed: false },
-    { id: 7, title: "Final Assessment", completed: false },
-  ]);
+  const [trainingCompleted, setTrainingCompleted] = useState(false);
 
   // Load progress from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('ai-forensics-progress');
-    if (saved) {
-      setModules(JSON.parse(saved));
+    const completed = localStorage.getItem('ai-forensics-completed');
+    if (completed === 'true') {
+      setTrainingCompleted(true);
     }
   }, []);
 
-  // Save progress to localStorage
-  useEffect(() => {
-    localStorage.setItem('ai-forensics-progress', JSON.stringify(modules));
-  }, [modules]);
-
-  const completedCount = modules.filter(m => m.completed).length;
-
-  const badges = [
-    {
-      type: "starter" as const,
-      earned: completedCount >= 1,
-      title: "Rookie Detective",
-      description: "Complete your first module"
-    },
-    {
-      type: "detective" as const,
-      earned: completedCount >= 3,
-      title: "Lead Investigator",
-      description: "Complete 3 modules"
-    },
-    {
-      type: "expert" as const,
-      earned: completedCount >= 7,
-      title: "Chief of Digital Forensics",
-      description: "Complete all modules"
-    }
-  ];
-
-  const handleStartModule = (moduleId: number) => {
-    if (moduleId === 1) {
-      navigate('/module-1');
-    } else if (moduleId === 2) {
-      navigate('/module-2');
-    }
-    // Add more module routes as they're implemented
+  const handleStartTraining = () => {
+    navigate('/training');
   };
 
   return (
@@ -88,11 +39,11 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="secondary"
-                onClick={() => handleStartModule(1)}
+                onClick={handleStartTraining}
                 className="text-xl py-7"
               >
                 <Play className="mr-2 h-6 w-6" />
-                Start Your Investigation
+                {trainingCompleted ? "Retake Training" : "Start Your Investigation"}
               </Button>
             </div>
             <div className="flex-1 flex justify-center">
@@ -112,54 +63,79 @@ const Index = () => {
       {/* Main Content */}
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Progress Section */}
-          <div>
-            <h2 className="mb-6">Your Training Progress</h2>
-            <ProgressTracker modules={modules} currentModule={0} />
-          </div>
+          {/* Training Overview */}
+          {trainingCompleted && (
+            <Card className="p-8 bg-gradient-badge shadow-card">
+              <div className="flex items-center gap-4 mb-4">
+                <Award className="h-16 w-16 text-accent" />
+                <div>
+                  <h2 className="mb-2">Training Completed!</h2>
+                  <p className="text-lg">You've earned your Digital Detective Certificate</p>
+                </div>
+              </div>
+            </Card>
+          )}
 
-          {/* Modules Grid */}
-          <div>
-            <h2 className="mb-6">Training Modules</h2>
+          {/* Training Info */}
+          <Card className="p-8 shadow-card">
+            <h2 className="mb-6">What You'll Learn</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {modules.map((module) => (
-                <Card 
-                  key={module.id}
-                  className="p-6 shadow-card hover:shadow-lg transition-shadow"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <p className="text-sm text-muted-foreground mb-1">Module {module.id}</p>
-                      <h3 className="text-2xl">{module.title}</h3>
-                    </div>
-                    {module.completed && (
-                      <div className="bg-accent/10 p-2 rounded-full">
-                        <Award className="h-6 w-6 text-accent" />
-                      </div>
-                    )}
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">1</span>
                   </div>
-                  <Button 
-                    variant={module.completed ? "outline" : "default"}
-                    onClick={() => handleStartModule(module.id)}
-                    disabled={module.id > 2} // Only first 2 modules active
-                    className="w-full"
-                  >
-                    {module.completed ? "Review Module" : module.id <= 2 ? "Start Module" : "Coming Soon"}
-                  </Button>
-                </Card>
-              ))}
+                  Understanding AI
+                </h3>
+                <p className="text-muted-foreground">Learn what AI is and how it's used online</p>
+              </div>
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">2</span>
+                  </div>
+                  Spotting Fake Text
+                </h3>
+                <p className="text-muted-foreground">Identify AI-generated emails and messages</p>
+              </div>
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">3</span>
+                  </div>
+                  Detecting Fake Images
+                </h3>
+                <p className="text-muted-foreground">Recognize manipulated photos and AI images</p>
+              </div>
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">4</span>
+                  </div>
+                  Voice Clones & Audio
+                </h3>
+                <p className="text-muted-foreground">Spot synthetic voices and fake audio</p>
+              </div>
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">5</span>
+                  </div>
+                  Deepfake Videos
+                </h3>
+                <p className="text-muted-foreground">Identify manipulated video content</p>
+              </div>
+              <div>
+                <h3 className="mb-3 flex items-center gap-2">
+                  <div className="w-8 h-8 bg-accent/20 rounded-full flex items-center justify-center">
+                    <span className="text-accent font-bold">6</span>
+                  </div>
+                  Detection Tools
+                </h3>
+                <p className="text-muted-foreground">Use free tools to verify suspicious content</p>
+              </div>
             </div>
-          </div>
-
-          {/* Badges Section */}
-          <div>
-            <h2 className="mb-6">Digital Detective Badges</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {badges.map((badge, index) => (
-                <Badge key={index} {...badge} />
-              ))}
-            </div>
-          </div>
+          </Card>
 
           {/* Info Card */}
           <Card className="p-8 bg-gradient-evidence text-accent-foreground">
