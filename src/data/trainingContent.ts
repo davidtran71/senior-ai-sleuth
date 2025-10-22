@@ -11,6 +11,7 @@ export interface TrainingSlide {
     explanation: string;
     image?: string;
     audio?: string;
+    video?: string;
   };
   tools?: {
     category: string;
@@ -186,6 +187,7 @@ export const trainingSlides: TrainingSlide[] = [
       ],
       correctAnswer: 1,
       explanation: 'Always verify shocking videos with credible news sources before sharing. If major news outlets aren\'t reporting it, it may be fake. Deepfakes are often used to spread misinformation, especially about public figures.',
+      video: 'https://www.thecareside.com.au/wp-content/uploads/2025/09/Post-form-submission-explainer-Captions-and-branding-1.mp4',
     },
   },
 

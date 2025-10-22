@@ -184,6 +184,21 @@ export const Training = () => {
                   </div>
                 </div>
               )}
+
+              {slide.quiz.video && (
+                <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
+                  <div className="relative">
+                    <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider z-10">EVIDENCE VIDEO</div>
+                    <video 
+                      controls 
+                      className="w-full rounded-lg shadow-dramatic"
+                      src={slide.quiz.video}
+                    >
+                      Your browser does not support the video element.
+                    </video>
+                  </div>
+                </div>
+              )}
               
               <QuizQuestion
                 {...slide.quiz}
