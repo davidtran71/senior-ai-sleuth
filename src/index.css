@@ -55,9 +55,7 @@ All colors MUST be HSL.
     --shadow-evidence: 0 0 40px hsl(180 60% 45% / 0.3);
     --shadow-dramatic: 0 20px 60px -15px hsl(215 60% 10% / 0.4);
     
-    /* Text shadows for emphasis */
-    --text-glow-accent: 0 0 20px hsl(180 60% 45% / 0.5);
-    --text-glow-badge: 0 0 30px hsl(35 80% 55% / 0.6);
+    /* Text shadows removed for better legibility */
   }
 
   .dark {
@@ -192,13 +190,6 @@ All colors MUST be HSL.
     }
   }
   
-  .text-glow-accent {
-    text-shadow: var(--text-glow-accent);
-  }
-  
-  .text-glow-badge {
-    text-shadow: var(--text-glow-badge);
-  }
 }
 
 @media print {

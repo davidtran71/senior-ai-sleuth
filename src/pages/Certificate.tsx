@@ -25,7 +25,7 @@ export const Certificate = () => {
           <div className="inline-block px-8 py-3 bg-gradient-detective text-primary-foreground rounded-full shadow-dramatic">
             <p className="text-lg font-black tracking-widest">MISSION COMPLETE</p>
           </div>
-          <h1 className="text-glow-badge">Congratulations, Digital Detective!</h1>
+          <h1>Congratulations, Digital Detective!</h1>
           <p className="text-xl font-semibold">
             You've completed your AI Forensics training
           </p>
@@ -56,7 +56,7 @@ export const Certificate = () => {
                 This official document certifies that
               </p>
               <div className="border-b-4 border-accent py-6">
-                <p className="text-4xl font-black tracking-wide text-glow-accent">DIGITAL DETECTIVE</p>
+                <p className="text-4xl font-black tracking-wide">DIGITAL DETECTIVE</p>
               </div>
             </div>
 
