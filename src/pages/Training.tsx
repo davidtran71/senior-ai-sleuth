@@ -167,6 +167,23 @@ export const Training = () => {
                   </div>
                 </div>
               )}
+
+              {slide.quiz.audio && (
+                <div className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <div className="bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE AUDIO</div>
+                    </div>
+                    <audio 
+                      controls 
+                      className="w-full"
+                      src={slide.quiz.audio}
+                    >
+                      Your browser does not support the audio element.
+                    </audio>
+                  </div>
+                </div>
+              )}
               
               <QuizQuestion
                 {...slide.quiz}

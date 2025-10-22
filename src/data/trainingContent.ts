@@ -10,6 +10,7 @@ export interface TrainingSlide {
     correctAnswer: number;
     explanation: string;
     image?: string;
+    audio?: string;
   };
   tools?: {
     category: string;
@@ -150,6 +151,7 @@ export const trainingSlides: TrainingSlide[] = [
       ],
       correctAnswer: 1,
       explanation: 'This is a common "grandparent scam" that now uses AI voice cloning. Always hang up and call the person directly at their known number. Scammers create urgency to prevent you from thinking clearly. Real emergencies can wait for you to verify.',
+      audio: '/ai-voice-security.mp3',
     },
   },
 
