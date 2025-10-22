@@ -154,6 +154,20 @@ export const Training = () => {
                 <h2 className="text-glow-badge">{slide.title}</h2>
                 <p className="text-accent font-semibold tracking-wider">DEMONSTRATE YOUR SKILLS</p>
               </div>
+              
+              {slide.quiz.image && (
+                <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
+                  <div className="relative">
+                    <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE PHOTO</div>
+                    <img 
+                      src={slide.quiz.image} 
+                      alt="Evidence for analysis" 
+                      className="w-full rounded-lg shadow-dramatic"
+                    />
+                  </div>
+                </div>
+              )}
+              
               <QuizQuestion
                 {...slide.quiz}
                 onAnswer={handleQuizAnswer}

@@ -9,6 +9,7 @@ export interface TrainingSlide {
     options: string[];
     correctAnswer: number;
     explanation: string;
+    image?: string;
   };
   tools?: {
     category: string;
@@ -106,15 +107,16 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'quiz',
     title: 'Test Your Knowledge: AI Images',
     quiz: {
-      question: 'What\'s the most reliable sign that an image might be AI-generated?',
+      question: 'Look closely at this image. What signs indicate this image is AI-generated?',
       options: [
-        'The colors look very bright and saturated',
-        'The person is smiling in the photo',
-        'The hands have six fingers or distorted features',
-        'The background is slightly blurry'
+        'The hands have distorted features or extra fingers',
+        'The background text appears as gibberish',
+        'The eyes have inconsistent reflections or asymmetry',
+        'All of the above'
       ],
-      correctAnswer: 2,
-      explanation: 'Distorted hands with extra fingers or unnatural positions are one of the most common giveaways of AI-generated images. While AI is improving, it still struggles with hands and fingers consistently.',
+      correctAnswer: 3,
+      explanation: 'AI-generated images often have multiple telltale signs: distorted hands, nonsensical background text, and inconsistent facial features like asymmetrical eyes. Learning to spot these helps you identify manipulated content.',
+      image: '/placeholder-ai-image.jpg', // User will supply final image
     },
   },
 
