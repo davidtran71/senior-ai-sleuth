@@ -116,7 +116,7 @@ export const trainingSlides: TrainingSlide[] = [
       ],
       correctAnswer: 3,
       explanation: 'AI-generated images often have multiple telltale signs: distorted hands, nonsensical background text, and inconsistent facial features like asymmetrical eyes. Learning to spot these helps you identify manipulated content.',
-      image: '/placeholder-ai-image.jpg', // User will supply final image
+      image: '/ai-family-evidence.png',
     },
   },
 
