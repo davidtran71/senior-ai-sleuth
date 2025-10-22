@@ -91,17 +91,6 @@ export const Training = () => {
                 </div>
                 <h1 className="text-balance text-glow-accent">{slide.title}</h1>
                 <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
-                {slide.video && (
-                  <div className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30 max-w-3xl mx-auto">
-                    <video 
-                      controls 
-                      className="w-full rounded-lg shadow-dramatic"
-                      src={slide.video}
-                    >
-                      Your browser does not support the video element.
-                    </video>
-                  </div>
-                )}
                 <div className="pt-4 border-t-2 border-accent/20">
                   <p className="text-sm font-semibold text-accent tracking-wider">BEGIN INVESTIGATION</p>
                 </div>

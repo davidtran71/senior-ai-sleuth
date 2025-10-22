@@ -2,7 +2,6 @@ export interface TrainingSlide {
   type: 'intro' | 'lesson' | 'quiz' | 'tools' | 'debrief';
   title: string;
   content?: string;
-  video?: string;
   introduction?: string;
   tips?: string[];
   quiz?: {
@@ -26,7 +25,6 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'intro',
     title: 'Greetings, recruit! It\'s training day.',
     content: 'AI has become ubiquitous in daily life, especially online. You basically have to be a Digital Forensics Expert to distinguish between what\'s real and what isn\'t. This interactive training teaches you how to identify AI-generated content and take your power back. By the end, you\'ll know how to pinpoint AI text, images, audio, and videos so you can stay safe online.',
-    video: 'https://www.thecareside.com.au/wp-content/uploads/2025/09/Post-form-submission-explainer-Captions-and-branding-1.mp4',
   },
 
   // Slide 2: What is AI - Part 1
