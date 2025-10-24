@@ -75,21 +75,6 @@ const Index = () => {
       {/* Main Content */}
       <section className="py-12 px-4">
         <div className="max-w-6xl mx-auto space-y-12">
-          {/* Training Overview */}
-          {trainingCompleted && (
-            <Card className="p-10 bg-gradient-badge text-secondary-foreground shadow-badge badge-shine animate-fade-in">
-              <div className="flex flex-col md:flex-row items-center gap-6">
-                <div className="p-6 bg-secondary-foreground/10 rounded-full backdrop-blur-sm">
-                  <Award className="h-20 w-20" />
-                </div>
-                <div className="text-center md:text-left">
-                  <p className="text-sm font-black tracking-widest mb-2">MISSION STATUS</p>
-                  <h2 className="mb-3">Training Completed!</h2>
-                  <p className="text-xl font-semibold">You've earned your Digital Detective Badge</p>
-                </div>
-              </div>
-            </Card>
-          )}
 
           {/* Critical Mission Info */}
           <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence relative overflow-hidden">
