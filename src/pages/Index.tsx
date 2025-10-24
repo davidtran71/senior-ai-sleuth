@@ -91,7 +91,32 @@ const Index = () => {
             </Card>
           )}
 
-          {/* Training Info */}
+          {/* Critical Mission Info */}
+          <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence relative overflow-hidden">
+            <div className="absolute top-4 right-4 text-xs font-black text-accent-foreground/10 tracking-widest rotate-12 text-6xl">
+              URGENT
+            </div>
+            <div className="flex items-start gap-6 relative z-10">
+              <div className="p-4 bg-accent-foreground/10 rounded-full backdrop-blur-sm">
+                <Shield className="h-16 w-16 flex-shrink-0" />
+              </div>
+              <div>
+                <div className="inline-block px-4 py-1 bg-accent-foreground/20 rounded-full mb-4">
+                  <p className="text-sm font-black tracking-wider">CRITICAL MISSION</p>
+                </div>
+                <h3 className="mb-4">Why This Training Matters</h3>
+                <p className="text-xl mb-6 leading-relaxed">
+                  Criminals use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. 
+                  This training equips you with the skills to recognize digital threats and stay safe online.
+                </p>
+                <p className="text-xl font-bold">
+                  Complete your training to earn an official Digital Detective Badge!
+                </p>
+              </div>
+            </div>
+          </Card>
+
+          {/* Case File - Training Info */}
           <Card className="p-10 shadow-dramatic case-file-border">
             <div className="flex items-center gap-4 mb-8">
               <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
@@ -121,31 +146,6 @@ const Index = () => {
                   <p className="text-muted-foreground text-base ml-13">{item.desc}</p>
                 </div>
               ))}
-            </div>
-          </Card>
-
-          {/* Info Card */}
-          <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence relative overflow-hidden">
-            <div className="absolute top-4 right-4 text-xs font-black text-accent-foreground/10 tracking-widest rotate-12 text-6xl">
-              URGENT
-            </div>
-            <div className="flex items-start gap-6 relative z-10">
-              <div className="p-4 bg-accent-foreground/10 rounded-full backdrop-blur-sm">
-                <Shield className="h-16 w-16 flex-shrink-0" />
-              </div>
-              <div>
-                <div className="inline-block px-4 py-1 bg-accent-foreground/20 rounded-full mb-4">
-                  <p className="text-sm font-black tracking-wider">CRITICAL MISSION</p>
-                </div>
-                <h3 className="mb-4">Why This Training Matters</h3>
-                <p className="text-xl mb-6 leading-relaxed">
-                  Criminals use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. 
-                  This training equips you with the skills to recognize digital threats and stay safe online.
-                </p>
-                <p className="text-xl font-bold">
-                  Complete your training to earn an official Digital Detective Badge!
-                </p>
-              </div>
             </div>
           </Card>
         </div>
