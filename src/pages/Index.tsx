@@ -133,6 +133,28 @@ const Index = () => {
               ))}
             </div>
           </Card>
+
+          {/* CTA Section */}
+          <Card className="p-10 bg-gradient-badge text-secondary-foreground shadow-badge badge-shine">
+            <div className="text-center space-y-6">
+              <div className="inline-flex p-4 bg-secondary-foreground/10 rounded-full backdrop-blur-sm">
+                <Award className="h-12 w-12" />
+              </div>
+              <h2 className="text-4xl font-black">Ready to Become a Digital Detective?</h2>
+              <p className="text-xl max-w-2xl mx-auto opacity-95">
+                Start your training now and learn to protect yourself and your loved ones from AI-powered scams and misinformation.
+              </p>
+              <Button 
+                size="lg" 
+                variant="secondary"
+                onClick={handleStartTraining}
+                className="text-xl py-8 px-10 bg-secondary text-secondary-foreground hover:shadow-dramatic transition-all"
+              >
+                <Play className="mr-3 h-7 w-7" />
+                {trainingCompleted ? "Retake Training" : "Start Training Now"}
+              </Button>
+            </div>
+          </Card>
         </div>
       </section>
     </div>
