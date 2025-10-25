@@ -31,6 +31,34 @@ export const Certificate = () => {
           </p>
         </div>
 
+        {/* Continue Your Mission */}
+        <Card className="p-8 bg-gradient-evidence text-accent-foreground shadow-evidence print:hidden">
+          <div className="flex items-start gap-4">
+            <Shield className="h-16 w-16 flex-shrink-0" />
+            <div>
+              <h3 className="mb-4">Continue Your Mission</h3>
+              <p className="text-lg mb-4 leading-relaxed">
+                Your training is complete, but your mission continues. Stay vigilant and keep practicing these skills. 
+                Share what you've learned with family and friends to help protect them from digital threats.
+              </p>
+              <ul className="space-y-3 text-lg">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                  <span>Review the training anytime to refresh your investigative skills</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                  <span>Practice spotting AI content during your daily online activities</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                  <span>Recruit others by sharing these critical detection techniques</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
         {/* Certificate Card */}
         <Card className="p-12 shadow-dramatic print:shadow-none relative overflow-hidden" id="certificate">
           {/* Badge watermark */}
@@ -116,34 +144,6 @@ export const Certificate = () => {
             Return to HQ
           </Button>
         </div>
-
-        {/* Additional Resources */}
-        <Card className="p-8 bg-gradient-evidence text-accent-foreground shadow-evidence print:hidden">
-          <div className="flex items-start gap-4">
-            <Shield className="h-16 w-16 flex-shrink-0" />
-            <div>
-              <h3 className="mb-4">Continue Your Mission</h3>
-              <p className="text-lg mb-4 leading-relaxed">
-                Your training is complete, but your mission continues. Stay vigilant and keep practicing these skills. 
-                Share what you've learned with family and friends to help protect them from digital threats.
-              </p>
-              <ul className="space-y-3 text-lg">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
-                  <span>Review the training anytime to refresh your investigative skills</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
-                  <span>Practice spotting AI content during your daily online activities</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
-                  <span>Recruit others by sharing these critical detection techniques</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Card>
       </div>
     </div>
   );
