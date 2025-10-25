@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Award, Download, Home, Shield, CheckCircle2 } from "lucide-react";
+import { CareSideLogo } from "@/components/CareSideLogo";
 
 export const Certificate = () => {
   const navigate = useNavigate();
@@ -16,9 +17,15 @@ export const Certificate = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="text-center space-y-6 animate-fade-in">
+    <div className="min-h-screen bg-background py-12 px-6">
+      <div className="max-w-4xl mx-auto space-y-12 animate-fade-in">
+        {/* CareSide Logo - Top */}
+        <div>
+          <CareSideLogo />
+        </div>
+        
+        {/* Header */}
+        <div className="text-center space-y-6">
           <div className="inline-flex items-center justify-center w-32 h-32 bg-gradient-badge rounded-full mb-4 shadow-badge badge-shine">
             <Shield className="h-20 w-20 text-secondary-foreground" />
           </div>
@@ -32,26 +39,26 @@ export const Certificate = () => {
         </div>
 
         {/* Continue Your Mission */}
-        <Card className="p-8 bg-gradient-evidence text-accent-foreground shadow-evidence print:hidden">
-          <div className="flex items-start gap-4">
-            <Shield className="h-16 w-16 flex-shrink-0" />
+        <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence print:hidden">
+          <div className="flex items-start gap-6">
+            <Shield className="h-20 w-20 flex-shrink-0" />
             <div>
-              <h3 className="mb-4">Continue Your Mission</h3>
-              <p className="text-lg mb-4 leading-relaxed">
+              <h3 className="mb-6">Continue Your Mission</h3>
+              <p className="text-xl mb-6 leading-relaxed max-w-none">
                 Your training is complete, but your mission continues. Stay vigilant and keep practicing these skills. 
                 Share what you've learned with family and friends to help protect them from digital threats.
               </p>
-              <ul className="space-y-3 text-lg">
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+              <ul className="space-y-4 text-xl">
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
                   <span>Review the training anytime to refresh your investigative skills</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
                   <span>Practice spotting AI content during your daily online activities</span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-4">
+                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
                   <span>Recruit others by sharing these critical detection techniques</span>
                 </li>
               </ul>
@@ -60,7 +67,7 @@ export const Certificate = () => {
         </Card>
 
         {/* Certificate Card */}
-        <Card className="p-12 shadow-dramatic print:shadow-none relative overflow-hidden" id="certificate">
+        <Card className="p-16 shadow-dramatic print:shadow-none relative overflow-hidden print:simplified" id="certificate">
           {/* Badge watermark */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5 pointer-events-none">
             <Shield className="h-96 w-96" />

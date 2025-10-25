@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring focus-visible:ring-offset-4 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-5 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
@@ -18,10 +18,10 @@ const buttonVariants = cva(
         evidence: "bg-gradient-evidence text-accent-foreground hover:opacity-90",
       },
       size: {
-        default: "h-12 px-6 py-3 text-base",
-        sm: "h-10 rounded-md px-4 text-sm",
-        lg: "h-14 rounded-lg px-10 text-lg",
-        icon: "h-12 w-12",
+        default: "h-14 px-8 py-4 text-lg min-w-[44px]", /* Larger for seniors - easier to click */
+        sm: "h-12 px-6 text-base min-w-[44px]",
+        lg: "h-16 px-12 text-xl min-w-[44px]",
+        icon: "h-14 w-14 min-w-[44px]",
       },
     },
     defaultVariants: {

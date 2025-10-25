@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { QuizQuestion } from "@/components/QuizQuestion";
 import { ArrowLeft, ArrowRight, Award, CheckCircle2, FileText, AlertTriangle, Search } from "lucide-react";
 import { trainingSlides } from "@/data/trainingContent";
+import { CareSideLogo } from "@/components/CareSideLogo";
 
 export const Training = () => {
   const navigate = useNavigate();
@@ -43,10 +44,15 @@ export const Training = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-8 px-4">
+    <div className="min-h-screen bg-background py-8 px-6">
       <div className="max-w-4xl mx-auto">
+        {/* CareSide Logo - Top Left */}
+        <div className="mb-8">
+          <CareSideLogo />
+        </div>
+        
         {/* Header with Case Number */}
-        <div className="mb-6">
+        <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <Button 
               variant="ghost" 

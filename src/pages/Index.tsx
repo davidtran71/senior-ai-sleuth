@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Shield, Play, Award } from "lucide-react";
+import { CareSideLogo } from "@/components/CareSideLogo";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -22,13 +23,19 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* CareSide Logo - Top Left */}
+      <div className="absolute top-6 left-6 z-50">
+        <CareSideLogo />
+      </div>
+
       {/* Hero Section */}
-      <section className="bg-gradient-detective text-primary-foreground py-20 px-4 relative overflow-hidden">
-        {/* Background pattern */}
+      <section className="bg-gradient-detective text-primary-foreground py-24 px-6 relative overflow-hidden">
+        {/* Background pattern - Softer, more rounded geometric shapes */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 border-4 border-primary-foreground rounded-full" />
-          <div className="absolute bottom-10 right-10 w-40 h-40 border-4 border-primary-foreground rotate-45" />
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 border-4 border-primary-foreground" />
+          <div className="absolute bottom-10 right-10 w-40 h-40 border-4 border-primary-foreground rounded-[20px]" />
+          <div className="absolute top-1/2 left-1/4 w-24 h-24 border-4 border-primary-foreground rounded-full" />
+          <div className="absolute top-20 right-1/4 w-16 h-16 border-4 border-primary-foreground rounded-[16px]" />
         </div>
         
         <div className="max-w-6xl mx-auto relative z-10">
@@ -73,8 +80,8 @@ const Index = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-12 px-4">
-        <div className="max-w-6xl mx-auto space-y-12">
+      <section className="section-spacing">
+        <div className="content-max-width space-y-16">
 
           {/* Critical Mission Info */}
           <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence relative overflow-hidden">
