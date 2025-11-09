@@ -61,12 +61,14 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
-              <FileText className="h-5 w-5 text-accent" />
-              <span className="text-lg font-bold tracking-wider">
-                CASE #{String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
-              </span>
-            </div>
+            {slide.type !== 'intro' && (
+              <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
+                <FileText className="h-5 w-5 text-accent" />
+                <span className="text-lg font-bold tracking-wider">
+                  CASE #{String(currentSlide + 1).padStart(2, '0')} / {String(totalSlides).padStart(2, '0')}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Progress Bar with Evidence Markers */}
