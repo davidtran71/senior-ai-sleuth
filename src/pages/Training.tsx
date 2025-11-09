@@ -65,7 +65,7 @@ export const Training = () => {
               <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
-                  {currentSlide === 3 ? 'CASE #1/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
+                  {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
                 </span>
               </div>
             )}
@@ -307,7 +307,7 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 ? 'Back' : 'Previous Case'}
+            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 ? 'Back' : 'Previous Case'}
           </Button>
 
           {currentSlide === totalSlides - 1 ? (
