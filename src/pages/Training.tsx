@@ -307,7 +307,7 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 ? 'Back' : 'Previous Case'}
+            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 ? 'Back' : 'Previous Case'}
           </Button>
 
           {currentSlide === totalSlides - 1 ? (

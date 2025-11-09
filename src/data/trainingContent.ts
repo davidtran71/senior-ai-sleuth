@@ -7,7 +7,7 @@ export interface TrainingSlide {
   quiz?: {
     question: string;
     options: string[];
-    correctAnswer: number;
+    correctAnswer: number | number[];
     explanation: string;
     image?: string;
     audio?: string;
@@ -109,15 +109,17 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'quiz',
     title: 'Test Your Knowledge: AI Images',
     quiz: {
-      question: 'Look closely at this image. What signs indicate this image is AI-generated?',
+      question: 'Look closely at this AI-generated image. What signs indicate this image is created by AI?',
       options: [
         'The hands have distorted features or extra fingers',
-        'The background text appears as gibberish',
+        'The background text appears as gibberish or unreadable',
         'The eyes have inconsistent reflections or asymmetry',
-        'All of the above'
+        'The lighting and shadows are consistent throughout',
+        'The teeth appear unnaturally uniform or blurred together',
+        'Symmetrical features like earrings or glasses match perfectly'
       ],
-      correctAnswer: 3,
-      explanation: 'AI-generated images often have multiple telltale signs: distorted hands, nonsensical background text, and inconsistent facial features like asymmetrical eyes. Learning to spot these helps you identify manipulated content.',
+      correctAnswer: [0, 1, 2, 4],
+      explanation: 'This AI-generated image shows multiple telltale signs: distorted hands with extra fingers, nonsensical background text, asymmetrical eyes with inconsistent reflections, and unnaturally uniform teeth. The lighting is actually inconsistent (a sign of AI), and perfect symmetry would be unusual. Learning to spot these flaws helps you identify AI-generated content.',
       image: '/ai-family-evidence.png',
     },
   },
