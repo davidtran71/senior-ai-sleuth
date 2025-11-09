@@ -61,7 +61,7 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && (
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && (
               <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
@@ -124,7 +124,24 @@ export const Training = () => {
                 </div>
               )}
 
-              {slide.tips && slide.tips.length > 0 && (
+              {/* Special layout for "The Good and Bad of AI" slide */}
+              {currentSlide === 2 && slide.content && (
+                <div className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 p-8 rounded-lg border-2 border-green-500/30 hover:border-green-500/50 transition-all">
+                      <h3 className="text-3xl font-black text-green-600 dark:text-green-400 mb-4 tracking-tight">THE GOOD</h3>
+                      <p className="text-lg leading-relaxed">AI helps doctors diagnose diseases, assists with accessibility, and makes technology easier to use.</p>
+                    </div>
+                    <div className="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 rounded-lg border-2 border-red-500/30 hover:border-red-500/50 transition-all">
+                      <h3 className="text-3xl font-black text-red-600 dark:text-red-400 mb-4 tracking-tight">THE BAD</h3>
+                      <p className="text-lg leading-relaxed">Criminals use AI to create fake emails, voice clones for scams, deepfake videos, and convincing phishing attempts targeting seniors.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Regular tips section for other slides */}
+              {currentSlide !== 2 && slide.tips && slide.tips.length > 0 && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
@@ -144,7 +161,8 @@ export const Training = () => {
                 </div>
               )}
 
-              {slide.content && (
+              {/* Regular content section for other slides */}
+              {currentSlide !== 2 && slide.content && (
                 <div className="bg-gradient-evidence/10 p-8 rounded-lg border-2 border-accent/30 relative overflow-hidden">
                   <div className="absolute top-2 right-2 text-xs font-black text-accent/20 tracking-widest rotate-12">EVIDENCE</div>
                   <p className="text-lg leading-relaxed relative z-10">{slide.content}</p>
@@ -289,7 +307,7 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 ? 'Back' : 'Previous Case'}
+            {currentSlide === 1 || currentSlide === 2 ? 'Back' : 'Previous Case'}
           </Button>
 
           {currentSlide === totalSlides - 1 ? (
@@ -307,7 +325,7 @@ export const Training = () => {
               onClick={handleNext}
               className="hover:shadow-dramatic transition-all"
             >
-              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : 'Next Case'}
+              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}
