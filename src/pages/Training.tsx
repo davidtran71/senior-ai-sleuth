@@ -307,7 +307,7 @@ export const Training = () => {
               onClick={handleNext}
               className="hover:shadow-dramatic transition-all"
             >
-              Next Case
+              {slide.type === 'intro' ? 'AI Briefing' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}
