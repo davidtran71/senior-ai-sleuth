@@ -26,12 +26,13 @@ export const QuizQuestion = ({
     
     const isCorrect = selectedAnswer === correctAnswer;
     setShowResult(true);
-    
-    setTimeout(() => {
-      onAnswer(isCorrect);
-      setSelectedAnswer(null);
-      setShowResult(false);
-    }, 3000);
+  };
+
+  const handleContinue = () => {
+    const isCorrect = selectedAnswer === correctAnswer;
+    onAnswer(isCorrect);
+    setSelectedAnswer(null);
+    setShowResult(false);
   };
 
   return (
@@ -85,7 +86,15 @@ export const QuizQuestion = ({
           </div>
         )}
 
-        {!showResult && (
+        {showResult ? (
+          <Button 
+            onClick={handleContinue}
+            size="lg"
+            className="w-full text-lg py-6"
+          >
+            Continue
+          </Button>
+        ) : (
           <Button 
             onClick={handleSubmit}
             disabled={selectedAnswer === null}
