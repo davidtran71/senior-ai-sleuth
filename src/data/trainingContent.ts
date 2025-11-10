@@ -182,15 +182,17 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'quiz',
     title: 'Test Your Knowledge: Deepfake Videos',
     quiz: {
-      question: 'You see a shocking video of a politician saying something controversial on social media. What should you check first?',
+      question: 'Watch (and listen to) this AI-generated video closely. What signs indicate this video is created by AI?',
       options: [
-        'Share it immediately to warn others',
-        'Check if credible news outlets are reporting the same story',
-        'Assume it\'s real because video doesn\'t lie',
-        'Post it with your opinion'
+        'Unnatural facial movements or expressions that don\'t match emotions',
+        'Inconsistent lighting or shadows on the face',
+        'Audio that doesn\'t sync properly with lip movements',
+        'Skin texture appears overly smooth or artificial',
+        'Natural blinking patterns and eye movements',
+        'Consistent lighting across the entire face and background'
       ],
-      correctAnswer: 1,
-      explanation: 'Always verify shocking videos with credible news sources before sharing. If major news outlets aren\'t reporting it, it may be fake. Deepfakes are often used to spread misinformation, especially about public figures.',
+      correctAnswer: [0, 1, 2, 3],
+      explanation: 'This AI-generated video shows several key indicators: unnatural facial movements that don\'t match the emotions being conveyed, inconsistent lighting and shadows, audio-visual sync issues, and overly smooth or artificial skin texture. Natural videos typically have normal blinking patterns and consistent lighting, which AI often struggles to replicate perfectly.',
       video: 'https://www.thecareside.com.au/wp-content/uploads/2025/09/Post-form-submission-explainer-Captions-and-branding-1.mp4',
     },
   },
