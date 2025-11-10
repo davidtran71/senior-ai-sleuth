@@ -61,7 +61,7 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && (
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && currentSlide !== 13 && (
               <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
@@ -275,6 +275,20 @@ export const Training = () => {
                 <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
               </div>
 
+              {slide.tips && slide.tips.length > 0 && (
+                <div className="space-y-4 mb-8">
+                  <div className="text-center mb-6">
+                    <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS</h3>
+                    <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
+                  </div>
+                  {slide.tips.map((tip, index) => (
+                    <div key={index} className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all">
+                      <p className="text-base leading-relaxed">{tip}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {slide.finalTips && (
                 <div className="space-y-4">
                   <div className="text-center mb-6">
@@ -293,6 +307,19 @@ export const Training = () => {
                   ))}
                 </div>
               )}
+
+              {currentSlide === totalSlides - 1 && (
+                <div className="flex justify-center pt-6">
+                  <Button
+                    size="lg"
+                    onClick={handleComplete}
+                    className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine"
+                  >
+                    Claim Your Badge
+                    <Award className="h-5 w-5" />
+                  </Button>
+                </div>
+              )}
             </div>
           )}
         </Card>
@@ -307,19 +334,10 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 ? 'Back' : 'Previous Case'}
+            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
           </Button>
 
-          {currentSlide === totalSlides - 1 ? (
-            <Button
-              size="lg"
-              onClick={handleComplete}
-              className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine"
-            >
-              Claim Badge
-              <Award className="h-5 w-5" />
-            </Button>
-          ) : (
+          {currentSlide !== totalSlides - 1 && (
             <Button
               size="lg"
               onClick={handleNext}
