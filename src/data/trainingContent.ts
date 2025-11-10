@@ -242,6 +242,12 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'debrief',
     title: 'You\'re Now a Digital Detective!',
     content: 'You\'ve learned how to spot AI-generated text, images, audio, and video. Remember these final tips to stay safe online:',
+    tips: [
+      '🔍 AI TEXT: Look for generic language, urgency tactics, unusual sender addresses, and requests for personal information',
+      '🖼️ AI IMAGES: Check hands, eyes, text, backgrounds, and symmetry for distortions and inconsistencies',
+      '🎤 AI AUDIO: Listen for robotic tone, unnatural pauses, lack of emotion, and breathing patterns',
+      '🎥 AI VIDEOS: Watch for facial movement mismatches, lighting inconsistencies, lip-sync issues, and unnatural blinking'
+    ],
     finalTips: [
       'SLOW DOWN and examine content carefully before believing or sharing',
       'Verify information from multiple trusted sources',

@@ -61,7 +61,7 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && (
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && (
               <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
@@ -307,7 +307,7 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 ? 'Back' : 'Previous Case'}
+            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 ? 'Back' : 'Previous Case'}
           </Button>
 
           {currentSlide === totalSlides - 1 ? (
@@ -325,7 +325,7 @@ export const Training = () => {
               onClick={handleNext}
               className="hover:shadow-dramatic transition-all"
             >
-              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
+              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}
