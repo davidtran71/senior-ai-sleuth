@@ -61,7 +61,7 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && (
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && (
               <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
@@ -245,23 +245,23 @@ export const Training = () => {
                 </div>
               </div>
               
-              {slide.tools && slide.tools.map((tool, index) => (
-                <div key={index} className="space-y-4">
-                  <div className="bg-gradient-badge/10 p-4 rounded-lg border-l-4 border-accent">
-                    <h3 className="text-accent font-bold">{tool.category}</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                {slide.tools && slide.tools.map((tool, index) => (
+                  <div key={index} className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20 hover:border-accent/40 transition-all space-y-4">
+                    <h3 className="text-xl font-bold text-accent border-b border-accent/30 pb-3">{tool.category}</h3>
+                    <ul className="space-y-3">
+                      {tool.examples.map((example, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <div className="flex-shrink-0 w-6 h-6 bg-gradient-evidence rounded-full flex items-center justify-center shadow-evidence mt-0.5">
+                            <CheckCircle2 className="h-4 w-4 text-accent-foreground" />
+                          </div>
+                          <span className="text-base leading-relaxed">{example}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-3 pl-4">
-                    {tool.examples.map((example, idx) => (
-                      <li key={idx} className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg hover:bg-muted transition-colors">
-                        <div className="flex-shrink-0 w-8 h-8 bg-gradient-evidence rounded-full flex items-center justify-center shadow-evidence">
-                          <CheckCircle2 className="h-5 w-5 text-accent-foreground" />
-                        </div>
-                        <span className="text-lg leading-relaxed">{example}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           )}
 
@@ -325,7 +325,7 @@ export const Training = () => {
               onClick={handleNext}
               className="hover:shadow-dramatic transition-all"
             >
-              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 ? 'Next' : 'Next Case'}
+              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}
