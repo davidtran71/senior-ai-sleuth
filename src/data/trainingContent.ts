@@ -145,15 +145,17 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'quiz',
     title: 'Test Your Knowledge: AI Audio',
     quiz: {
-      question: 'You receive a phone call from someone claiming to be your grandchild, saying they\'re in trouble and need money urgently. The voice sounds similar but slightly off. What should you do?',
+      question: 'Listen closely to this AI-generated message. What signs indicate this message is created by AI?',
       options: [
-        'Send money immediately to help them',
-        'Hang up and call your grandchild\'s known phone number directly',
-        'Ask them to text you instead',
-        'Give them your credit card information'
+        'Unnatural pauses or robotic rhythm in the speech pattern',
+        'Emotional tone that doesn\'t match the content being spoken',
+        'Voice sounds too perfect or lacks natural imperfections',
+        'Background noise is completely absent or unnaturally clean',
+        'The speaker uses natural filler words like "um" and "uh"',
+        'Voice has natural variations in pitch and breathing sounds'
       ],
-      correctAnswer: 1,
-      explanation: 'This is a common "grandparent scam" that now uses AI voice cloning. Always hang up and call the person directly at their known number. Scammers create urgency to prevent you from thinking clearly. Real emergencies can wait for you to verify.',
+      correctAnswer: [0, 1, 2, 3],
+      explanation: 'This AI-generated audio exhibits multiple telltale signs: unnatural pauses and robotic rhythm, emotional tone that doesn\'t match the content, an overly perfect voice quality, and an unnaturally clean audio with no background noise. Natural human speech includes filler words and pitch variations, which are often missing or poorly replicated in AI-generated audio.',
       audio: '/ai-voice-security.mp3',
     },
   },
