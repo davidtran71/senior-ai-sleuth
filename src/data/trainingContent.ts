@@ -111,15 +111,15 @@ export const trainingSlides: TrainingSlide[] = [
     quiz: {
       question: 'Look closely at this AI-generated image. What signs indicate this image is created by AI?',
       options: [
-        'The hands have distorted features or extra fingers',
-        'The background text appears as gibberish or unreadable',
-        'The eyes have inconsistent reflections or asymmetry',
-        'The lighting and shadows are consistent throughout',
-        'The teeth appear unnaturally uniform or blurred together',
-        'Symmetrical features like earrings or glasses match perfectly'
+        'The background text on the chalkboard is gibberish or unreadable',
+        'The hand holding the cup appears waxy or lacks natural skin texture',
+        'The teeth appear unnaturally uniform or fused together',
+        'The figures in the background are structurally incoherent',
+        'The subject is wearing mismatched earrings or glasses',
+        'The pupils are non-circular or misshapen'
       ],
-      correctAnswer: [0, 1, 2, 4],
-      explanation: 'This AI-generated image shows multiple telltale signs: distorted hands with extra fingers, nonsensical background text, asymmetrical eyes with inconsistent reflections, and unnaturally uniform teeth. The lighting is actually inconsistent (a sign of AI), and perfect symmetry would be unusual. Learning to spot these flaws helps you identify AI-generated content.',
+      correctAnswer: [0, 1, 2, 3],
+      explanation: 'This AI-generated image shows multiple telltale signs: the menu reads "tameh onnus" which is nonsensical, the hand lacks natural skin texture with undefined knuckles, the smile is a "monoblock" of white without natural spacing, and the background figures have anatomy that melts into the chairs. The subject\'s ears are covered by hair (can\'t verify earrings), and the eyes were actually rendered fairly well in this image.',
       image: '/ai-image-quiz.jpg',
     },
   },
