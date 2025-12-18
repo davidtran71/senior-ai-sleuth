@@ -120,7 +120,7 @@ export const trainingSlides: TrainingSlide[] = [
       ],
       correctAnswer: [0, 1, 2, 4],
       explanation: 'This AI-generated image shows multiple telltale signs: distorted hands with extra fingers, nonsensical background text, asymmetrical eyes with inconsistent reflections, and unnaturally uniform teeth. The lighting is actually inconsistent (a sign of AI), and perfect symmetry would be unusual. Learning to spot these flaws helps you identify AI-generated content.',
-      image: '/ai-family-evidence.png',
+      image: '/ai-image-quiz.jpg',
     },
   },
 
