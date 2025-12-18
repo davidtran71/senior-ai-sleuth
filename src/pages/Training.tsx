@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { QuizQuestion } from "@/components/QuizQuestion";
+import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
 import { ArrowLeft, ArrowRight, Award, CheckCircle2, FileText, AlertTriangle, Search } from "lucide-react";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
@@ -11,6 +11,8 @@ export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, boolean>>({});
+  const [quizState, setQuizState] = useState({ canSubmit: false, hasSubmitted: false });
+  const quizRef = useRef<QuizQuestionRef>(null);
 
   const slide = trainingSlides[currentSlide];
   const totalSlides = trainingSlides.length;
@@ -19,6 +21,7 @@ export const Training = () => {
   const handleNext = () => {
     if (currentSlide < totalSlides - 1) {
       setCurrentSlide(prev => prev + 1);
+      setQuizState({ canSubmit: false, hasSubmitted: false });
       window.scrollTo(0, 0);
     }
   };
@@ -26,12 +29,30 @@ export const Training = () => {
   const handlePrevious = () => {
     if (currentSlide > 0) {
       setCurrentSlide(prev => prev - 1);
+      setQuizState({ canSubmit: false, hasSubmitted: false });
       window.scrollTo(0, 0);
     }
   };
 
   const handleQuizAnswer = (correct: boolean) => {
     setQuizAnswers(prev => ({ ...prev, [currentSlide]: correct }));
+  };
+
+  const handleQuizStateChange = useCallback((state: { canSubmit: boolean; hasSubmitted: boolean }) => {
+    setQuizState(state);
+  }, []);
+
+  const handleNavButtonClick = () => {
+    if (slide.type === 'quiz') {
+      if (!quizState.hasSubmitted) {
+        quizRef.current?.submit();
+      } else {
+        quizRef.current?.continue();
+        handleNext();
+      }
+    } else {
+      handleNext();
+    }
   };
 
   const handleComplete = () => {
@@ -227,8 +248,10 @@ export const Training = () => {
               )}
               
               <QuizQuestion
+                ref={quizRef}
                 {...slide.quiz}
                 onAnswer={handleQuizAnswer}
+                onStateChange={handleQuizStateChange}
               />
             </div>
           )}
@@ -340,10 +363,13 @@ export const Training = () => {
           {currentSlide !== totalSlides - 1 && (
             <Button
               size="lg"
-              onClick={handleNext}
+              onClick={handleNavButtonClick}
+              disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted}
               className="hover:shadow-dramatic transition-all"
             >
-              {slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
+              {slide.type === 'quiz' 
+                ? (quizState.hasSubmitted ? 'Continue' : 'Submit Answer')
+                : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           )}

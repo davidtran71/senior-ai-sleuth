@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, XCircle, AlertCircle } from "lucide-react";
 
@@ -9,19 +8,32 @@ interface QuizQuestionProps {
   correctAnswer: number | number[];
   explanation: string;
   onAnswer: (correct: boolean) => void;
+  onStateChange?: (state: { canSubmit: boolean; hasSubmitted: boolean }) => void;
 }
 
-export const QuizQuestion = ({ 
+export interface QuizQuestionRef {
+  submit: () => void;
+  continue: () => void;
+}
+
+export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({ 
   question, 
   options, 
   correctAnswer, 
   explanation,
-  onAnswer 
-}: QuizQuestionProps) => {
+  onAnswer,
+  onStateChange
+}, ref) => {
   const isMultipleChoice = Array.isArray(correctAnswer);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>([]);
   const [showResult, setShowResult] = useState(false);
+
+  const canSubmit = isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer !== null;
+
+  useEffect(() => {
+    onStateChange?.({ canSubmit, hasSubmitted: showResult });
+  }, [canSubmit, showResult, onStateChange]);
 
   const handleSingleSelect = (index: number) => {
     if (!showResult) setSelectedAnswer(index);
@@ -39,9 +51,6 @@ export const QuizQuestion = ({
   const handleSubmit = () => {
     if (isMultipleChoice) {
       if (selectedAnswers.length === 0) return;
-      const correctAnswers = correctAnswer as number[];
-      const isCorrect = selectedAnswers.length === correctAnswers.length && 
-                        selectedAnswers.every(ans => correctAnswers.includes(ans));
       setShowResult(true);
     } else {
       if (selectedAnswer === null) return;
@@ -63,6 +72,11 @@ export const QuizQuestion = ({
     setSelectedAnswers([]);
     setShowResult(false);
   };
+
+  useImperativeHandle(ref, () => ({
+    submit: handleSubmit,
+    continue: handleContinue
+  }));
 
   const checkIfCorrect = (index: number): boolean => {
     if (isMultipleChoice) {
@@ -147,26 +161,9 @@ export const QuizQuestion = ({
             <p className="text-base">{explanation}</p>
           </div>
         )}
-
-        {showResult ? (
-          <Button 
-            onClick={handleContinue}
-            size="lg"
-            className="w-full text-lg py-6"
-          >
-            Continue
-          </Button>
-        ) : (
-          <Button 
-            onClick={handleSubmit}
-            disabled={isMultipleChoice ? selectedAnswers.length === 0 : selectedAnswer === null}
-            size="lg"
-            className="w-full text-lg py-6"
-          >
-            Submit Answer
-          </Button>
-        )}
       </div>
     </Card>
   );
-};
+});
+
+QuizQuestion.displayName = 'QuizQuestion';
