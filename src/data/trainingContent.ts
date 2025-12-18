@@ -147,15 +147,15 @@ export const trainingSlides: TrainingSlide[] = [
     quiz: {
       question: 'Listen closely to this AI-generated message. What signs indicate this message is created by AI?',
       options: [
-        'Unnatural pauses or robotic rhythm in the speech pattern',
         'Emotional tone that doesn\'t match the content being spoken',
+        'Unnatural pauses or robotic rhythm in the speech pattern',
         'Voice sounds too perfect or lacks natural imperfections',
         'Background noise is completely absent or unnaturally clean',
         'The speaker uses natural filler words like "um" and "uh"',
         'Voice has natural variations in pitch and breathing sounds'
       ],
       correctAnswer: [0, 1, 2, 3],
-      explanation: 'This AI-generated audio exhibits multiple telltale signs: unnatural pauses and robotic rhythm, emotional tone that doesn\'t match the content, an overly perfect voice quality, and an unnaturally clean audio with no background noise. Natural human speech includes filler words and pitch variations, which are often missing or poorly replicated in AI-generated audio.',
+      explanation: 'This AI-generated audio exhibits multiple telltale signs: The script contains terrible news but the AI voice sounds jarringly cheerful about a disaster (emotional mismatch). The speech has staccato, stop-and-go phrasing with full words instead of contractions. The voice has perfect diction without natural hesitation or softening. And there\'s complete digital silence with no room tone, chair squeaks, or microphone static. The distractors are incorrect because the script excludes filler words like "um" and "uh", and standard TTS doesn\'t simulate breathing sounds or natural pitch variation.',
       audio: '/ai-voice-security.mp3',
     },
   },
