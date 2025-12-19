@@ -182,17 +182,17 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'quiz',
     title: 'Test Your Knowledge: Deepfake Videos',
     quiz: {
-      question: 'Watch (and listen to) this AI-generated video closely. What signs indicate this video is created by AI?',
+      question: 'Watch this AI-generated video closely. What tell-tale signs indicate this video is a deepfake?',
       options: [
-        'Unnatural facial movements or expressions that don\'t match emotions',
-        'Inconsistent lighting or shadows on the face',
-        'Audio that doesn\'t sync properly with lip movements',
-        'Skin texture appears overly smooth or artificial',
-        'Natural blinking patterns and eye movements',
-        'Consistent lighting across the entire face and background'
+        'Unnatural mouth & lip syncing - lips appear "rubbery" or disconnected from jaw movement',
+        'Lack of micro-expressions - face remains stiff without subtle involuntary muscle movements',
+        'Static/frozen background - elements are perfectly still without natural camera noise or movement',
+        'Inconsistent eye gaze & blinking - irregular patterns or unnatural saccadic movement',
+        'Morphing or extra fingers visible on hands',
+        'Garbled or distorted text on clothing'
       ],
       correctAnswer: [0, 1, 2, 3],
-      explanation: 'This AI-generated video shows several key indicators: unnatural facial movements that don\'t match the emotions being conveyed, inconsistent lighting and shadows, audio-visual sync issues, and overly smooth or artificial skin texture. Natural videos typically have normal blinking patterns and consistent lighting, which AI often struggles to replicate perfectly.',
+      explanation: 'This deepfake video reveals several key AI-generated indicators: The lip movements don\'t perfectly match the phonemes being spoken, appearing slightly "rubbery." The face lacks the subtle micro-expressions and involuntary twitches that occur naturally during speech. The background elements (plants and lights) are perfectly frozen without any natural depth-of-field shifts or camera noise. The blinking pattern is irregular, and the gaze sometimes drifts unnaturally. The distractors (morphing fingers and garbled text) are common AI errors, but aren\'t present in this particular video.',
       video: '/ai-deepfake-quiz.mp4',
     },
   },
