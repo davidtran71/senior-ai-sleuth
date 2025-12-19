@@ -193,7 +193,7 @@ export const trainingSlides: TrainingSlide[] = [
       ],
       correctAnswer: [0, 1, 2, 3],
       explanation: 'This AI-generated video shows several key indicators: unnatural facial movements that don\'t match the emotions being conveyed, inconsistent lighting and shadows, audio-visual sync issues, and overly smooth or artificial skin texture. Natural videos typically have normal blinking patterns and consistent lighting, which AI often struggles to replicate perfectly.',
-      video: 'https://www.thecareside.com.au/wp-content/uploads/2025/09/Post-form-submission-explainer-Captions-and-branding-1.mp4',
+      video: '/ai-deepfake-quiz.mp4',
     },
   },
 
