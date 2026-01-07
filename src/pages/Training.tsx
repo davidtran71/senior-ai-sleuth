@@ -148,11 +148,25 @@ export const Training = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 p-8 rounded-lg border-2 border-green-500/30 hover:border-green-500/50 transition-all">
                       <h3 className="text-3xl font-black text-green-600 dark:text-green-400 mb-4 tracking-tight">THE GOOD</h3>
-                      <p className="text-lg leading-relaxed">{slide.content.split('THE BAD:')[0].replace('THE GOOD:', '').trim()}</p>
+                      <ul className="space-y-3">
+                        {slide.content.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <span className="text-green-500 mt-1">✓</span>
+                            <span className="text-lg leading-relaxed">{item.trim()}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                     <div className="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 rounded-lg border-2 border-red-500/30 hover:border-red-500/50 transition-all">
                       <h3 className="text-3xl font-black text-red-600 dark:text-red-400 mb-4 tracking-tight">THE BAD</h3>
-                      <p className="text-lg leading-relaxed">{slide.content.split('THE BAD:')[1]?.trim()}</p>
+                      <ul className="space-y-3">
+                        {slide.content.split('THE BAD:')[1]?.trim().split('|').map((item, index) => (
+                          <li key={index} className="flex items-start gap-3">
+                            <span className="text-red-500 mt-1">✗</span>
+                            <span className="text-lg leading-relaxed">{item.trim()}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
