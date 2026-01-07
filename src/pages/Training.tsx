@@ -120,9 +120,6 @@ export const Training = () => {
                 </div>
                 <h1 className="text-balance text-glow-accent">{slide.title}</h1>
                 <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
-                <div className="pt-4 border-t-2 border-accent/20">
-                  <p className="text-sm font-semibold text-accent tracking-wider">BEGIN INVESTIGATION</p>
-                </div>
               </div>
             </div>
           )}
@@ -357,7 +354,7 @@ export const Training = () => {
             className="hover:shadow-card transition-shadow"
           >
             <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
+            {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
           </Button>
 
           {currentSlide !== totalSlides - 1 && (
