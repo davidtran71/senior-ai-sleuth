@@ -381,7 +381,7 @@ export const Training = () => {
               className="hover:shadow-dramatic transition-all"
             >
               {slide.type === 'quiz' 
-                ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Continue' : 'Try Again') : 'Submit Answer')
+                ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Next Case' : 'Try Again') : 'Submit Answer')
                 : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
