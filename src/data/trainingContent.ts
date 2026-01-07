@@ -189,14 +189,14 @@ export const trainingSlides: TrainingSlide[] = [
     quiz: {
       question: 'Watch this AI-generated video closely. What tell-tale signs indicate this video is a deepfake?',
       options: [
-        'Unnatural mouth & lip syncing - lips appear "rubbery" or disconnected from jaw movement',
         { text: 'Morphing or extra fingers visible on hands', whyWrong: 'Look again — while morphing fingers are a common AI error, the hands in this video are mostly out of frame or appear relatively normal. This isn\'t a visible issue here.' },
+        { text: 'Garbled or distorted text on clothing', whyWrong: 'Look at the clothing — the hoodie is solid blue with no text or logos to distort. There\'s no text present to be garbled.' },
+        'Unnatural mouth & lip syncing - lips appear "rubbery" or disconnected from jaw movement',
         'Lack of micro-expressions - face remains stiff without subtle involuntary muscle movements',
         'Static/frozen background - elements are perfectly still without natural camera noise or movement',
-        { text: 'Garbled or distorted text on clothing', whyWrong: 'Look at the clothing — the hoodie is solid blue with no text or logos to distort. There\'s no text present to be garbled.' },
         'Inconsistent eye gaze & blinking - irregular patterns or unnatural saccadic movement',
       ],
-      correctAnswer: [0, 2, 3, 5],
+      correctAnswer: [2, 3, 4, 5],
       explanation: 'This deepfake video reveals several key AI-generated indicators: "rubbery" lip movements, lack of micro-expressions, perfectly frozen background elements, and irregular blinking patterns.',
       video: '/ai-deepfake-quiz.mp4',
     },
