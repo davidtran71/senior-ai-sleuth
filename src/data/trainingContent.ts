@@ -46,7 +46,7 @@ export const trainingSlides: TrainingSlide[] = [
     type: 'lesson',
     title: 'The Good and The Bad of AI',
     introduction: 'AI is used for both helpful and harmful purposes.',
-    content: 'THE GOOD: AI helps doctors diagnose diseases, assists with accessibility, and makes technology easier to use. THE BAD: Criminals use AI to create fake emails, voice clones for scams, deepfake videos, and convincing phishing attempts targeting seniors.',
+    content: 'THE GOOD: AI helps doctors diagnose diseases earlier and more accurately, assists people with disabilities through screen readers and voice control, translates languages in real-time, helps find lost pets through image recognition, and makes customer service faster. THE BAD: Criminals use AI to create fake emails that mimic your bank, clone voices of family members to request money, generate deepfake videos of public figures, write convincing romance scam messages, create fake product reviews, and produce fraudulent documents.',
     tips: [
       'Always verify information from multiple trusted sources',
       'Be cautious of content that creates strong emotional reactions',
