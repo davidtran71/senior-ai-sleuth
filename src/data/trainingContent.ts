@@ -1,3 +1,8 @@
+export interface QuizOption {
+  text: string;
+  whyWrong?: string; // Feedback shown when this incorrect option is selected
+}
+
 export interface TrainingSlide {
   type: 'intro' | 'lesson' | 'quiz' | 'tools' | 'debrief';
   title: string;
@@ -6,7 +11,7 @@ export interface TrainingSlide {
   tips?: string[];
   quiz?: {
     question: string;
-    options: string[];
+    options: (string | QuizOption)[];
     correctAnswer: number | number[];
     explanation: string;
     image?: string;
@@ -78,10 +83,10 @@ export const trainingSlides: TrainingSlide[] = [
     quiz: {
       question: 'Which email is most likely AI-generated or a scam?',
       options: [
-        'Hi John, it\'s Mom. Can you pick up milk on your way home? Thanks!',
+        { text: 'Hi John, it\'s Mom. Can you pick up milk on your way home? Thanks!', whyWrong: 'This message uses a personal name ("John"), references a specific relationship ("Mom"), and makes a simple, casual request. These are all signs of authentic human communication.' },
         'Dear Valued Customer, Your account requires immediate verification within 24 hours to avoid suspension. Click here to verify your personal information and banking details immediately.',
-        'Hey! Just saw your post about the concert. Want to grab coffee before?',
-        'Meeting moved to 3pm tomorrow. See you in the conference room.'
+        { text: 'Hey! Just saw your post about the concert. Want to grab coffee before?', whyWrong: 'This message references a specific shared experience (seeing a post about a concert) and makes a casual, personal invitation. Real friends communicate this way.' },
+        { text: 'Meeting moved to 3pm tomorrow. See you in the conference room.', whyWrong: 'This is a straightforward workplace communication with specific details (time, location). It doesn\'t contain urgency tactics or requests for personal information.' }
       ],
       correctAnswer: 1,
       explanation: 'The second email shows classic scam signs: generic greeting, urgent deadline, pressure to act quickly, and requests for personal/banking information. Real companies never ask for sensitive information via email.',
@@ -115,11 +120,11 @@ export const trainingSlides: TrainingSlide[] = [
         'The hand holding the cup appears waxy or lacks natural skin texture',
         'The teeth appear unnaturally uniform or fused together',
         'The figures in the background are structurally incoherent',
-        'The subject is wearing mismatched earrings or glasses',
-        'The pupils are non-circular or misshapen'
+        { text: 'The subject is wearing mismatched earrings or glasses', whyWrong: 'Look again — the subject is not wearing glasses, and her hair covers her ears, making it impossible to verify earrings. This detail cannot be confirmed in this image.' },
+        { text: 'The pupils are non-circular or misshapen', whyWrong: 'In this specific image, the AI actually rendered the eyes and catchlights fairly well. The pupils appear normal and circular.' }
       ],
       correctAnswer: [0, 1, 2, 3],
-      explanation: 'This AI-generated image shows multiple telltale signs: the menu reads "tameh onnus" which is nonsensical, the hand lacks natural skin texture with undefined knuckles, the smile is a "monoblock" of white without natural spacing, and the background figures have anatomy that melts into the chairs. The subject\'s ears are covered by hair (can\'t verify earrings), and the eyes were actually rendered fairly well in this image.',
+      explanation: 'This AI-generated image shows multiple telltale signs: the menu reads "tameh onnus" which is nonsensical, the hand lacks natural skin texture with undefined knuckles, the smile is a "monoblock" of white without natural spacing, and the background figures have anatomy that melts into the chairs.',
       image: '/ai-image-quiz.jpg',
     },
   },
@@ -151,11 +156,11 @@ export const trainingSlides: TrainingSlide[] = [
         'Unnatural pauses or robotic rhythm in the speech pattern',
         'Voice sounds too perfect or lacks natural imperfections',
         'Background noise is completely absent or unnaturally clean',
-        'The speaker uses natural filler words like "um" and "uh"',
-        'Voice has natural variations in pitch and breathing sounds'
+        { text: 'The speaker uses natural filler words like "um" and "uh"', whyWrong: 'Listen again — this audio does NOT contain filler words like "um" or "uh." AI-generated speech typically avoids these natural human speech patterns, which is actually a sign it\'s artificial.' },
+        { text: 'Voice has natural variations in pitch and breathing sounds', whyWrong: 'Listen carefully — standard text-to-speech does NOT simulate inhaling, breathing sounds, or natural pitch variation. The voice in this clip is unnaturally consistent.' }
       ],
       correctAnswer: [0, 1, 2, 3],
-      explanation: 'This AI-generated audio exhibits multiple telltale signs: The script contains terrible news but the AI voice sounds jarringly cheerful about a disaster (emotional mismatch). The speech has staccato, stop-and-go phrasing with full words instead of contractions. The voice has perfect diction without natural hesitation or softening. And there\'s complete digital silence with no room tone, chair squeaks, or microphone static. The distractors are incorrect because the script excludes filler words like "um" and "uh", and standard TTS doesn\'t simulate breathing sounds or natural pitch variation.',
+      explanation: 'This AI-generated audio exhibits multiple telltale signs: emotional mismatch (cheerful tone for terrible news), staccato phrasing, perfect diction without hesitation, and complete digital silence with no room tone or background noise.',
       audio: '/ai-voice-security.mp3',
     },
   },
@@ -188,11 +193,11 @@ export const trainingSlides: TrainingSlide[] = [
         'Lack of micro-expressions - face remains stiff without subtle involuntary muscle movements',
         'Static/frozen background - elements are perfectly still without natural camera noise or movement',
         'Inconsistent eye gaze & blinking - irregular patterns or unnatural saccadic movement',
-        'Morphing or extra fingers visible on hands',
-        'Garbled or distorted text on clothing'
+        { text: 'Morphing or extra fingers visible on hands', whyWrong: 'Look again — while morphing fingers are a common AI error, the hands in this video are mostly out of frame or appear relatively normal. This isn\'t a visible issue here.' },
+        { text: 'Garbled or distorted text on clothing', whyWrong: 'Look at the clothing — the hoodie is solid blue with no text or logos to distort. There\'s no text present to be garbled.' }
       ],
       correctAnswer: [0, 1, 2, 3],
-      explanation: 'This deepfake video reveals several key AI-generated indicators: The lip movements don\'t perfectly match the phonemes being spoken, appearing slightly "rubbery." The face lacks the subtle micro-expressions and involuntary twitches that occur naturally during speech. The background elements (plants and lights) are perfectly frozen without any natural depth-of-field shifts or camera noise. The blinking pattern is irregular, and the gaze sometimes drifts unnaturally. The distractors (morphing fingers and garbled text) are common AI errors, but aren\'t present in this particular video.',
+      explanation: 'This deepfake video reveals several key AI-generated indicators: "rubbery" lip movements, lack of micro-expressions, perfectly frozen background elements, and irregular blinking patterns.',
       video: '/ai-deepfake-quiz.mp4',
     },
   },

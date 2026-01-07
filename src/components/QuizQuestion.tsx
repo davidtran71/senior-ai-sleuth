@@ -1,10 +1,11 @@
 import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, XCircle, AlertCircle } from "lucide-react";
+import { QuizOption } from "@/data/trainingContent";
 
 interface QuizQuestionProps {
   question: string;
-  options: string[];
+  options: (string | QuizOption)[];
   correctAnswer: number | number[];
   explanation: string;
   onAnswer: (correct: boolean) => void;
@@ -16,6 +17,16 @@ export interface QuizQuestionRef {
   continue: () => void;
   tryAgain: () => void;
 }
+
+// Helper to get option text
+const getOptionText = (option: string | QuizOption): string => {
+  return typeof option === 'string' ? option : option.text;
+};
+
+// Helper to get whyWrong message
+const getWhyWrong = (option: string | QuizOption): string | undefined => {
+  return typeof option === 'string' ? undefined : option.whyWrong;
+};
 
 export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({ 
   question, 
@@ -100,6 +111,24 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
     return checkIsCorrect();
   };
 
+  // Get feedback for incorrect selections
+  const getIncorrectFeedback = (): string[] => {
+    const selected = isMultipleChoice ? selectedAnswers : (selectedAnswer !== null ? [selectedAnswer] : []);
+    const feedback: string[] = [];
+    
+    selected.forEach(index => {
+      const isCorrectOption = checkIfCorrect(index);
+      if (!isCorrectOption) {
+        const whyWrong = getWhyWrong(options[index]);
+        if (whyWrong) {
+          feedback.push(whyWrong);
+        }
+      }
+    });
+    
+    return feedback;
+  };
+
   return (
     <Card className="p-8 shadow-card">
       <div className="space-y-6">
@@ -118,6 +147,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
           {options.map((option, index) => {
             const isSelected = isMultipleChoice ? selectedAnswers.includes(index) : selectedAnswer === index;
             const isCorrectOption = checkIfCorrect(index);
+            const optionText = getOptionText(option);
             
             return (
               <button
@@ -137,7 +167,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
                 } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 <div className="flex items-center justify-between">
-                  <span>{option}</span>
+                  <span>{optionText}</span>
                   {showResult && (
                     isSelected ? (
                       isCorrectOption ? (
@@ -162,9 +192,20 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
               : 'bg-destructive/10 border-2 border-destructive'
           }`}>
             <p className="font-medium mb-2">
-              {isAnswerCorrect() ? '✓ Correct!' : '✗ Not quite right'}
+              {isAnswerCorrect() ? '✓ Correct!' : '✗ Not quite right — here\'s why:'}
             </p>
-            <p className="text-base">{explanation}</p>
+            {isAnswerCorrect() ? (
+              <p className="text-base">{explanation}</p>
+            ) : (
+              <div className="space-y-2">
+                {getIncorrectFeedback().map((feedback, index) => (
+                  <p key={index} className="text-base">• {feedback}</p>
+                ))}
+                {getIncorrectFeedback().length === 0 && (
+                  <p className="text-base">Look more carefully at the content and try again.</p>
+                )}
+              </div>
+            )}
           </div>
         )}
       </div>
