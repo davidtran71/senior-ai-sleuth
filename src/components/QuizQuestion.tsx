@@ -161,23 +161,17 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
                         ? 'border-accent bg-accent/10'
                         : 'border-destructive bg-destructive/10'
                       : 'border-primary bg-primary/5'
-                    : showResult && isCorrectOption && isMultipleChoice
-                      ? 'border-accent/50 bg-accent/5'
-                      : 'border-border hover:border-primary/50'
+                    : 'border-border hover:border-primary/50'
                 } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
               >
                 <div className="flex items-center justify-between">
                   <span>{optionText}</span>
-                  {showResult && (
-                    isSelected ? (
-                      isCorrectOption ? (
-                        <CheckCircle2 className="h-6 w-6 text-accent" />
-                      ) : (
-                        <XCircle className="h-6 w-6 text-destructive" />
-                      )
-                    ) : isCorrectOption && isMultipleChoice ? (
-                      <CheckCircle2 className="h-6 w-6 text-accent/50" />
-                    ) : null
+                  {showResult && isSelected && (
+                    isCorrectOption ? (
+                      <CheckCircle2 className="h-6 w-6 text-accent" />
+                    ) : (
+                      <XCircle className="h-6 w-6 text-destructive" />
+                    )
                   )}
                 </div>
               </button>
