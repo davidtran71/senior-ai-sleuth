@@ -11,7 +11,7 @@ export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, boolean>>({});
-  const [quizState, setQuizState] = useState({ canSubmit: false, hasSubmitted: false });
+  const [quizState, setQuizState] = useState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
   const quizRef = useRef<QuizQuestionRef>(null);
 
   const slide = trainingSlides[currentSlide];
@@ -21,7 +21,7 @@ export const Training = () => {
   const handleNext = () => {
     if (currentSlide < totalSlides - 1) {
       setCurrentSlide(prev => prev + 1);
-      setQuizState({ canSubmit: false, hasSubmitted: false });
+      setQuizState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
       window.scrollTo(0, 0);
     }
   };
@@ -29,7 +29,7 @@ export const Training = () => {
   const handlePrevious = () => {
     if (currentSlide > 0) {
       setCurrentSlide(prev => prev - 1);
-      setQuizState({ canSubmit: false, hasSubmitted: false });
+      setQuizState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
       window.scrollTo(0, 0);
     }
   };
@@ -38,7 +38,7 @@ export const Training = () => {
     setQuizAnswers(prev => ({ ...prev, [currentSlide]: correct }));
   };
 
-  const handleQuizStateChange = useCallback((state: { canSubmit: boolean; hasSubmitted: boolean }) => {
+  const handleQuizStateChange = useCallback((state: { canSubmit: boolean; hasSubmitted: boolean; isCorrect: boolean }) => {
     setQuizState(state);
   }, []);
 
@@ -46,9 +46,11 @@ export const Training = () => {
     if (slide.type === 'quiz') {
       if (!quizState.hasSubmitted) {
         quizRef.current?.submit();
-      } else {
+      } else if (quizState.isCorrect) {
         quizRef.current?.continue();
         handleNext();
+      } else {
+        quizRef.current?.tryAgain();
       }
     } else {
       handleNext();
@@ -379,7 +381,7 @@ export const Training = () => {
               className="hover:shadow-dramatic transition-all"
             >
               {slide.type === 'quiz' 
-                ? (quizState.hasSubmitted ? 'Continue' : 'Submit Answer')
+                ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Continue' : 'Try Again') : 'Submit Answer')
                 : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
