@@ -8,12 +8,13 @@ interface QuizQuestionProps {
   correctAnswer: number | number[];
   explanation: string;
   onAnswer: (correct: boolean) => void;
-  onStateChange?: (state: { canSubmit: boolean; hasSubmitted: boolean }) => void;
+  onStateChange?: (state: { canSubmit: boolean; hasSubmitted: boolean; isCorrect: boolean }) => void;
 }
 
 export interface QuizQuestionRef {
   submit: () => void;
   continue: () => void;
+  tryAgain: () => void;
 }
 
 export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({ 
@@ -31,9 +32,19 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
 
   const canSubmit = isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer !== null;
 
+  const checkIsCorrect = (): boolean => {
+    if (isMultipleChoice) {
+      const correctAnswers = correctAnswer as number[];
+      return selectedAnswers.length === correctAnswers.length && 
+             selectedAnswers.every(ans => correctAnswers.includes(ans));
+    }
+    return selectedAnswer === correctAnswer;
+  };
+
   useEffect(() => {
-    onStateChange?.({ canSubmit, hasSubmitted: showResult });
-  }, [canSubmit, showResult, onStateChange]);
+    const isCorrect = showResult ? checkIsCorrect() : false;
+    onStateChange?.({ canSubmit, hasSubmitted: showResult, isCorrect });
+  }, [canSubmit, showResult, selectedAnswer, selectedAnswers, onStateChange]);
 
   const handleSingleSelect = (index: number) => {
     if (!showResult) setSelectedAnswer(index);
@@ -59,15 +70,14 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   };
 
   const handleContinue = () => {
-    let isCorrect = false;
-    if (isMultipleChoice) {
-      const correctAnswers = correctAnswer as number[];
-      isCorrect = selectedAnswers.length === correctAnswers.length && 
-                  selectedAnswers.every(ans => correctAnswers.includes(ans));
-    } else {
-      isCorrect = selectedAnswer === correctAnswer;
-    }
+    const isCorrect = checkIsCorrect();
     onAnswer(isCorrect);
+    setSelectedAnswer(null);
+    setSelectedAnswers([]);
+    setShowResult(false);
+  };
+
+  const handleTryAgain = () => {
     setSelectedAnswer(null);
     setSelectedAnswers([]);
     setShowResult(false);
@@ -75,7 +85,8 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
 
   useImperativeHandle(ref, () => ({
     submit: handleSubmit,
-    continue: handleContinue
+    continue: handleContinue,
+    tryAgain: handleTryAgain
   }));
 
   const checkIfCorrect = (index: number): boolean => {
@@ -86,12 +97,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   };
 
   const isAnswerCorrect = (): boolean => {
-    if (isMultipleChoice) {
-      const correctAnswers = correctAnswer as number[];
-      return selectedAnswers.length === correctAnswers.length && 
-             selectedAnswers.every(ans => correctAnswers.includes(ans));
-    }
-    return selectedAnswer === correctAnswer;
+    return checkIsCorrect();
   };
 
   return (
