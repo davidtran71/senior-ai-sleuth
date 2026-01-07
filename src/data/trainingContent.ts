@@ -205,7 +205,7 @@ export const trainingSlides: TrainingSlide[] = [
   // Slide 12: Detection Tools
   {
     type: 'tools',
-    title: 'Tools for Detecting AI Content',
+    title: 'Additional Tools for Detecting AI Content',
     tools: [
       {
         category: 'For Text',
