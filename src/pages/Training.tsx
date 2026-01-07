@@ -314,7 +314,7 @@ export const Training = () => {
               {slide.tips && slide.tips.length > 0 && (
                 <div className="space-y-4 mb-8">
                   <div className="text-center mb-6">
-                    <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS</h3>
+                    <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS RECAP</h3>
                     <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
                   </div>
                   {slide.tips.map((tip, index) => (
