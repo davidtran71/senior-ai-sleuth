@@ -148,11 +148,11 @@ export const Training = () => {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 p-8 rounded-lg border-2 border-green-500/30 hover:border-green-500/50 transition-all">
                       <h3 className="text-3xl font-black text-green-600 dark:text-green-400 mb-4 tracking-tight">THE GOOD</h3>
-                      <p className="text-lg leading-relaxed">AI helps doctors diagnose diseases, assists with accessibility, and makes technology easier to use.</p>
+                      <p className="text-lg leading-relaxed">{slide.content.split('THE BAD:')[0].replace('THE GOOD:', '').trim()}</p>
                     </div>
                     <div className="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 rounded-lg border-2 border-red-500/30 hover:border-red-500/50 transition-all">
                       <h3 className="text-3xl font-black text-red-600 dark:text-red-400 mb-4 tracking-tight">THE BAD</h3>
-                      <p className="text-lg leading-relaxed">Criminals use AI to create fake emails, voice clones for scams, deepfake videos, and convincing phishing attempts targeting seniors.</p>
+                      <p className="text-lg leading-relaxed">{slide.content.split('THE BAD:')[1]?.trim()}</p>
                     </div>
                   </div>
                 </div>
