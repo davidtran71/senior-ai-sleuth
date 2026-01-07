@@ -153,13 +153,13 @@ export const trainingSlides: TrainingSlide[] = [
       question: 'Listen closely to this AI-generated message. What signs indicate this message is created by AI?',
       options: [
         'Emotional tone that doesn\'t match the content being spoken',
+        { text: 'The speaker uses natural filler words like "um" and "uh"', whyWrong: 'Listen again — this audio does NOT contain filler words like "um" or "uh." AI-generated speech typically avoids these natural human speech patterns, which is actually a sign it\'s artificial.' },
         'Unnatural pauses or robotic rhythm in the speech pattern',
         'Voice sounds too perfect or lacks natural imperfections',
+        { text: 'Voice has natural variations in pitch and breathing sounds', whyWrong: 'Listen carefully — standard text-to-speech does NOT simulate inhaling, breathing sounds, or natural pitch variation. The voice in this clip is unnaturally consistent.' },
         'Background noise is completely absent or unnaturally clean',
-        { text: 'The speaker uses natural filler words like "um" and "uh"', whyWrong: 'Listen again — this audio does NOT contain filler words like "um" or "uh." AI-generated speech typically avoids these natural human speech patterns, which is actually a sign it\'s artificial.' },
-        { text: 'Voice has natural variations in pitch and breathing sounds', whyWrong: 'Listen carefully — standard text-to-speech does NOT simulate inhaling, breathing sounds, or natural pitch variation. The voice in this clip is unnaturally consistent.' }
       ],
-      correctAnswer: [0, 1, 2, 3],
+      correctAnswer: [0, 2, 3, 5],
       explanation: 'This AI-generated audio exhibits multiple telltale signs: emotional mismatch (cheerful tone for terrible news), staccato phrasing, perfect diction without hesitation, and complete digital silence with no room tone or background noise.',
       audio: '/ai-voice-security.mp3',
     },
