@@ -6,6 +6,7 @@ import { CareSideLogo } from "@/components/CareSideLogo";
 import robotDetective from "@/assets/robot-detective.png";
 import seniorDetective from "@/assets/senior-detective.png";
 import seniorLaptop from "@/assets/senior-laptop.png";
+import heroBackground from "@/assets/hero-background.png";
 
 
 const Index = () => {
@@ -40,22 +41,15 @@ const Index = () => {
         <CareSideLogo />
       </header>
 
-      {/* Decorative Plus Signs - Top Right */}
-      <div className="fixed top-0 right-0 pointer-events-none z-0">
-        <svg className="w-24 h-24 text-[#00BCD4] absolute top-4 right-4" viewBox="0 0 40 40" fill="currentColor">
-          <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
-        </svg>
-        <svg className="w-12 h-12 text-[#00BCD4]/60 absolute top-20 right-28" viewBox="0 0 40 40" fill="currentColor">
-          <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
-        </svg>
-      </div>
-
       {/* Hero Section */}
-      <section className="px-6 pb-16 pt-4 relative">
+      <section 
+        className="px-6 pb-16 pt-4 relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Left Content - Card */}
-            <div className="flex-1 bg-[#E8F4FC] rounded-3xl p-8 lg:p-10 relative z-10">
+            <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 relative z-10 shadow-sm">
               <span className="text-[#00BCD4] text-sm font-semibold tracking-wider uppercase mb-4 block">
                 AI FORENSICS TASKFORCE
               </span>
@@ -81,10 +75,6 @@ const Index = () => {
                 alt="AI Detective Robot" 
                 className="w-80 lg:w-96 h-auto relative z-10"
               />
-              {/* Decorative Plus */}
-              <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-4 left-8 z-20" viewBox="0 0 40 40" fill="currentColor">
-                <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
-              </svg>
             </div>
           </div>
         </div>
