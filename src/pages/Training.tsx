@@ -94,19 +94,13 @@ export const Training = () => {
             )}
           </div>
 
-          {/* Progress Bar with Evidence Markers */}
+          {/* Progress Bar */}
           <div className="relative">
-            <div className="h-4 bg-muted rounded-full overflow-hidden border-2 border-border">
+            <div className="h-2 bg-[#C5C0DB] rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-detective transition-all duration-500 relative"
+                className="h-full bg-[#00A5FE] rounded-full transition-all duration-500"
                 style={{ width: `${progress}%` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
-              </div>
-            </div>
-            <div className="flex justify-between mt-2">
-              <span className="text-xs font-semibold text-muted-foreground tracking-wider">INVESTIGATION IN PROGRESS</span>
-              <span className="text-xs font-bold text-accent">{Math.round(progress)}% COMPLETE</span>
+              />
             </div>
           </div>
         </div>
@@ -114,14 +108,63 @@ export const Training = () => {
         {/* Slide Content */}
         <Card className="p-8 shadow-dramatic mb-6 case-file-border animate-fade-in">
           {slide.type === 'intro' && (
-            <div className="space-y-8 evidence-stamp">
-              <div className="text-center space-y-6">
-                <div className="inline-flex items-center gap-3 bg-gradient-badge text-secondary-foreground px-6 py-3 rounded-full shadow-badge badge-shine">
-                  <AlertTriangle className="h-8 w-8" />
-                  <span className="text-lg font-black tracking-wider">ATTENTION RECRUIT</span>
+            <div className="space-y-8 font-sans">
+              {/* Eyebrow badge */}
+              <div className="flex justify-center">
+                <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                  SLIDE {currentSlide + 1} OF {totalSlides}
+                </span>
+              </div>
+              
+              {/* Main content area with illustration */}
+              <div className="flex flex-col lg:flex-row items-center gap-8">
+                {/* Left Content */}
+                <div className="flex-1 space-y-6">
+                  <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight font-serif">
+                    {slide.title}
+                  </h1>
+                  <p className="text-xl leading-relaxed text-[#52525B]">{slide.content}</p>
+                  
+                  {/* What's next section */}
+                  <div className="pt-4">
+                    <h3 className="text-[#0A1628] text-xl font-bold mb-4 font-serif">What's next:</h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">1</span>
+                          <span className="text-sm font-medium text-[#0A1628]">Understanding AI</span>
+                        </div>
+                      </div>
+                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">2</span>
+                          <span className="text-sm font-medium text-[#0A1628]">Spotting Fake Text</span>
+                        </div>
+                      </div>
+                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">3</span>
+                          <span className="text-sm font-medium text-[#0A1628]">Detecting Fake Images</span>
+                        </div>
+                      </div>
+                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
+                        <div className="flex items-center gap-3">
+                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">4</span>
+                          <span className="text-sm font-medium text-[#0A1628]">Voice & Video Detection</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h1 className="text-balance text-glow-accent">{slide.title}</h1>
-                <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
+                
+                {/* Right - Robot Detective Illustration */}
+                <div className="flex-1 flex justify-center">
+                  <img 
+                    src="/src/assets/robot-detective.png" 
+                    alt="Robot Detective" 
+                    className="max-w-[300px] lg:max-w-[350px] h-auto"
+                  />
+                </div>
               </div>
             </div>
           )}
