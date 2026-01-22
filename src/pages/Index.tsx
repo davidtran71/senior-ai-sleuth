@@ -35,7 +35,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white font-sans">
       {/* Header */}
       <header className="py-4 px-6">
         <CareSideLogo />
@@ -53,7 +53,7 @@ const Index = () => {
               <span className="text-[#00BCD4] text-sm font-semibold tracking-wider uppercase mb-4 block">
                 AI FORENSICS TASKFORCE
               </span>
-              <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight mb-4">
+              <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight mb-4 font-serif">
                 AI Training Tool<br />for Seniors
               </h1>
               <p className="text-[#4A5568] text-base lg:text-lg mb-6 max-w-md">
@@ -104,7 +104,7 @@ const Index = () => {
               <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 CRITICAL MISSION
               </span>
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4">
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4 font-serif">
                 Why This Training Matters
               </h2>
               <p className="text-[#4A5568] text-base lg:text-lg mb-4">
@@ -126,7 +126,7 @@ const Index = () => {
               <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 TRAINING BRIEFING
               </span>
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold">
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif">
                 What You'll Investigate
               </h2>
             </div>
@@ -137,7 +137,7 @@ const Index = () => {
                   <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold block mb-2">
                     {item.num}
                   </span>
-                  <h3 className="text-[#0A1628] font-bold text-lg mb-2">
+                  <h3 className="text-[#0A1628] font-bold text-lg mb-2 font-serif">
                     {item.title}
                   </h3>
                   <p className="text-[#4A5568] text-sm">
@@ -165,7 +165,7 @@ const Index = () => {
 
             {/* Right - Content */}
             <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4">
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4 font-serif">
                 Ready to become a<br />Digital Detective?
               </h2>
               <p className="text-[#4A5568] text-base lg:text-lg mb-6">
