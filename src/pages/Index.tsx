@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Shield, Play, Award } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
+import robotDetective from "@/assets/robot-detective.png";
+import seniorDetective from "@/assets/senior-detective.png";
+import seniorLaptop from "@/assets/senior-laptop.jpg";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -21,147 +23,171 @@ const Index = () => {
     navigate('/training');
   };
 
+  const modules = [
+    { num: 1, title: "Understanding AI", desc: "Learn what AI is and how criminals use it online" },
+    { num: 2, title: "Spotting Fake Text", desc: "Identify AI-generated scams, phishing emails and messages" },
+    { num: 3, title: "Detecting Fake Images", desc: "Recognise manipulated photos and AI-generated images" },
+    { num: 4, title: "Voice Clones & Audio", desc: "Spot synthetic voices and deepfake audio scams" },
+    { num: 5, title: "Deepfake Videos", desc: "Identify manipulated and AI-generated video content" },
+    { num: 6, title: "Detection Tips", desc: "Tips to verify suspicious content" }
+  ];
+
   return (
-    <div className="min-h-screen bg-background">
-      {/* CareSide Logo - Top Left */}
-      <div className="absolute top-6 left-6 z-50">
+    <div className="min-h-screen bg-white">
+      {/* Header */}
+      <header className="py-4 px-6">
         <CareSideLogo />
+      </header>
+
+      {/* Decorative Plus Signs - Top Right */}
+      <div className="fixed top-0 right-0 pointer-events-none z-0">
+        <svg className="w-24 h-24 text-[#00BCD4] absolute top-4 right-4" viewBox="0 0 40 40" fill="currentColor">
+          <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
+        </svg>
+        <svg className="w-12 h-12 text-[#00BCD4]/60 absolute top-20 right-28" viewBox="0 0 40 40" fill="currentColor">
+          <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
+        </svg>
       </div>
 
       {/* Hero Section */}
-      <section className="bg-gradient-detective text-primary-foreground py-24 px-6 relative overflow-hidden">
-        {/* Background pattern - Softer, more rounded geometric shapes */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-32 h-32 border-4 border-primary-foreground rounded-full" />
-          <div className="absolute bottom-10 right-10 w-40 h-40 border-4 border-primary-foreground rounded-[20px]" />
-          <div className="absolute top-1/2 left-1/4 w-24 h-24 border-4 border-primary-foreground rounded-full" />
-          <div className="absolute top-20 right-1/4 w-16 h-16 border-4 border-primary-foreground rounded-[16px]" />
-        </div>
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1 space-y-8 animate-fade-in">
-              <div className="inline-flex items-center gap-3 bg-primary-foreground/20 backdrop-blur-sm px-6 py-3 rounded-full border-2 border-primary-foreground/30">
-                <Shield className="h-6 w-6" />
-                <span className="text-lg font-black tracking-wider">AI FORENSICS TASKFORCE</span>
-              </div>
-              <h1 className="text-balance text-6xl leading-tight" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.3)' }}>
-                Welcome, Recruit! It's Training Day.
+      <section className="px-6 pb-16 pt-4 relative">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-8">
+            {/* Left Content - Card */}
+            <div className="flex-1 bg-[#E8F4FC] rounded-3xl p-8 lg:p-10 relative z-10">
+              <span className="text-[#00BCD4] text-sm font-semibold tracking-wider uppercase mb-4 block">
+                AI FORENSICS TASKFORCE
+              </span>
+              <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight mb-4">
+                AI Training Tool<br />for Seniors
               </h1>
-              <p className="text-2xl leading-relaxed opacity-95 font-medium">
-                Join the digital detective academy and learn to spot AI-generated scams, 
-                deepfakes, and misinformation. Protect yourself and your loved ones online.
+              <p className="text-[#4A5568] text-base lg:text-lg mb-6 max-w-md">
+                Join the digital detective academy and learn to spot AI-generated scams, deepfakes, and misinformation. Protect yourself and your loved ones online.
               </p>
               <Button 
-                size="lg" 
-                variant="secondary"
                 onClick={handleStartTraining}
-                className="text-xl py-8 px-8 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine"
+                className="bg-[#0A1628] hover:bg-[#1a2840] text-white rounded-lg px-6 py-3 text-base font-medium inline-flex items-center gap-2"
               >
-                <Play className="mr-3 h-7 w-7" />
-                {trainingCompleted ? "Retake Training" : "Begin Investigation"}
+                {trainingCompleted ? "Retake Training" : "Begin Training"}
+                <ArrowRight className="h-4 w-4" />
               </Button>
             </div>
-            <div className="flex-1 flex justify-center">
-              <div className="relative animate-scale-in">
-                <div className="w-72 h-72 bg-primary-foreground/20 rounded-full flex items-center justify-center backdrop-blur-sm border-4 border-primary-foreground/30 shadow-dramatic">
-                  <Shield className="h-40 w-40 text-primary-foreground" style={{ filter: 'drop-shadow(0 0 20px rgba(255,255,255,0.5))' }} />
-                </div>
-                <div className="absolute -top-6 -right-6 bg-gradient-badge p-6 rounded-full shadow-badge badge-shine animate-pulse">
-                  <Award className="h-16 w-16 text-secondary-foreground" />
-                </div>
-                <div className="absolute -bottom-4 -left-4 bg-gradient-evidence p-4 rounded-lg shadow-evidence">
-                  <p className="text-accent-foreground font-black text-sm tracking-wider">CLASSIFIED</p>
-                </div>
-              </div>
+
+            {/* Right Content - Robot Illustration */}
+            <div className="flex-1 flex justify-center relative">
+              <img 
+                src={robotDetective} 
+                alt="AI Detective Robot" 
+                className="w-80 lg:w-96 h-auto relative z-10"
+              />
+              {/* Decorative Plus */}
+              <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-4 left-8 z-20" viewBox="0 0 40 40" fill="currentColor">
+                <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
+              </svg>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="section-spacing">
-        <div className="content-max-width space-y-16">
+      {/* Why This Training Matters Section */}
+      <section className="px-6 py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-12">
+            {/* Left - Image */}
+            <div className="flex-1 relative">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src={seniorLaptop} 
+                  alt="Senior using laptop" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              {/* Decorative Plus */}
+              <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-6 right-4 z-10" viewBox="0 0 40 40" fill="currentColor">
+                <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
+              </svg>
+            </div>
 
-          {/* Critical Mission Info */}
-          <Card className="p-10 bg-gradient-evidence text-accent-foreground shadow-evidence relative overflow-hidden">
-            <div className="absolute top-4 right-4 text-xs font-black text-accent-foreground/10 tracking-widest rotate-12 text-6xl">
-              URGENT
+            {/* Right - Content */}
+            <div className="flex-1">
+              <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
+                CRITICAL MISSION
+              </span>
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4">
+                Why This Training Matters
+              </h2>
+              <p className="text-[#4A5568] text-base lg:text-lg mb-4">
+                Criminals use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. This training equips you with the skills to recognize digital threats and stay safe online.
+              </p>
+              <p className="text-[#0A1628] font-semibold text-base lg:text-lg">
+                Complete your training to earn an official Digital Detective Badge!
+              </p>
             </div>
-            <div className="flex items-start gap-6 relative z-10">
-              <div className="p-4 bg-accent-foreground/10 rounded-full backdrop-blur-sm">
-                <Shield className="h-16 w-16 flex-shrink-0" />
-              </div>
-              <div>
-                <div className="inline-block px-4 py-1 bg-accent-foreground/20 rounded-full mb-4">
-                  <p className="text-sm font-black tracking-wider">CRITICAL MISSION</p>
-                </div>
-                <h3 className="mb-4">Why This Training Matters</h3>
-                <p className="text-xl mb-6 leading-relaxed">
-                  Criminals use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. 
-                  This training equips you with the skills to recognize digital threats and stay safe online.
-                </p>
-                <p className="text-xl font-bold">
-                  Complete your training to earn an official Digital Detective Badge!
-                </p>
-              </div>
-            </div>
-          </Card>
+          </div>
+        </div>
+      </section>
 
-          {/* Case File - Training Info */}
-          <Card className="p-10 shadow-dramatic case-file-border">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
-                <Shield className="h-10 w-10 text-accent-foreground" />
-              </div>
-              <div>
-                <p className="text-sm font-bold text-accent tracking-wider mb-1">TRAINING BRIEFING</p>
-                <h2 className="text-glow-accent">What You'll Investigate</h2>
-              </div>
+      {/* What You'll Investigate Section */}
+      <section className="px-6 py-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="border-2 border-[#00BCD4] rounded-3xl p-8 lg:p-12">
+            <div className="text-center mb-10">
+              <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
+                TRAINING BRIEFING
+              </span>
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold">
+                What You'll Investigate
+              </h2>
             </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {[
-                { num: 1, title: "Understanding AI", desc: "Learn what AI is and how criminals use it online" },
-                { num: 2, title: "Spotting Fake Text", desc: "Identify AI-generated scams, phishing emails and messages" },
-                { num: 3, title: "Detecting Fake Images", desc: "Recognize manipulated photos and AI-generated images" },
-                { num: 4, title: "Voice Clones & Audio", desc: "Spot synthetic voices and deepfake audio scams" },
-                { num: 5, title: "Deepfake Videos", desc: "Identify manipulated and AI-generated video content" },
-                { num: 6, title: "Detection Tools", desc: "Use free tools to verify suspicious content" }
-              ].map((item) => (
-                <div key={item.num} className="p-6 bg-gradient-case-file rounded-lg border-l-4 border-accent hover:shadow-evidence transition-all">
-                  <h3 className="mb-3 flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-badge rounded-full flex items-center justify-center shadow-badge">
-                      <span className="text-secondary-foreground font-black">{item.num}</span>
-                    </div>
-                    <span className="text-accent">{item.title}</span>
+
+            <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+              {modules.map((item) => (
+                <div key={item.num} className="text-left">
+                  <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold block mb-2">
+                    {item.num}
+                  </span>
+                  <h3 className="text-[#0A1628] font-bold text-lg mb-2">
+                    {item.title}
                   </h3>
-                  <p className="text-muted-foreground text-base ml-13">{item.desc}</p>
+                  <p className="text-[#4A5568] text-sm">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
-          </Card>
+          </div>
+        </div>
+      </section>
 
-          {/* CTA Section */}
-          <Card className="p-10 bg-gradient-badge text-secondary-foreground shadow-badge badge-shine">
-            <div className="text-center space-y-6">
-              <div className="inline-flex p-4 bg-secondary-foreground/10 rounded-full backdrop-blur-sm">
-                <Award className="h-12 w-12" />
-              </div>
-              <h2 className="text-4xl font-black">Ready to Become a Digital Detective?</h2>
-              <p className="text-xl max-w-2xl mx-auto opacity-95">
-                Start your training now and learn to protect yourself and your loved ones from AI-powered scams and misinformation.
+      {/* CTA Section */}
+      <section className="px-6 py-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="bg-[#F5E6D3] rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8">
+            {/* Left - Illustration */}
+            <div className="flex-shrink-0 relative">
+              <img 
+                src={seniorDetective} 
+                alt="Digital Detective" 
+                className="w-48 lg:w-64 h-auto"
+              />
+            </div>
+
+            {/* Right - Content */}
+            <div className="flex-1 text-center lg:text-left">
+              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4">
+                Ready to become a<br />Digital Detective?
+              </h2>
+              <p className="text-[#4A5568] text-base lg:text-lg mb-6">
+                Start your training now and learn how to protect yourself and your loved ones from AI-powered scams and misinformation.
               </p>
               <Button 
-                size="lg" 
-                variant="secondary"
                 onClick={handleStartTraining}
-                className="text-xl py-8 px-10 bg-secondary text-secondary-foreground hover:shadow-dramatic transition-all"
+                className="bg-[#0A1628] hover:bg-[#1a2840] text-white rounded-lg px-8 py-4 text-base font-medium"
               >
-                <Play className="mr-3 h-7 w-7" />
-                {trainingCompleted ? "Retake Training" : "Start Training Now"}
+                Start Training
               </Button>
             </div>
-          </Card>
+          </div>
         </div>
       </section>
     </div>
