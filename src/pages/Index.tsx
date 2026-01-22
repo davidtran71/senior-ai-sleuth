@@ -5,7 +5,8 @@ import { ArrowRight } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import robotDetective from "@/assets/robot-detective.png";
 import seniorDetective from "@/assets/senior-detective.png";
-import seniorLaptop from "@/assets/senior-laptop.jpg";
+import seniorLaptop from "@/assets/senior-laptop.png";
+
 
 const Index = () => {
   const navigate = useNavigate();
