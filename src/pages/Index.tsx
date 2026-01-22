@@ -50,7 +50,7 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Left Content - Card */}
             <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 relative z-10 shadow-sm">
-              <span className="text-[#00BCD4] text-sm font-semibold tracking-wider uppercase mb-4 block">
+              <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4 inline-block">
                 AI FORENSICS TASKFORCE
               </span>
               <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight mb-4 font-serif">
@@ -101,7 +101,7 @@ const Index = () => {
 
             {/* Right - Content */}
             <div className="flex-1">
-              <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
+              <span className="inline-block bg-[#CCEDFF] text-black text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 CRITICAL MISSION
               </span>
               <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4 font-serif">
@@ -123,7 +123,7 @@ const Index = () => {
         <div className="max-w-5xl mx-auto">
           <div className="border-2 border-[#00BCD4] rounded-3xl p-8 lg:p-12">
             <div className="text-center mb-10">
-              <span className="inline-block bg-[#00BCD4] text-white text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
+              <span className="inline-block bg-[#CCEDFF] text-black text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 TRAINING BRIEFING
               </span>
               <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif">
