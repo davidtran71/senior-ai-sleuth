@@ -133,7 +133,7 @@ const Index = () => {
 
             <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
               {modules.map((item) => (
-                <div key={item.num} className="text-left">
+                <div key={item.num} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
                   <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold block mb-2">
                     {item.num}
                   </span>
