@@ -6,7 +6,7 @@ import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
 import { ArrowLeft, ArrowRight, Award, CheckCircle2, FileText, AlertTriangle, Search } from "lucide-react";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
-
+import { DecorativeShapes } from "@/components/DecorativeShapes";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -67,8 +67,11 @@ export const Training = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background py-8 px-6">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-background py-8 px-6 relative overflow-hidden">
+      {/* Decorative shapes - show on all slides except intro (first slide) */}
+      {currentSlide > 0 && <DecorativeShapes />}
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         {/* CareSide Logo - Top Left */}
         <div className="mb-8">
           <CareSideLogo />
