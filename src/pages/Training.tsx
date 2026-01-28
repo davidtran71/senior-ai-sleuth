@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, Award, CheckCircle2, FileText, AlertTriangle, Se
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
+import robotArtist from "@/assets/robot-artist.png";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -144,7 +145,59 @@ export const Training = () => {
             </div>
           )}
 
-          {slide.type === 'lesson' && (
+          {/* What is AI slide - special layout */}
+          {slide.type === 'lesson' && currentSlide === 1 && (
+            <div className="space-y-8">
+              {/* Top section: two columns */}
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                {/* Left column: text content */}
+                <div className="flex-1 space-y-4">
+                  {/* Eyebrow badge */}
+                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                    <Search className="h-4 w-4" />
+                    EVIDENCE BRIEFING
+                  </span>
+                  
+                  <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+                    {slide.title}
+                  </h1>
+                  
+                  {slide.introduction && (
+                    <p className="text-lg leading-relaxed text-[#52525B]">
+                      {slide.introduction}
+                    </p>
+                  )}
+                </div>
+                
+                {/* Right column: robot image */}
+                <div className="flex-shrink-0">
+                  <img 
+                    src={robotArtist} 
+                    alt="Friendly AI robot" 
+                    className="w-48 md:w-64 lg:w-72 h-auto"
+                  />
+                </div>
+              </div>
+              
+              {/* About AI section */}
+              {slide.tips && slide.tips.length > 0 && (
+                <div className="bg-[#F6FEFC] p-8 rounded-2xl">
+                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">About AI</h3>
+                  <ul className="space-y-4">
+                    {slide.tips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Regular lesson slides */}
+          {slide.type === 'lesson' && currentSlide !== 1 && (
             <div className="space-y-8">
               <div className="flex items-start gap-4 pb-4 border-b-2 border-accent/30">
                 <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
