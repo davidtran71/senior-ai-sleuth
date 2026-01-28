@@ -99,6 +99,9 @@ export const Training = () => {
 
           {/* Progress Bar */}
           <div className="relative">
+            <div className="flex justify-end mb-1">
+              <span className="text-sm text-[#52525B]">{Math.round(progress)}% Investigation Complete</span>
+            </div>
             <div className="h-2 bg-[#C5C0DB] rounded-full overflow-hidden">
               <div 
                 className="h-full bg-[#00A5FE] rounded-full transition-all duration-500"
@@ -109,66 +112,35 @@ export const Training = () => {
         </div>
 
         {/* Slide Content */}
-        <Card className="p-8 shadow-dramatic mb-6 case-file-border animate-fade-in">
+        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
           {slide.type === 'intro' && (
-            <div className="space-y-8 font-sans">
+            <div className="space-y-6 font-sans text-center">
+              {/* Seniors with Tablet Illustration - Top */}
+              <div className="flex justify-center">
+                <img 
+                  src="/src/assets/seniors-tablet.png" 
+                  alt="Seniors learning on a tablet" 
+                  className="max-w-[300px] lg:max-w-[380px] h-auto"
+                />
+              </div>
+              
               {/* Eyebrow badge */}
               <div className="flex justify-center">
-                <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
-                  SLIDE {currentSlide + 1} OF {totalSlides}
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                  <AlertTriangle className="h-4 w-4" />
+                  ATTENTION RECRUIT
                 </span>
               </div>
               
-              {/* Main content area with illustration */}
-              <div className="flex flex-col lg:flex-row items-center gap-8">
-                {/* Left Content */}
-                <div className="flex-1 space-y-6">
-                  <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight font-serif">
-                    {slide.title}
-                  </h1>
-                  <p className="text-xl leading-relaxed text-[#52525B]">{slide.content}</p>
-                  
-                  {/* What's next section */}
-                  <div className="pt-4">
-                    <h3 className="text-[#0A1628] text-xl font-bold mb-4 font-serif">What's next:</h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">1</span>
-                          <span className="text-sm font-medium text-[#0A1628]">Understanding AI</span>
-                        </div>
-                      </div>
-                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">2</span>
-                          <span className="text-sm font-medium text-[#0A1628]">Spotting Fake Text</span>
-                        </div>
-                      </div>
-                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">3</span>
-                          <span className="text-sm font-medium text-[#0A1628]">Detecting Fake Images</span>
-                        </div>
-                      </div>
-                      <div className="bg-[#F6FEFC] border border-[#00BCD4]/20 rounded-xl p-4">
-                        <div className="flex items-center gap-3">
-                          <span className="text-2xl font-bold text-[#00BCD4] font-serif">4</span>
-                          <span className="text-sm font-medium text-[#0A1628]">Voice & Video Detection</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Right - Seniors with Tablet Illustration */}
-                <div className="flex-1 flex justify-center">
-                  <img 
-                    src="/src/assets/seniors-tablet.png" 
-                    alt="Seniors learning on a tablet" 
-                    className="max-w-[350px] lg:max-w-[420px] h-auto"
-                  />
-                </div>
-              </div>
+              {/* Title */}
+              <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+                {slide.title}
+              </h1>
+              
+              {/* Body text */}
+              <p className="text-lg leading-relaxed text-[#52525B] max-w-2xl mx-auto">
+                {slide.content}
+              </p>
             </div>
           )}
 
