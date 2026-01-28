@@ -376,35 +376,35 @@ export const Training = () => {
               )}
             </div>
           )}
-        </Card>
 
-        {/* Navigation */}
-        <div className="flex justify-between items-center gap-4">
-          <Button
-            variant="outline"
-            onClick={handlePrevious}
-            disabled={currentSlide === 0}
-            size="lg"
-            className="hover:shadow-card transition-shadow"
-          >
-            <ArrowLeft className="mr-2 h-5 w-5" />
-            {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
-          </Button>
-
-          {currentSlide !== totalSlides - 1 && (
+          {/* Navigation - Inside Card */}
+          <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
             <Button
+              variant="outline"
+              onClick={handlePrevious}
+              disabled={currentSlide === 0}
               size="lg"
-              onClick={handleNavButtonClick}
-              disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted}
-              className="hover:shadow-dramatic transition-all"
+              className="hover:shadow-card transition-shadow"
             >
-              {slide.type === 'quiz' 
-                ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Next Case' : 'Try Again') : 'Submit Answer')
-                : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowLeft className="mr-2 h-5 w-5" />
+              {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
             </Button>
-          )}
-        </div>
+
+            {currentSlide !== totalSlides - 1 && (
+              <Button
+                size="lg"
+                onClick={handleNavButtonClick}
+                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted}
+                className="hover:shadow-dramatic transition-all"
+              >
+                {slide.type === 'quiz' 
+                  ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Next Case' : 'Try Again') : 'Submit Answer')
+                  : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            )}
+          </div>
+        </Card>
       </div>
     </div>
   );
