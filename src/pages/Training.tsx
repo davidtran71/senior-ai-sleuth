@@ -160,12 +160,12 @@ export const Training = () => {
                   </div>
                 </div>
                 
-                {/* Right - Robot Detective Illustration */}
+                {/* Right - Seniors with Tablet Illustration */}
                 <div className="flex-1 flex justify-center">
                   <img 
-                    src="/src/assets/robot-detective.png" 
-                    alt="Robot Detective" 
-                    className="max-w-[300px] lg:max-w-[350px] h-auto"
+                    src="/src/assets/seniors-tablet.png" 
+                    alt="Seniors learning on a tablet" 
+                    className="max-w-[350px] lg:max-w-[420px] h-auto"
                   />
                 </div>
               </div>
