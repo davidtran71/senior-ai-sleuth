@@ -277,7 +277,7 @@ export const Training = () => {
                 </div>}
             </div>}
 
-          {slide.type === 'quiz' && slide.quiz && <div className="space-y-6">
+          {slide.type === 'quiz' && slide.quiz && <div className="space-y-6 bg-[#E6FAFF] p-8 rounded-2xl">
               {/* Header section */}
               <div className="space-y-4">
                 <span className="inline-flex items-center gap-2 bg-[#F8EDD1] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
