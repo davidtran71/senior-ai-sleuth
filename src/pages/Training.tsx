@@ -8,6 +8,8 @@ import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
 import robotArtist from "@/assets/robot-artist.png";
+import robotGood from "@/assets/robot-good.png";
+import robotBad from "@/assets/robot-bad.png";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -196,8 +198,66 @@ export const Training = () => {
             </div>
           )}
 
+          {/* The Good and The Bad of AI slide - special layout */}
+          {slide.type === 'lesson' && currentSlide === 2 && (
+            <div className="space-y-6">
+              {/* Eyebrow badge */}
+              <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                <Search className="h-4 w-4" />
+                EVIDENCE BRIEFING
+              </span>
+              
+              <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+                {slide.title}
+              </h1>
+              
+              {slide.introduction && (
+                <p className="text-lg leading-relaxed text-[#52525B]">
+                  {slide.introduction}
+                </p>
+              )}
+
+              {/* Two column cards */}
+              <div className="grid md:grid-cols-2 gap-6 pt-4">
+                {/* The Good card */}
+                <div className="bg-[#F0FDF4] p-6 rounded-2xl border-2 border-[#00BCD4]">
+                  <div className="flex justify-end mb-2">
+                    <img src={robotGood} alt="Friendly robot" className="w-20 h-auto" />
+                  </div>
+                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Good</h3>
+                  <ul className="space-y-3">
+                    {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* The Bad card */}
+                <div className="bg-[#FEF2F2] p-6 rounded-2xl border-2 border-[#DC2626]">
+                  <div className="flex justify-end mb-2">
+                    <img src={robotBad} alt="Malfunctioning robot" className="w-20 h-auto" />
+                  </div>
+                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Bad</h3>
+                  <ul className="space-y-3">
+                    {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
+                          <span className="text-white text-xs font-bold">✕</span>
+                        </span>
+                        <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Regular lesson slides */}
-          {slide.type === 'lesson' && currentSlide !== 1 && (
+          {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && (
             <div className="space-y-8">
               <div className="flex items-start gap-4 pb-4 border-b-2 border-accent/30">
                 <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
@@ -215,38 +275,8 @@ export const Training = () => {
                 </div>
               )}
 
-              {/* Special layout for "The Good and Bad of AI" slide */}
-              {currentSlide === 2 && slide.content && (
-                <div className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-gradient-to-br from-green-500/10 to-green-600/5 p-8 rounded-lg border-2 border-green-500/30 hover:border-green-500/50 transition-all">
-                      <h3 className="text-3xl font-black text-green-600 dark:text-green-400 mb-4 tracking-tight">THE GOOD</h3>
-                      <ul className="space-y-3">
-                        {slide.content.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <span className="text-green-500 mt-1">✓</span>
-                            <span className="text-lg leading-relaxed">{item.trim()}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 rounded-lg border-2 border-red-500/30 hover:border-red-500/50 transition-all">
-                      <h3 className="text-3xl font-black text-red-600 dark:text-red-400 mb-4 tracking-tight">THE BAD</h3>
-                      <ul className="space-y-3">
-                        {slide.content.split('THE BAD:')[1]?.trim().split('|').map((item, index) => (
-                          <li key={index} className="flex items-start gap-3">
-                            <span className="text-red-500 mt-1">✗</span>
-                            <span className="text-lg leading-relaxed">{item.trim()}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Regular tips section for other slides */}
-              {currentSlide !== 2 && slide.tips && slide.tips.length > 0 && (
+              {/* Tips section */}
+              {slide.tips && slide.tips.length > 0 && (
                 <div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
@@ -266,8 +296,8 @@ export const Training = () => {
                 </div>
               )}
 
-              {/* Regular content section for other slides */}
-              {currentSlide !== 2 && slide.content && (
+              {/* Content section */}
+              {slide.content && (
                 <div className="bg-gradient-evidence/10 p-8 rounded-lg border-2 border-accent/30 relative overflow-hidden">
                   <div className="absolute top-2 right-2 text-xs font-black text-accent/20 tracking-widest rotate-12">EVIDENCE</div>
                   <p className="text-lg leading-relaxed relative z-10">{slide.content}</p>
