@@ -280,7 +280,7 @@ export const Training = () => {
           {slide.type === 'quiz' && slide.quiz && <div className="space-y-6">
               {/* Header section */}
               <div className="space-y-4">
-                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                <span className="inline-flex items-center gap-2 bg-[#F8EDD1] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
                   DEMONSTRATE YOUR SKILLS
                 </span>
                 <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif leading-tight">{slide.title}</h2>
