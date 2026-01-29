@@ -169,23 +169,9 @@ All colors MUST be HSL.
   }
   
   .case-file-border {
-    border: 3px solid hsl(var(--border));
-    border-left: 8px solid hsl(var(--accent));
+    border: 2px solid hsl(210 30% 85%);
+    border-radius: 20px;
     position: relative;
-    border-radius: 20px; /* More rounded */
-  }
-  
-  .case-file-border::before {
-    content: "CASE FILE";
-    position: absolute;
-    top: -12px;
-    left: 12px;
-    background: hsl(var(--background));
-    padding: 2px 12px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    color: hsl(var(--accent));
   }
   
   .evidence-stamp {
