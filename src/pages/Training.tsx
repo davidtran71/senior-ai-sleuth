@@ -151,7 +151,7 @@ export const Training = () => {
                 {/* Left column: text content */}
                 <div className="flex-1 space-y-4">
                   {/* Eyebrow badge */}
-                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
                     <Search className="h-4 w-4" />
                     EVIDENCE BRIEFING
                   </span>
@@ -186,7 +186,7 @@ export const Training = () => {
           {/* The Good and The Bad of AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 2 && <div className="space-y-6">
               {/* Eyebrow badge */}
-              <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+              <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
                 <Search className="h-4 w-4" />
                 EVIDENCE BRIEFING
               </span>
@@ -235,14 +235,12 @@ export const Training = () => {
 
           {/* Regular lesson slides */}
           {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && <div className="space-y-8">
-              <div className="flex items-start gap-4 pb-4 border-b-2 border-accent/30">
-                <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
-                  <Search className="h-10 w-10 text-accent-foreground" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-accent tracking-wider mb-1">EVIDENCE BRIEFING</p>
-                  <h2 className="text-glow-accent">{slide.title}</h2>
-                </div>
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
+                  <Search className="h-4 w-4" />
+                  EVIDENCE BRIEFING
+                </span>
+                <h2 className="text-[#0A1628] text-3xl font-bold font-serif">{slide.title}</h2>
               </div>
               
               {slide.introduction && <div className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20">
