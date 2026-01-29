@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Award, Download, Home, Shield, CheckCircle2 } from "lucide-react";
+import { Award, Download, Home, Shield } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
+import CheckIcon from "@/components/CheckIcon";
 
 export const Certificate = () => {
   const navigate = useNavigate();
@@ -50,15 +51,15 @@ export const Certificate = () => {
               </p>
               <ul className="space-y-4 text-xl">
                 <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
+                  <CheckIcon className="flex-shrink-0 mt-1" />
                   <span>Review the training anytime to refresh your investigative skills</span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
+                  <CheckIcon className="flex-shrink-0 mt-1" />
                   <span>Practice spotting AI content during your daily online activities</span>
                 </li>
                 <li className="flex items-start gap-4">
-                  <CheckCircle2 className="h-7 w-7 flex-shrink-0 mt-0.5" />
+                  <CheckIcon className="flex-shrink-0 mt-1" />
                   <span>Recruit others by sharing these critical detection techniques</span>
                 </li>
               </ul>
@@ -114,7 +115,7 @@ export const Certificate = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
               {['Text Analysis', 'Image Detection', 'Audio Forensics', 'Video Analysis'].map((skill, i) => (
                 <div key={i} className="flex flex-col items-center gap-2 p-3 bg-muted/50 rounded-lg border border-accent/20">
-                  <CheckCircle2 className="h-6 w-6 text-accent" />
+                  <CheckIcon className="mx-auto" />
                   <p className="text-xs font-bold text-center">{skill}</p>
                 </div>
               ))}
