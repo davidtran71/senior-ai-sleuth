@@ -14,37 +14,50 @@ export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [quizAnswers, setQuizAnswers] = useState<Record<number, boolean>>({});
-  const [quizState, setQuizState] = useState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
+  const [quizState, setQuizState] = useState({
+    canSubmit: false,
+    hasSubmitted: false,
+    isCorrect: false
+  });
   const quizRef = useRef<QuizQuestionRef>(null);
-
   const slide = trainingSlides[currentSlide];
   const totalSlides = trainingSlides.length;
-  const progress = ((currentSlide + 1) / totalSlides) * 100;
-
+  const progress = (currentSlide + 1) / totalSlides * 100;
   const handleNext = () => {
     if (currentSlide < totalSlides - 1) {
       setCurrentSlide(prev => prev + 1);
-      setQuizState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
+      setQuizState({
+        canSubmit: false,
+        hasSubmitted: false,
+        isCorrect: false
+      });
       window.scrollTo(0, 0);
     }
   };
-
   const handlePrevious = () => {
     if (currentSlide > 0) {
       setCurrentSlide(prev => prev - 1);
-      setQuizState({ canSubmit: false, hasSubmitted: false, isCorrect: false });
+      setQuizState({
+        canSubmit: false,
+        hasSubmitted: false,
+        isCorrect: false
+      });
       window.scrollTo(0, 0);
     }
   };
-
   const handleQuizAnswer = (correct: boolean) => {
-    setQuizAnswers(prev => ({ ...prev, [currentSlide]: correct }));
+    setQuizAnswers(prev => ({
+      ...prev,
+      [currentSlide]: correct
+    }));
   };
-
-  const handleQuizStateChange = useCallback((state: { canSubmit: boolean; hasSubmitted: boolean; isCorrect: boolean }) => {
+  const handleQuizStateChange = useCallback((state: {
+    canSubmit: boolean;
+    hasSubmitted: boolean;
+    isCorrect: boolean;
+  }) => {
     setQuizState(state);
   }, []);
-
   const handleNavButtonClick = () => {
     if (slide.type === 'quiz') {
       if (!quizState.hasSubmitted) {
@@ -59,18 +72,14 @@ export const Training = () => {
       handleNext();
     }
   };
-
   const handleComplete = () => {
     localStorage.setItem('ai-forensics-completed', 'true');
     navigate('/certificate');
   };
-
   const handleBackToDashboard = () => {
     navigate('/');
   };
-
-  return (
-    <div className="min-h-screen bg-background py-8 px-6 relative overflow-hidden">
+  return <div className="min-h-screen bg-background py-8 px-6 relative overflow-hidden">
       {/* Decorative shapes - show on all slides except intro (first slide) */}
       {currentSlide > 0 && <DecorativeShapes />}
       
@@ -83,21 +92,16 @@ export const Training = () => {
         {/* Header with Case Number */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
-            <Button 
-              variant="ghost" 
-              onClick={handleBackToDashboard}
-            >
+            <Button variant="ghost" onClick={handleBackToDashboard}>
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && currentSlide !== 13 && (
-              <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && currentSlide !== 13 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
                   {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : currentSlide === 5 || currentSlide === 6 ? 'CASE #2/4' : currentSlide === 7 || currentSlide === 8 ? 'CASE #3/4' : currentSlide === 9 || currentSlide === 10 ? 'CASE #4/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
                 </span>
-              </div>
-            )}
+              </div>}
           </div>
 
           {/* Progress Bar */}
@@ -106,25 +110,19 @@ export const Training = () => {
               <span className="text-sm text-[#52525B]">{Math.round(progress)}% Investigation Complete</span>
             </div>
             <div className="h-2 bg-[#C5C0DB] rounded-full overflow-hidden">
-              <div 
-                className="h-full bg-[#00A5FE] rounded-full transition-all duration-500"
-                style={{ width: `${progress}%` }}
-              />
+              <div className="h-full bg-[#00A5FE] rounded-full transition-all duration-500" style={{
+              width: `${progress}%`
+            }} />
             </div>
           </div>
         </div>
 
         {/* Slide Content */}
         <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
-          {slide.type === 'intro' && (
-            <div className="space-y-6 font-sans text-center">
+          {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
               {/* Seniors with Tablet Illustration - Top */}
               <div className="flex justify-center">
-                <img 
-                  src="/src/assets/seniors-tablet.png" 
-                  alt="Seniors learning on a tablet" 
-                  className="max-w-[300px] lg:max-w-[380px] h-auto"
-                />
+                <img src="/src/assets/seniors-tablet.png" alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
               </div>
               
               {/* Eyebrow badge */}
@@ -144,12 +142,10 @@ export const Training = () => {
               <p className="text-lg leading-relaxed text-[#52525B] max-w-2xl mx-auto">
                 {slide.content}
               </p>
-            </div>
-          )}
+            </div>}
 
           {/* What is AI slide - special layout */}
-          {slide.type === 'lesson' && currentSlide === 1 && (
-            <div className="space-y-8">
+          {slide.type === 'lesson' && currentSlide === 1 && <div className="space-y-8">
               {/* Top section: two columns */}
               <div className="flex flex-col md:flex-row gap-8 items-start">
                 {/* Left column: text content */}
@@ -164,43 +160,31 @@ export const Training = () => {
                     {slide.title}
                   </h1>
                   
-                  {slide.introduction && (
-                    <p className="text-lg leading-relaxed text-[#52525B]">
+                  {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
                       {slide.introduction}
-                    </p>
-                  )}
+                    </p>}
                 </div>
                 
                 {/* Right column: robot image */}
                 <div className="flex-shrink-0">
-                  <img 
-                    src={robotArtist} 
-                    alt="Friendly AI robot" 
-                    className="w-48 md:w-64 lg:w-72 h-auto"
-                  />
+                  <img src={robotArtist} alt="Friendly AI robot" className="w-48 md:w-64 lg:w-72 h-auto" />
                 </div>
               </div>
               
               {/* About AI section */}
-              {slide.tips && slide.tips.length > 0 && (
-                <div className="bg-[#F6FEFC] p-8 rounded-2xl">
+              {slide.tips && slide.tips.length > 0 && <div className="bg-[#F6FEFC] p-8 rounded-2xl">
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">About AI</h3>
                   <ul className="space-y-4">
-                    {slide.tips.map((tip, index) => (
-                      <li key={index} className="flex items-start gap-3">
+                    {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
-                </div>
-              )}
-            </div>
-          )}
+                </div>}
+            </div>}
 
           {/* The Good and The Bad of AI slide - special layout */}
-          {slide.type === 'lesson' && currentSlide === 2 && (
-            <div className="space-y-6">
+          {slide.type === 'lesson' && currentSlide === 2 && <div className="space-y-6">
               {/* Eyebrow badge */}
               <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
                 <Search className="h-4 w-4" />
@@ -211,27 +195,23 @@ export const Training = () => {
                 {slide.title}
               </h1>
               
-              {slide.introduction && (
-                <p className="text-lg leading-relaxed text-[#52525B]">
+              {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
                   {slide.introduction}
-                </p>
-              )}
+                </p>}
 
               {/* Two column cards */}
               <div className="grid md:grid-cols-2 gap-6 pt-4">
                 {/* The Good card */}
-                <div className="bg-[#F0FDF4] p-6 rounded-2xl border-2 border-[#00BCD4]">
+                <div className="bg-[#F0FDF4] p-6 rounded-2xl border-2 border-[#d1faf0]">
                   <div className="flex justify-end mb-2">
                     <img src={robotGood} alt="Friendly robot" className="w-20 h-auto" />
                   </div>
                   <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Good</h3>
                   <ul className="space-y-3">
-                    {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
+                    {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
 
@@ -242,23 +222,19 @@ export const Training = () => {
                   </div>
                   <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Bad</h3>
                   <ul className="space-y-3">
-                    {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => (
-                      <li key={index} className="flex items-start gap-3">
+                    {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
                           <span className="text-white text-xs font-bold">✕</span>
                         </span>
                         <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
                 </div>
               </div>
-            </div>
-          )}
+            </div>}
 
           {/* Regular lesson slides */}
-          {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && (
-            <div className="space-y-8">
+          {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && <div className="space-y-8">
               <div className="flex items-start gap-4 pb-4 border-b-2 border-accent/30">
                 <div className="p-3 bg-gradient-evidence rounded-lg shadow-evidence">
                   <Search className="h-10 w-10 text-accent-foreground" />
@@ -269,45 +245,35 @@ export const Training = () => {
                 </div>
               </div>
               
-              {slide.introduction && (
-                <div className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20">
+              {slide.introduction && <div className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20">
                   <p className="text-lg font-semibold">{slide.introduction}</p>
-                </div>
-              )}
+                </div>}
 
               {/* Tips section */}
-              {slide.tips && slide.tips.length > 0 && (
-                <div>
+              {slide.tips && slide.tips.length > 0 && <div>
                   <div className="flex items-center gap-3 mb-6">
                     <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
                     <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS</h3>
                     <div className="h-px flex-1 bg-gradient-to-r from-accent via-transparent to-transparent" />
                   </div>
                   <ul className="space-y-4">
-                    {slide.tips.map((tip, index) => (
-                      <li key={index} className="flex items-start gap-4 p-4 bg-gradient-case-file rounded-lg border-l-4 border-accent/50">
+                    {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-4 p-4 bg-gradient-case-file rounded-lg border-l-4 border-accent/50">
                         <div className="flex-shrink-0 mt-1">
                           <CheckCircle2 className="h-6 w-6 text-accent" />
                         </div>
                         <p className="text-lg flex-1 leading-relaxed">{tip}</p>
-                      </li>
-                    ))}
+                      </li>)}
                   </ul>
-                </div>
-              )}
+                </div>}
 
               {/* Content section */}
-              {slide.content && (
-                <div className="bg-gradient-evidence/10 p-8 rounded-lg border-2 border-accent/30 relative overflow-hidden">
+              {slide.content && <div className="bg-gradient-evidence/10 p-8 rounded-lg border-2 border-accent/30 relative overflow-hidden">
                   <div className="absolute top-2 right-2 text-xs font-black text-accent/20 tracking-widest rotate-12">EVIDENCE</div>
                   <p className="text-lg leading-relaxed relative z-10">{slide.content}</p>
-                </div>
-              )}
-            </div>
-          )}
+                </div>}
+            </div>}
 
-          {slide.type === 'quiz' && slide.quiz && (
-            <div className="space-y-8">
+          {slide.type === 'quiz' && slide.quiz && <div className="space-y-8">
               <div className="text-center space-y-4">
                 <div className="inline-block p-4 bg-gradient-badge rounded-full shadow-badge">
                   <AlertTriangle className="h-12 w-12 text-secondary-foreground" />
@@ -316,62 +282,37 @@ export const Training = () => {
                 <p className="text-accent font-semibold tracking-wider">DEMONSTRATE YOUR SKILLS</p>
               </div>
               
-              {slide.quiz.image && (
-                <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
+              {slide.quiz.image && <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
                   <div className="relative">
                     <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE PHOTO</div>
-                    <img 
-                      src={slide.quiz.image} 
-                      alt="Evidence for analysis" 
-                      className="w-full rounded-lg shadow-dramatic"
-                    />
+                    <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full rounded-lg shadow-dramatic" />
                   </div>
-                </div>
-              )}
+                </div>}
 
-              {slide.quiz.audio && (
-                <div className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30">
+              {slide.quiz.audio && <div className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30">
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <div className="bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE AUDIO</div>
                     </div>
-                    <audio 
-                      controls 
-                      className="w-full"
-                      src={slide.quiz.audio}
-                    >
+                    <audio controls className="w-full" src={slide.quiz.audio}>
                       Your browser does not support the audio element.
                     </audio>
                   </div>
-                </div>
-              )}
+                </div>}
 
-              {slide.quiz.video && (
-                <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
+              {slide.quiz.video && <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
                   <div className="relative">
                     <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider z-10">EVIDENCE VIDEO</div>
-                    <video 
-                      controls 
-                      className="w-full rounded-lg shadow-dramatic"
-                      src={slide.quiz.video}
-                    >
+                    <video controls className="w-full rounded-lg shadow-dramatic" src={slide.quiz.video}>
                       Your browser does not support the video element.
                     </video>
                   </div>
-                </div>
-              )}
+                </div>}
               
-              <QuizQuestion
-                ref={quizRef}
-                {...slide.quiz}
-                onAnswer={handleQuizAnswer}
-                onStateChange={handleQuizStateChange}
-              />
-            </div>
-          )}
+              <QuizQuestion ref={quizRef} {...slide.quiz} onAnswer={handleQuizAnswer} onStateChange={handleQuizStateChange} />
+            </div>}
 
-          {slide.type === 'tools' && (
-            <div className="space-y-8">
+          {slide.type === 'tools' && <div className="space-y-8">
               <div className="flex items-center gap-4 pb-4 border-b-2 border-accent/30">
                 <div className="p-3 bg-gradient-detective text-primary-foreground rounded-lg shadow-dramatic">
                   <Search className="h-10 w-10" />
@@ -383,27 +324,21 @@ export const Training = () => {
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {slide.tools && slide.tools.map((tool, index) => (
-                  <div key={index} className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20 hover:border-accent/40 transition-all space-y-4">
+                {slide.tools && slide.tools.map((tool, index) => <div key={index} className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20 hover:border-accent/40 transition-all space-y-4">
                     <h3 className="text-xl font-bold text-accent border-b border-accent/30 pb-3">{tool.category}</h3>
                     <ul className="space-y-3">
-                      {tool.examples.map((example, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
+                      {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
                           <div className="flex-shrink-0 w-6 h-6 bg-gradient-evidence rounded-full flex items-center justify-center shadow-evidence mt-0.5">
                             <CheckCircle2 className="h-4 w-4 text-accent-foreground" />
                           </div>
                           <span className="text-base leading-relaxed">{example}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
-                  </div>
-                ))}
+                  </div>)}
               </div>
-            </div>
-          )}
+            </div>}
 
-          {slide.type === 'debrief' && (
-            <div className="space-y-8">
+          {slide.type === 'debrief' && <div className="space-y-8">
               <div className="text-center space-y-6 mb-8">
                 <div className="inline-block p-6 bg-gradient-badge rounded-full shadow-badge badge-shine animate-scale-in">
                   <Award className="h-20 w-20 text-secondary-foreground" />
@@ -412,83 +347,52 @@ export const Training = () => {
                 <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
               </div>
 
-              {slide.tips && slide.tips.length > 0 && (
-                <div className="space-y-4 mb-8">
+              {slide.tips && slide.tips.length > 0 && <div className="space-y-4 mb-8">
                   <div className="text-center mb-6">
                     <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS RECAP</h3>
                     <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
                   </div>
-                  {slide.tips.map((tip, index) => (
-                    <div key={index} className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all">
+                  {slide.tips.map((tip, index) => <div key={index} className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all">
                       <p className="text-base leading-relaxed">{tip}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    </div>)}
+                </div>}
 
-              {slide.finalTips && (
-                <div className="space-y-4">
+              {slide.finalTips && <div className="space-y-4">
                   <div className="text-center mb-6">
                     <h3 className="text-accent font-bold tracking-wider">FINAL PROTOCOLS</h3>
                     <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
                   </div>
-                  {slide.finalTips.map((tip, index) => (
-                    <div key={index} className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all hover:shadow-evidence">
+                  {slide.finalTips.map((tip, index) => <div key={index} className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all hover:shadow-evidence">
                       <div className="flex items-start gap-4">
                         <div className="flex-shrink-0 w-10 h-10 bg-gradient-badge rounded-full flex items-center justify-center font-black text-secondary-foreground shadow-badge">
                           {index + 1}
                         </div>
                         <p className="text-lg font-semibold leading-relaxed">{tip}</p>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
+                    </div>)}
+                </div>}
 
-              {currentSlide === totalSlides - 1 && (
-                <div className="flex justify-center pt-6">
-                  <Button
-                    size="lg"
-                    onClick={handleComplete}
-                    className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine"
-                  >
+              {currentSlide === totalSlides - 1 && <div className="flex justify-center pt-6">
+                  <Button size="lg" onClick={handleComplete} className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine">
                     Claim Your Badge
                     <Award className="h-5 w-5" />
                   </Button>
-                </div>
-              )}
-            </div>
-          )}
+                </div>}
+            </div>}
 
           {/* Navigation - Inside Card */}
           <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
-            <Button
-              variant="outline"
-              onClick={handlePrevious}
-              disabled={currentSlide === 0}
-              size="lg"
-              className="hover:shadow-card transition-shadow"
-            >
+            <Button variant="outline" onClick={handlePrevious} disabled={currentSlide === 0} size="lg" className="hover:shadow-card transition-shadow">
               <ArrowLeft className="mr-2 h-5 w-5" />
               {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
             </Button>
 
-            {currentSlide !== totalSlides - 1 && (
-              <Button
-                size="lg"
-                onClick={handleNavButtonClick}
-                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted}
-                className="hover:shadow-dramatic transition-all"
-              >
-                {slide.type === 'quiz' 
-                  ? (quizState.hasSubmitted ? (quizState.isCorrect ? 'Next Case' : 'Try Again') : 'Submit Answer')
-                  : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
+            {currentSlide !== totalSlides - 1 && <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
+                {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            )}
+              </Button>}
           </div>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 };
