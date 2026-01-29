@@ -12,6 +12,7 @@ import robotArtist from "@/assets/robot-artist.png";
 import robotGood from "@/assets/robot-good.png";
 import robotBad from "@/assets/robot-bad.png";
 import personGlasses from "@/assets/person-glasses.png";
+import browserIllustration from "@/assets/browser-illustration.png";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -251,7 +252,11 @@ export const Training = () => {
                 
                 {/* Right column: illustration */}
                 <div className="flex-shrink-0">
-                  <img src={personGlasses} alt="Person illustration" className="w-40 md:w-52 lg:w-60 h-auto" />
+                  <img 
+                    src={currentSlide === 3 ? browserIllustration : personGlasses} 
+                    alt="Lesson illustration" 
+                    className="w-40 md:w-52 lg:w-60 h-auto" 
+                  />
                 </div>
               </div>
 
