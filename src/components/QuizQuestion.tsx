@@ -130,80 +130,67 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   };
 
   return (
-    <Card className="p-8 shadow-card">
-      <div className="space-y-6">
-        <div className="flex items-start gap-3">
-          <AlertCircle className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
-          <h3 className="text-2xl font-semibold">{question}</h3>
-        </div>
-
-        {isMultipleChoice && (
-          <p className="text-sm text-muted-foreground font-semibold">
-            Select all that apply ({(correctAnswer as number[]).length} correct answers)
-          </p>
-        )}
-
-        <div className="space-y-3">
-          {options.map((option, index) => {
-            const isSelected = isMultipleChoice ? selectedAnswers.includes(index) : selectedAnswer === index;
-            const isCorrectOption = checkIfCorrect(index);
-            const optionText = getOptionText(option);
-            
-            return (
-              <button
-                key={index}
-                onClick={() => isMultipleChoice ? handleMultipleSelect(index) : handleSingleSelect(index)}
-                disabled={showResult}
-                className={`w-full p-4 text-left rounded-lg border-2 transition-all text-lg ${
-                  isSelected
-                    ? showResult
-                      ? isCorrectOption
-                        ? 'border-accent bg-accent/10'
-                        : 'border-destructive bg-destructive/10'
-                      : 'border-primary bg-primary/5'
-                    : 'border-border hover:border-primary/50'
-                } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-              >
-                <div className="flex items-center justify-between">
-                  <span>{optionText}</span>
-                  {showResult && isSelected && (
-                    isCorrectOption ? (
-                      <CheckCircle2 className="h-6 w-6 text-accent" />
-                    ) : (
-                      <XCircle className="h-6 w-6 text-destructive" />
-                    )
-                  )}
-                </div>
-              </button>
-            );
-          })}
-        </div>
-
-        {showResult && (
-          <div className={`p-4 rounded-lg ${
-            isAnswerCorrect() 
-              ? 'bg-accent/10 border-2 border-accent' 
-              : 'bg-destructive/10 border-2 border-destructive'
-          }`}>
-            <p className="font-medium mb-2">
-              {isAnswerCorrect() ? '✓ Correct!' : '✗ Not quite right — here\'s why:'}
-            </p>
-            {isAnswerCorrect() ? (
-              <p className="text-base">{explanation}</p>
-            ) : (
-              <div className="space-y-2">
-                {getIncorrectFeedback().map((feedback, index) => (
-                  <p key={index} className="text-base">• {feedback}</p>
-                ))}
-                {getIncorrectFeedback().length === 0 && (
-                  <p className="text-base">Look more carefully at the content and try again.</p>
+    <div className="space-y-4">
+      <div className="space-y-3">
+        {options.map((option, index) => {
+          const isSelected = isMultipleChoice ? selectedAnswers.includes(index) : selectedAnswer === index;
+          const isCorrectOption = checkIfCorrect(index);
+          const optionText = getOptionText(option);
+          
+          return (
+            <button
+              key={index}
+              onClick={() => isMultipleChoice ? handleMultipleSelect(index) : handleSingleSelect(index)}
+              disabled={showResult}
+              className={`w-full p-4 text-left rounded-full border-2 transition-all text-base ${
+                isSelected
+                  ? showResult
+                    ? isCorrectOption
+                      ? 'border-[#00A5FE] bg-[#E6FAFF]'
+                      : 'border-destructive bg-destructive/10'
+                    : 'border-[#00A5FE] bg-[#E6FAFF]'
+                  : 'border-[#E5E7EB] hover:border-[#00A5FE]/50 bg-white'
+              } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[#0A1628]">{optionText}</span>
+                {showResult && isSelected && (
+                  isCorrectOption ? (
+                    <CheckCircle2 className="h-5 w-5 text-[#00A5FE]" />
+                  ) : (
+                    <XCircle className="h-5 w-5 text-destructive" />
+                  )
                 )}
               </div>
-            )}
-          </div>
-        )}
+            </button>
+          );
+        })}
       </div>
-    </Card>
+
+      {showResult && (
+        <div className={`p-4 rounded-lg ${
+          isAnswerCorrect() 
+            ? 'bg-[#E6FAFF] border-2 border-[#00A5FE]' 
+            : 'bg-destructive/10 border-2 border-destructive'
+        }`}>
+          <p className="font-medium mb-2 text-[#0A1628]">
+            {isAnswerCorrect() ? '✓ Correct!' : '✗ Not quite right — here\'s why:'}
+          </p>
+          {isAnswerCorrect() ? (
+            <p className="text-base text-[#52525B]">{explanation}</p>
+          ) : (
+            <div className="space-y-2">
+              {getIncorrectFeedback().map((feedback, index) => (
+                <p key={index} className="text-base text-[#52525B]">• {feedback}</p>
+              ))}
+              {getIncorrectFeedback().length === 0 && (
+                <p className="text-base text-[#52525B]">Look more carefully at the content and try again.</p>
+              )}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 });
 

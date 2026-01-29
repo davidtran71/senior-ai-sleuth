@@ -277,43 +277,49 @@ export const Training = () => {
                 </div>}
             </div>}
 
-          {slide.type === 'quiz' && slide.quiz && <div className="space-y-8">
-              <div className="text-center space-y-4">
-                <div className="inline-block p-4 bg-gradient-badge rounded-full shadow-badge">
-                  <AlertTriangle className="h-12 w-12 text-secondary-foreground" />
-                </div>
-                <h2 className="text-glow-badge">{slide.title}</h2>
-                <p className="text-accent font-semibold tracking-wider">DEMONSTRATE YOUR SKILLS</p>
+          {slide.type === 'quiz' && slide.quiz && <div className="space-y-6">
+              {/* Header section */}
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                  DEMONSTRATE YOUR SKILLS
+                </span>
+                <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif leading-tight">{slide.title}</h2>
               </div>
               
-              {slide.quiz.image && <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
-                  <div className="relative">
-                    <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE PHOTO</div>
-                    <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full rounded-lg shadow-dramatic" />
-                  </div>
-                </div>}
+              {/* Quiz card */}
+              <div className="bg-white p-8 rounded-2xl shadow-sm">
+                {/* Question */}
+                <div className="mb-6">
+                  <p className="text-base">
+                    <span className="text-[#00A5FE] font-semibold">Question: </span>
+                    <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
+                  </p>
+                  {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
+                    <p className="text-sm text-[#52525B] mt-2">
+                      Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
+                    </p>
+                  )}
+                </div>
 
-              {slide.quiz.audio && <div className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2">
-                      <div className="bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider">EVIDENCE AUDIO</div>
-                    </div>
+                {/* Media content */}
+                {slide.quiz.image && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB]">
+                    <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full" />
+                  </div>}
+
+                {slide.quiz.audio && <div className="mb-6 bg-[#F9FAFB] p-4 rounded-xl border border-[#E5E7EB]">
                     <audio controls className="w-full" src={slide.quiz.audio}>
                       Your browser does not support the audio element.
                     </audio>
-                  </div>
-                </div>}
+                  </div>}
 
-              {slide.quiz.video && <div className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30">
-                  <div className="relative">
-                    <div className="absolute top-2 right-2 bg-accent/90 text-accent-foreground px-3 py-1 rounded text-xs font-bold tracking-wider z-10">EVIDENCE VIDEO</div>
-                    <video controls className="w-full rounded-lg shadow-dramatic" src={slide.quiz.video}>
+                {slide.quiz.video && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB]">
+                    <video controls className="w-full" src={slide.quiz.video}>
                       Your browser does not support the video element.
                     </video>
-                  </div>
-                </div>}
-              
-              <QuizQuestion ref={quizRef} {...slide.quiz} onAnswer={handleQuizAnswer} onStateChange={handleQuizStateChange} />
+                  </div>}
+                
+                <QuizQuestion ref={quizRef} {...slide.quiz} onAnswer={handleQuizAnswer} onStateChange={handleQuizStateChange} />
+              </div>
             </div>}
 
           {slide.type === 'tools' && <div className="space-y-8">
