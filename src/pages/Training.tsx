@@ -3,10 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
-import { ArrowLeft, ArrowRight, Award, CheckCircle2, FileText, AlertTriangle, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, Award, FileText, AlertTriangle, Search } from "lucide-react";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
+import CheckIcon from "@/components/CheckIcon";
 import robotArtist from "@/assets/robot-artist.png";
 import robotGood from "@/assets/robot-good.png";
 import robotBad from "@/assets/robot-bad.png";
@@ -177,7 +178,7 @@ export const Training = () => {
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">About AI</h3>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <CheckIcon className="flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
                       </li>)}
                   </ul>
@@ -210,7 +211,7 @@ export const Training = () => {
                   <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Good</h3>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <CheckIcon className="flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
                   </ul>
@@ -259,7 +260,7 @@ export const Training = () => {
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs</h3>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <CheckIcon className="flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
                       </li>)}
                   </ul>
@@ -326,9 +327,7 @@ export const Training = () => {
                     <h3 className="text-xl font-bold text-accent border-b border-accent/30 pb-3">{tool.category}</h3>
                     <ul className="space-y-3">
                       {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
-                          <div className="flex-shrink-0 w-6 h-6 bg-gradient-evidence rounded-full flex items-center justify-center shadow-evidence mt-0.5">
-                            <CheckCircle2 className="h-4 w-4 text-accent-foreground" />
-                          </div>
+                          <CheckIcon className="flex-shrink-0 mt-0.5" />
                           <span className="text-base leading-relaxed">{example}</span>
                         </li>)}
                     </ul>
