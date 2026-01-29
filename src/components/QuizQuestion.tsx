@@ -142,14 +142,14 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
               key={index}
               onClick={() => isMultipleChoice ? handleMultipleSelect(index) : handleSingleSelect(index)}
               disabled={showResult}
-              className={`w-full p-4 text-left rounded-full border-2 transition-all text-base ${
+              className={`w-full p-4 text-left rounded-full border transition-all text-base ${
                 isSelected
                   ? showResult
                     ? isCorrectOption
-                      ? 'border-[#00A5FE] bg-[#E6FAFF]'
-                      : 'border-destructive bg-destructive/10'
-                    : 'border-[#00A5FE] bg-[#E6FAFF]'
-                  : 'border-[#E5E7EB] hover:border-[#00A5FE]/50 bg-white'
+                      ? 'border-2 border-[#00A5FE] bg-[#E6FAFF]'
+                      : 'border-2 border-destructive bg-destructive/10'
+                    : 'border-2 border-[#00A5FE] bg-[#E6FAFF]'
+                  : 'border border-[#D1D5DB] hover:border-[#00A5FE]/50 bg-white'
               } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
             >
               <div className="flex items-center justify-between">
