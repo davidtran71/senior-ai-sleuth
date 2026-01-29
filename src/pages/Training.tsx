@@ -255,7 +255,7 @@ export const Training = () => {
               </div>
 
               {/* Key Detection Signs card */}
-              {slide.tips && slide.tips.length > 0 && <div className="bg-[#F0F9FF] p-8 rounded-2xl">
+              {slide.tips && slide.tips.length > 0 && <div className="bg-[#E6FAFF] p-8 rounded-2xl">
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs</h3>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
