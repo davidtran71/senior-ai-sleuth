@@ -169,7 +169,7 @@ All colors MUST be HSL.
   }
   
   .case-file-border {
-    border: 2px solid hsl(210 30% 85%);
+    border: 2px solid #00A5FE;
     border-radius: 20px;
     position: relative;
   }
