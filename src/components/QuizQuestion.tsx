@@ -142,7 +142,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
               key={index}
               onClick={() => isMultipleChoice ? handleMultipleSelect(index) : handleSingleSelect(index)}
               disabled={showResult}
-              className={`w-full p-4 text-left rounded-[2px] border transition-all text-base ${
+              className={`w-full p-4 text-left rounded-[12px] border transition-all text-base ${
                 isSelected
                   ? showResult
                     ? isCorrectOption
