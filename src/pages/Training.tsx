@@ -10,6 +10,7 @@ import { DecorativeShapes } from "@/components/DecorativeShapes";
 import robotArtist from "@/assets/robot-artist.png";
 import robotGood from "@/assets/robot-good.png";
 import robotBad from "@/assets/robot-bad.png";
+import personGlasses from "@/assets/person-glasses.png";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -235,39 +236,38 @@ export const Training = () => {
 
           {/* Regular lesson slides */}
           {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && <div className="space-y-8">
-              <div className="space-y-4">
-                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
-                  <Search className="h-4 w-4" />
-                  EVIDENCE BRIEFING
-                </span>
-                <h2 className="text-[#0A1628] text-3xl font-bold font-serif">{slide.title}</h2>
+              {/* Header section with two columns */}
+              <div className="flex flex-col md:flex-row gap-6 items-start">
+                {/* Left column: text content */}
+                <div className="flex-1 space-y-4">
+                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                    <Search className="h-4 w-4" />
+                    EVIDENCE BRIEFING
+                  </span>
+                  <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif leading-tight">{slide.title}</h2>
+                  {slide.introduction && <p className="text-[#52525B] text-lg leading-relaxed">{slide.introduction}</p>}
+                </div>
+                
+                {/* Right column: illustration */}
+                <div className="flex-shrink-0">
+                  <img src={personGlasses} alt="Person illustration" className="w-40 md:w-52 lg:w-60 h-auto" />
+                </div>
               </div>
-              
-              {slide.introduction && <div className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20">
-                  <p className="text-lg font-semibold">{slide.introduction}</p>
-                </div>}
 
-              {/* Tips section */}
-              {slide.tips && slide.tips.length > 0 && <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-accent to-transparent" />
-                    <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS</h3>
-                    <div className="h-px flex-1 bg-gradient-to-r from-accent via-transparent to-transparent" />
-                  </div>
+              {/* Key Detection Signs card */}
+              {slide.tips && slide.tips.length > 0 && <div className="bg-[#F0F9FF] p-8 rounded-2xl">
+                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs</h3>
                   <ul className="space-y-4">
-                    {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-4 p-4 bg-gradient-case-file rounded-lg border-l-4 border-accent/50">
-                        <div className="flex-shrink-0 mt-1">
-                          <CheckCircle2 className="h-6 w-6 text-accent" />
-                        </div>
-                        <p className="text-lg flex-1 leading-relaxed">{tip}</p>
+                    {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
+                        <CheckCircle2 className="h-5 w-5 text-[#00BCD4] flex-shrink-0 mt-0.5" />
+                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
                       </li>)}
                   </ul>
                 </div>}
 
               {/* Content section */}
-              {slide.content && <div className="bg-gradient-evidence/10 p-8 rounded-lg border-2 border-accent/30 relative overflow-hidden">
-                  <div className="absolute top-2 right-2 text-xs font-black text-accent/20 tracking-widest rotate-12">EVIDENCE</div>
-                  <p className="text-lg leading-relaxed relative z-10">{slide.content}</p>
+              {slide.content && <div className="bg-[#F0F9FF] p-8 rounded-2xl">
+                  <p className="text-[#52525B] text-lg leading-relaxed">{slide.content}</p>
                 </div>}
             </div>}
 
