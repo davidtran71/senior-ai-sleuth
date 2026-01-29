@@ -151,7 +151,7 @@ export const Training = () => {
                 {/* Left column: text content */}
                 <div className="flex-1 space-y-4">
                   {/* Eyebrow badge */}
-                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
+                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
                     <Search className="h-4 w-4" />
                     EVIDENCE BRIEFING
                   </span>
@@ -186,7 +186,7 @@ export const Training = () => {
           {/* The Good and The Bad of AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 2 && <div className="space-y-6">
               {/* Eyebrow badge */}
-              <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
+              <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
                 <Search className="h-4 w-4" />
                 EVIDENCE BRIEFING
               </span>
@@ -236,7 +236,7 @@ export const Training = () => {
           {/* Regular lesson slides */}
           {slide.type === 'lesson' && currentSlide !== 1 && currentSlide !== 2 && <div className="space-y-8">
               <div className="space-y-4">
-                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded-lg">
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
                   <Search className="h-4 w-4" />
                   EVIDENCE BRIEFING
                 </span>
