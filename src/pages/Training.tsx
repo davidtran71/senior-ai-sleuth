@@ -287,7 +287,7 @@ export const Training = () => {
               </div>
               
               {/* Quiz card */}
-              <div className="bg-[#E6FAFF] p-8 rounded-2xl shadow-sm">
+              <div className="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm">
                 {/* Question */}
                 <div className="mb-6">
                   <p className="text-base">
