@@ -110,7 +110,7 @@ All colors MUST be HSL.
     @apply font-bold;
     font-size: 4rem; /* 64px */
     font-family: 'Crimson Pro', serif;
-    line-height: 1.2;
+    line-height: 1.0;
     margin-bottom: 1rem;
   }
 
