@@ -53,7 +53,7 @@ const Index = () => {
               <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4 inline-block">
                 AI FORENSICS TASKFORCE
               </span>
-              <h1 className="text-[#0A1628] text-4xl lg:text-5xl font-bold leading-tight mb-4 font-serif">
+              <h1 className="text-[#0A1628] mb-4">
                 AI Training Tool<br />for Seniors
               </h1>
               <p className="text-[#4A5568] text-base lg:text-lg mb-6 max-w-md">
