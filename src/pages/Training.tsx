@@ -286,6 +286,14 @@ export const Training = () => {
                 </span>
                 <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
               </div>
+
+              {/* Audio player - separate container above quiz */}
+              {slide.quiz.audio && <div className="bg-[#FFFFFF] p-6 rounded-2xl shadow-sm">
+                  <p className="text-[#0A1628] font-semibold mb-3">Evidence Audio</p>
+                  <audio controls className="w-full" src={slide.quiz.audio}>
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>}
               
               {/* Quiz card */}
               <div className="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm">
@@ -302,7 +310,7 @@ export const Training = () => {
                   )}
                 </div>
 
-                {/* Media content */}
+                {/* Image media content */}
                 {slide.quiz.image && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB] relative">
                     <span className="absolute top-3 left-3 bg-[#B5D2FF] text-[#0A1628] text-sm font-semibold px-3 py-1.5 rounded z-10">
                       Evidence Image
@@ -310,12 +318,7 @@ export const Training = () => {
                     <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full" />
                   </div>}
 
-                {slide.quiz.audio && <div className="mb-6 bg-[#F9FAFB] p-4 rounded-xl border border-[#E5E7EB]">
-                    <audio controls className="w-full" src={slide.quiz.audio}>
-                      Your browser does not support the audio element.
-                    </audio>
-                  </div>}
-
+                {/* Video media content */}
                 {slide.quiz.video && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB]">
                     <video controls className="w-full" src={slide.quiz.video}>
                       Your browser does not support the video element.
