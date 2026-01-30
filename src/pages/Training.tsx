@@ -138,9 +138,9 @@ export const Training = () => {
               </div>
               
               {/* Title */}
-              <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+              <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
                 {slide.title}
-              </h1>
+              </h2>
               
               {/* Body text */}
               <p className="text-lg leading-relaxed text-[#52525B] max-w-2xl mx-auto">
@@ -160,9 +160,9 @@ export const Training = () => {
                     EVIDENCE BRIEFING
                   </span>
                   
-                  <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+                  <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
                     {slide.title}
-                  </h1>
+                  </h2>
                   
                   {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
                       {slide.introduction}
@@ -195,9 +195,9 @@ export const Training = () => {
                 EVIDENCE BRIEFING
               </span>
               
-              <h1 className="text-[#0A1628] text-3xl lg:text-4xl font-bold leading-tight font-serif">
+              <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
                 {slide.title}
-              </h1>
+              </h2>
               
               {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
                   {slide.introduction}
