@@ -146,7 +146,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
                 isSelected
                   ? showResult
                     ? isCorrectOption
-                      ? 'border-2 border-[#00A5FE] bg-[#E6FAFF]'
+                      ? 'border-2 border-[#439F6E] bg-[#439F6E1A]'
                       : 'border-2 border-destructive bg-destructive/10'
                     : 'border-2 border-[#00A5FE] bg-[#E6FAFF]'
                   : 'border border-[#D1D5DB] hover:border-[#00A5FE]/50 bg-white'
@@ -170,7 +170,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
       {showResult && (
         <div className={`p-4 rounded-lg ${
           isAnswerCorrect() 
-            ? 'bg-[#E6FAFF] border-2 border-[#00A5FE]' 
+            ? 'bg-[#439F6E1A] border-2 border-[#439F6E]' 
             : 'bg-destructive/10 border-2 border-destructive'
         }`}>
           <p className="font-medium mb-2 text-[#0A1628]">
