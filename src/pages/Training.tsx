@@ -335,26 +335,43 @@ export const Training = () => {
             </div>}
 
           {slide.type === 'tools' && <div className="space-y-8">
-              <div className="flex items-center gap-4 pb-4 border-b-2 border-accent/30">
-                <div className="p-3 bg-gradient-detective text-primary-foreground rounded-lg shadow-dramatic">
-                  <Search className="h-10 w-10" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-accent tracking-wider mb-1">DETECTION TOOLKIT</p>
-                  <h2 className="text-glow-accent">{slide.title}</h2>
-                </div>
+              {/* Header section */}
+              <div className="space-y-4">
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                  <Search className="h-4 w-4" />
+                  DETECTION TOOLKIT
+                </span>
+                <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6">
-                {slide.tools && slide.tools.map((tool, index) => <div key={index} className="bg-gradient-case-file p-6 rounded-lg border-2 border-accent/20 hover:border-accent/40 transition-all space-y-4">
-                    <h3 className="text-xl font-bold text-accent border-b border-accent/30 pb-3">{tool.category}</h3>
-                    <ul className="space-y-3">
-                      {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
-                          <CheckIcon className="flex-shrink-0 mt-0.5" />
-                          <span className="text-base leading-relaxed">{example}</span>
-                        </li>)}
-                    </ul>
-                  </div>)}
+                {slide.tools && slide.tools.map((tool, index) => {
+                  // Define background colors for each category
+                  const bgColors: Record<string, string> = {
+                    'For Text': '#E9FCF7',
+                    'For Images': '#CCEDFF',
+                    'For Audio': '#FBF6E8',
+                    'For Videos': '#DAE9FF'
+                  };
+                  const bgColor = bgColors[tool.category] || '#F6FEFC';
+                  const hasLeftBorder = tool.category === 'For Text';
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className={`p-6 rounded-2xl space-y-4 ${hasLeftBorder ? 'border-l-4 border-dashed border-[#00A5FE]' : ''}`}
+                      style={{ backgroundColor: bgColor }}
+                    >
+                      <h3 className="text-[#0A1628] text-xl font-bold font-serif">{tool.category}</h3>
+                      <ul className="space-y-4">
+                        {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
+                            <CheckIcon className="flex-shrink-0 mt-0.5" />
+                            <span className="text-[#52525B] text-base leading-relaxed">{example}</span>
+                          </li>)}
+                      </ul>
+                    </div>
+                  );
+                })}
               </div>
             </div>}
 
