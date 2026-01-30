@@ -254,7 +254,7 @@ export const Training = () => {
                 {/* Right column: illustration */}
                 <div className="flex-shrink-0">
                   <img 
-                    src={currentSlide === 3 ? browserIllustration : currentSlide === 5 ? audioPlayerIllustration : personGlasses} 
+                    src={currentSlide === 3 ? browserIllustration : currentSlide === 7 ? audioPlayerIllustration : personGlasses} 
                     alt="Lesson illustration" 
                     className="w-40 md:w-52 lg:w-60 h-auto" 
                   />
