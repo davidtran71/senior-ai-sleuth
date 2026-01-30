@@ -40,8 +40,16 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [selectedAnswers, setSelectedAnswers] = useState<number[]>([]);
   const [showResult, setShowResult] = useState(false);
+  // Track which answers have been confirmed correct (locked in)
+  const [lockedCorrectAnswers, setLockedCorrectAnswers] = useState<number[]>([]);
 
-  const canSubmit = isMultipleChoice ? selectedAnswers.length > 0 : selectedAnswer !== null;
+  // For multi-select: user can submit if they have new selections beyond locked ones
+  const hasNewSelections = isMultipleChoice 
+    ? selectedAnswers.some(ans => !lockedCorrectAnswers.includes(ans))
+    : selectedAnswer !== null;
+  const canSubmit = isMultipleChoice 
+    ? (selectedAnswers.length > 0 && hasNewSelections) 
+    : selectedAnswer !== null;
 
   const checkIsCorrect = (): boolean => {
     if (isMultipleChoice) {
@@ -62,7 +70,10 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   };
 
   const handleMultipleSelect = (index: number) => {
+    // Don't allow toggling locked correct answers
+    if (lockedCorrectAnswers.includes(index)) return;
     if (showResult) return;
+    
     setSelectedAnswers(prev => 
       prev.includes(index) 
         ? prev.filter(i => i !== index)
@@ -74,6 +85,14 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
     if (isMultipleChoice) {
       if (selectedAnswers.length === 0) return;
       setShowResult(true);
+      
+      // Lock in the correct selections
+      const correctAnswers = correctAnswer as number[];
+      const newlyCorrect = selectedAnswers.filter(ans => correctAnswers.includes(ans));
+      setLockedCorrectAnswers(prev => {
+        const combined = [...prev, ...newlyCorrect];
+        return [...new Set(combined)]; // Remove duplicates
+      });
     } else {
       if (selectedAnswer === null) return;
       setShowResult(true);
@@ -85,12 +104,20 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
     onAnswer(isCorrect);
     setSelectedAnswer(null);
     setSelectedAnswers([]);
+    setLockedCorrectAnswers([]);
     setShowResult(false);
   };
 
   const handleTryAgain = () => {
-    setSelectedAnswer(null);
-    setSelectedAnswers([]);
+    // Keep locked correct answers selected, only clear incorrect ones
+    if (isMultipleChoice) {
+      const correctAnswers = correctAnswer as number[];
+      // Keep only the selections that were correct
+      const correctSelections = selectedAnswers.filter(ans => correctAnswers.includes(ans));
+      setSelectedAnswers(correctSelections);
+    } else {
+      setSelectedAnswer(null);
+    }
     setShowResult(false);
   };
 
@@ -129,34 +156,72 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
     return feedback;
   };
 
+  // Count how many correct answers the user has locked in
+  const correctAnswersArray = isMultipleChoice ? (correctAnswer as number[]) : [];
+  const totalCorrectNeeded = correctAnswersArray.length;
+  const correctFoundCount = lockedCorrectAnswers.length;
+
   return (
     <div className="space-y-4">
+      {/* Progress indicator for multi-select */}
+      {isMultipleChoice && lockedCorrectAnswers.length > 0 && !isAnswerCorrect() && (
+        <div className="bg-[#E6FAFF] border border-[#00A5FE]/30 rounded-lg p-3">
+          <p className="text-sm text-[#0A1628]">
+            <span className="font-semibold text-[#439F6E]">{correctFoundCount}</span> of{' '}
+            <span className="font-semibold">{totalCorrectNeeded}</span> correct answers found. 
+            Keep going!
+          </p>
+        </div>
+      )}
+
       <div className="space-y-3">
         {options.map((option, index) => {
           const isSelected = isMultipleChoice ? selectedAnswers.includes(index) : selectedAnswer === index;
           const isCorrectOption = checkIfCorrect(index);
+          const isLocked = lockedCorrectAnswers.includes(index);
           const optionText = getOptionText(option);
+          
+          // Determine the styling
+          let buttonClasses = 'w-full p-4 text-left rounded-[12px] border transition-all text-base ';
+          
+          if (isLocked) {
+            // Locked correct answer - always show green, not clickable
+            buttonClasses += 'border-2 border-[#439F6E] bg-[#439F6E1A] cursor-default';
+          } else if (isSelected) {
+            if (showResult) {
+              if (isCorrectOption) {
+                buttonClasses += 'border-2 border-[#439F6E] bg-[#439F6E1A] cursor-not-allowed';
+              } else {
+                buttonClasses += 'border-2 border-destructive bg-destructive/10 cursor-not-allowed';
+              }
+            } else {
+              buttonClasses += 'border-2 border-[#00A5FE] bg-[#E6FAFF] cursor-pointer';
+            }
+          } else {
+            if (showResult) {
+              buttonClasses += 'border border-[#D1D5DB] bg-white cursor-not-allowed';
+            } else {
+              buttonClasses += 'border border-[#D1D5DB] hover:border-[#00A5FE]/50 bg-white cursor-pointer';
+            }
+          }
           
           return (
             <button
               key={index}
               onClick={() => isMultipleChoice ? handleMultipleSelect(index) : handleSingleSelect(index)}
-              disabled={showResult}
-              className={`w-full p-4 text-left rounded-[12px] border transition-all text-base ${
-                isSelected
-                  ? showResult
-                    ? isCorrectOption
-                      ? 'border-2 border-[#439F6E] bg-[#439F6E1A]'
-                      : 'border-2 border-destructive bg-destructive/10'
-                    : 'border-2 border-[#00A5FE] bg-[#E6FAFF]'
-                  : 'border border-[#D1D5DB] hover:border-[#00A5FE]/50 bg-white'
-              } ${showResult ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+              disabled={showResult || isLocked}
+              className={buttonClasses}
             >
               <div className="flex items-center justify-between">
                 <span className="text-[#0A1628]">{optionText}</span>
-                {showResult && isSelected && !isCorrectOption && (
-                  <XCircle className="h-5 w-5 text-destructive" />
-                )}
+                <div className="flex items-center gap-2">
+                  {isLocked && (
+                    <CheckCircle2 className="h-5 w-5 text-[#439F6E]" />
+                  )}
+                  {showResult && isSelected && !isCorrectOption && !isLocked && (
+                    <XCircle className="h-5 w-5 text-destructive" />
+                  )}
+                </div>
               </div>
             </button>
           );
@@ -180,7 +245,11 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
                 <p key={index} className="text-base text-[#52525B]">{feedback}</p>
               ))}
               {getIncorrectFeedback().length === 0 && (
-                <p className="text-base text-[#52525B]">Look more carefully at the content and try again.</p>
+                <p className="text-base text-[#52525B]">
+                  {isMultipleChoice && lockedCorrectAnswers.length > 0 
+                    ? `You've found ${lockedCorrectAnswers.length} correct answer${lockedCorrectAnswers.length > 1 ? 's' : ''}. Look more carefully to find the remaining ones.`
+                    : 'Look more carefully at the content and try again.'}
+                </p>
               )}
             </div>
           )}
