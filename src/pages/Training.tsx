@@ -302,7 +302,10 @@ export const Training = () => {
                 </div>
 
                 {/* Media content */}
-                {slide.quiz.image && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB]">
+                {slide.quiz.image && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB] relative">
+                    <span className="absolute top-3 left-3 bg-[#B5D2FF] text-[#0A1628] text-sm font-semibold px-3 py-1.5 rounded z-10">
+                      Evidence Image
+                    </span>
                     <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full" />
                   </div>}
 
