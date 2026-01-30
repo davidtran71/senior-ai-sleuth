@@ -174,14 +174,14 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
             : 'bg-destructive/10 border-2 border-destructive'
         }`}>
           <p className="font-medium mb-2 text-[#0A1628]">
-            {isAnswerCorrect() ? '✓ Correct!' : '✗ Not quite right — here\'s why:'}
+            {isAnswerCorrect() ? '✓ Correct!' : 'Not quite right — here\'s why:'}
           </p>
           {isAnswerCorrect() ? (
             <p className="text-base text-[#52525B]">{explanation}</p>
           ) : (
             <div className="space-y-2">
               {getIncorrectFeedback().map((feedback, index) => (
-                <p key={index} className="text-base text-[#52525B]">• {feedback}</p>
+                <p key={index} className="text-base text-[#52525B]">{feedback}</p>
               ))}
               {getIncorrectFeedback().length === 0 && (
                 <p className="text-base text-[#52525B]">Look more carefully at the content and try again.</p>
