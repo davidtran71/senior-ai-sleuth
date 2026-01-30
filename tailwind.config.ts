@@ -14,6 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
+        'sans': ['Libre Franklin', 'sans-serif'],
+        'serif': ['Crimson Pro', 'serif'],
         'crimson': ['Crimson Pro', 'serif'],
         'franklin': ['Libre Franklin', 'sans-serif'],
       },
