@@ -107,9 +107,10 @@ All colors MUST be HSL.
   }
 
   h1 {
-    @apply text-5xl font-bold;
+    @apply font-bold;
+    font-size: 4rem; /* 64px */
     font-family: 'Crimson Pro', serif;
-    line-height: 1.3;
+    line-height: 1.2;
     margin-bottom: 1rem;
   }
 
