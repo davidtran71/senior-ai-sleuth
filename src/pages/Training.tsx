@@ -247,7 +247,7 @@ export const Training = () => {
                     <Search className="h-4 w-4" />
                     EVIDENCE BRIEFING
                   </span>
-                  <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif leading-tight">{slide.title}</h2>
+                  <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
                   {slide.introduction && <p className="text-[#52525B] text-lg leading-relaxed">{slide.introduction}</p>}
                 </div>
                 
@@ -284,7 +284,7 @@ export const Training = () => {
                 <span className="inline-flex items-center gap-2 bg-[#F8EDD1] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
                   DEMONSTRATE YOUR SKILLS
                 </span>
-                <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif leading-tight">{slide.title}</h2>
+                <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
               </div>
               
               {/* Quiz card */}

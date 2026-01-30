@@ -104,7 +104,7 @@ const Index = () => {
               <span className="inline-block bg-[#CCEDFF] text-black text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 CRITICAL MISSION
               </span>
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4 font-serif">
+              <h2 className="text-[#0A1628] text-5xl font-bold mb-4 font-serif">
                 Why This Training Matters
               </h2>
               <p className="text-[#4A5568] text-base lg:text-lg mb-4">
@@ -126,7 +126,7 @@ const Index = () => {
               <span className="inline-block bg-[#CCEDFF] text-black text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4">
                 TRAINING BRIEFING
               </span>
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold font-serif">
+              <h2 className="text-[#0A1628] text-5xl font-bold font-serif">
                 What You'll Investigate
               </h2>
             </div>
@@ -165,7 +165,7 @@ const Index = () => {
 
             {/* Right - Content */}
             <div className="flex-1 text-center lg:text-left">
-              <h2 className="text-[#0A1628] text-3xl lg:text-4xl font-bold mb-4 font-serif">
+              <h2 className="text-[#0A1628] text-5xl font-bold mb-4 font-serif">
                 Ready to become a<br />Digital Detective?
               </h2>
               <p className="text-[#4A5568] text-base lg:text-lg mb-6">
