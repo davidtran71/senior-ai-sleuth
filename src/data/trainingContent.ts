@@ -132,7 +132,7 @@ export const trainingSlides: TrainingSlide[] = [
   // Slide 8: Audio Content - Lesson
   {
     type: 'lesson',
-    title: 'Spotting AI-Generated Audio',
+    title: 'Case #3: Spotting AI-Generated Audio',
     introduction: 'AI can now clone voices convincingly, but there are still telltale signs to listen for.',
     tips: [
       'Listen for unnatural pauses or robotic rhythm in speech',
