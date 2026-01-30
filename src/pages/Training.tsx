@@ -295,6 +295,16 @@ export const Training = () => {
                     Your browser does not support the audio element.
                   </audio>
                 </div>}
+
+              {/* Video player - separate container above quiz */}
+              {slide.quiz.video && <div className="bg-[#FFFFFF] rounded-2xl shadow-sm overflow-hidden relative">
+                  <span className="absolute top-3 left-3 bg-[#B5D2FF] text-[#0A1628] text-sm font-semibold px-3 py-1.5 rounded z-10">
+                    Evidence Video
+                  </span>
+                  <video controls className="w-full" src={slide.quiz.video}>
+                    Your browser does not support the video element.
+                  </video>
+                </div>}
               
               {/* Quiz card */}
               <div className="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm">
@@ -319,12 +329,6 @@ export const Training = () => {
                     <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full" />
                   </div>}
 
-                {/* Video media content */}
-                {slide.quiz.video && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB]">
-                    <video controls className="w-full" src={slide.quiz.video}>
-                      Your browser does not support the video element.
-                    </video>
-                  </div>}
                 
                 <QuizQuestion ref={quizRef} {...slide.quiz} onAnswer={handleQuizAnswer} onStateChange={handleQuizStateChange} />
               </div>
