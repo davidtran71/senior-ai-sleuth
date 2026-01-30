@@ -154,12 +154,8 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
             >
               <div className="flex items-center justify-between">
                 <span className="text-[#0A1628]">{optionText}</span>
-                {showResult && isSelected && (
-                  isCorrectOption ? (
-                    <CheckCircle2 className="h-5 w-5 text-[#00A5FE]" />
-                  ) : (
-                    <XCircle className="h-5 w-5 text-destructive" />
-                  )
+                {showResult && isSelected && !isCorrectOption && (
+                  <XCircle className="h-5 w-5 text-destructive" />
                 )}
               </div>
             </button>
