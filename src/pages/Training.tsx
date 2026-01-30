@@ -207,10 +207,10 @@ export const Training = () => {
               <div className="grid md:grid-cols-2 gap-6 pt-4">
                 {/* The Good card */}
                 <div className="bg-[#F0FDF4] p-6 rounded-2xl border-2 border-[#d1faf0]">
-                  <div className="flex justify-end mb-2">
-                    <img src={robotGood} alt="Friendly robot" className="w-20 h-auto" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <img src={robotGood} alt="Friendly robot" className="w-16 h-auto" />
+                    <h3 className="text-[#0A1628] text-2xl font-bold font-serif">The Good</h3>
                   </div>
-                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Good</h3>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
@@ -221,10 +221,10 @@ export const Training = () => {
 
                 {/* The Bad card */}
                 <div className="bg-[#FEF2F2] p-6 rounded-2xl border-2 border-[#DC2626]">
-                  <div className="flex justify-end mb-2">
-                    <img src={robotBad} alt="Malfunctioning robot" className="w-20 h-auto" />
+                  <div className="flex items-center gap-3 mb-4">
+                    <img src={robotBad} alt="Malfunctioning robot" className="w-16 h-auto" />
+                    <h3 className="text-[#0A1628] text-2xl font-bold font-serif">The Bad</h3>
                   </div>
-                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-4">The Bad</h3>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
