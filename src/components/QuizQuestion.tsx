@@ -199,9 +199,9 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
             }
           } else {
             if (showResult) {
-              buttonClasses += 'border border-[#D1D5DB] bg-white cursor-not-allowed';
+              buttonClasses += 'border border-[#A7A7A7] bg-white cursor-not-allowed';
             } else {
-              buttonClasses += 'border border-[#D1D5DB] hover:border-[#00A5FE]/50 bg-white cursor-pointer';
+              buttonClasses += 'border border-[#A7A7A7] hover:border-[#00A5FE]/50 bg-white cursor-pointer';
             }
           }
           
