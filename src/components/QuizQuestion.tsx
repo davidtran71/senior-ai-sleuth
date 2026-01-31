@@ -84,15 +84,20 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   const handleSubmit = () => {
     if (isMultipleChoice) {
       if (selectedAnswers.length === 0) return;
-      setShowResult(true);
       
       // Lock in the correct selections
       const correctAnswers = correctAnswer as number[];
       const newlyCorrect = selectedAnswers.filter(ans => correctAnswers.includes(ans));
-      setLockedCorrectAnswers(prev => {
-        const combined = [...prev, ...newlyCorrect];
-        return [...new Set(combined)]; // Remove duplicates
-      });
+      const updatedLocked = [...new Set([...lockedCorrectAnswers, ...newlyCorrect])];
+      
+      setLockedCorrectAnswers(updatedLocked);
+      
+      // If all correct answers are now found, update selected to only show correct ones
+      if (correctAnswers.every(ans => updatedLocked.includes(ans))) {
+        setSelectedAnswers([...updatedLocked]);
+      }
+      
+      setShowResult(true);
     } else {
       if (selectedAnswer === null) return;
       setShowResult(true);
@@ -135,6 +140,13 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
   };
 
   const isAnswerCorrect = (): boolean => {
+    if (isMultipleChoice) {
+      const correctAnswers = correctAnswer as number[];
+      // If all correct answers are locked (found), consider it correct
+      if (correctAnswers.every(ans => lockedCorrectAnswers.includes(ans))) {
+        return true;
+      }
+    }
     return checkIsCorrect();
   };
 
