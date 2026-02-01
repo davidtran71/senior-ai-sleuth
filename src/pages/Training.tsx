@@ -15,6 +15,8 @@ import personGlasses from "@/assets/person-glasses.png";
 import browserIllustration from "@/assets/browser-illustration.png";
 import audioPlayerIllustration from "@/assets/audio-player-illustration.png";
 import videoPlayerIllustration from "@/assets/video-player-illustration.png";
+import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
+import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -374,7 +376,91 @@ export const Training = () => {
               </div>
             </div>}
 
-          {slide.type === 'debrief' && <div className="space-y-8">
+          {slide.type === 'debrief' && currentSlide === 12 && (
+            <div className="space-y-8">
+              {/* Detective image centered at top */}
+              <div className="flex justify-center">
+                <img 
+                  src={seniorDetectiveMagnifying} 
+                  alt="Senior detective with magnifying glass" 
+                  className="w-64 h-auto"
+                />
+              </div>
+
+              {/* Title and description centered */}
+              <div className="text-center space-y-4">
+                <h2 className="text-[#0A1628] text-4xl md:text-5xl font-bold font-serif">{slide.title}</h2>
+                <p className="text-[#000000] text-lg leading-relaxed max-w-2xl mx-auto">{slide.content}</p>
+              </div>
+
+              {/* Key Detection Signs Recap - 2x2 grid */}
+              {slide.tips && slide.tips.length > 0 && (
+                <div className="bg-[#E6FAFF] rounded-2xl p-6 md:p-8">
+                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-6">Key Detection Signs Recap</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    {/* AI Text */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <FileTextIcon className="h-5 w-5 text-[#00A5FE]" />
+                        <span className="text-[#0A1628] font-semibold">AI text</span>
+                      </div>
+                      <p className="text-[#000000] text-base leading-relaxed">
+                        Look for generic language, urgency tactics, unusual sender addresses, and requests for personal information
+                      </p>
+                    </div>
+                    {/* AI Images */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <ImageIcon className="h-5 w-5 text-[#00A5FE]" />
+                        <span className="text-[#0A1628] font-semibold">AI Images</span>
+                      </div>
+                      <p className="text-[#000000] text-base leading-relaxed">
+                        Check hands, eyes, text, backgrounds, and symmetry for distortions and inconsistencies
+                      </p>
+                    </div>
+                    {/* AI Audio */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <Mic className="h-5 w-5 text-[#00A5FE]" />
+                        <span className="text-[#0A1628] font-semibold">AI Audio</span>
+                      </div>
+                      <p className="text-[#000000] text-base leading-relaxed">
+                        Listen for robotic tone, unnatural pauses, lack of emotion, and breathing patterns
+                      </p>
+                    </div>
+                    {/* AI Videos */}
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2">
+                        <Video className="h-5 w-5 text-[#00A5FE]" />
+                        <span className="text-[#0A1628] font-semibold">AI Videos</span>
+                      </div>
+                      <p className="text-[#000000] text-base leading-relaxed">
+                        Watch for facial movement mismatches, lighting inconsistencies, lip-sync issues, and unnatural blinking
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Final Protocols - 3x2 grid */}
+              {slide.finalTips && (
+                <div className="space-y-6">
+                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif text-center">Final Protocols</h3>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {slide.finalTips.map((tip, index) => (
+                      <div key={index} className="bg-[#E6FAFF] rounded-2xl p-5 space-y-3">
+                        <span className="text-[#00A5FE] text-5xl font-bold font-serif italic">{index + 1}</span>
+                        <p className="text-[#0A1628] text-base font-semibold leading-relaxed">{tip}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {slide.type === 'debrief' && currentSlide === totalSlides - 1 && (
+            <div className="space-y-8">
               <div className="text-center space-y-6 mb-8">
                 <div className="inline-block p-6 bg-gradient-badge rounded-full shadow-badge badge-shine animate-scale-in">
                   <Award className="h-20 w-20 text-secondary-foreground" />
@@ -383,38 +469,14 @@ export const Training = () => {
                 <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
               </div>
 
-              {slide.tips && slide.tips.length > 0 && <div className="space-y-4 mb-8">
-                  <div className="text-center mb-6">
-                    <h3 className="text-accent font-bold tracking-wider">KEY DETECTION SIGNS RECAP</h3>
-                    <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
-                  </div>
-                  {slide.tips.map((tip, index) => <div key={index} className="bg-gradient-evidence/10 p-4 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all">
-                      <p className="text-base leading-relaxed">{tip}</p>
-                    </div>)}
-                </div>}
-
-              {slide.finalTips && <div className="space-y-4">
-                  <div className="text-center mb-6">
-                    <h3 className="text-accent font-bold tracking-wider">FINAL PROTOCOLS</h3>
-                    <div className="h-1 w-32 mx-auto mt-2 bg-gradient-to-r from-transparent via-accent to-transparent" />
-                  </div>
-                  {slide.finalTips.map((tip, index) => <div key={index} className="bg-gradient-evidence/10 p-6 rounded-lg border-2 border-accent/30 hover:border-accent/50 transition-all hover:shadow-evidence">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-10 h-10 bg-gradient-badge rounded-full flex items-center justify-center font-black text-secondary-foreground shadow-badge">
-                          {index + 1}
-                        </div>
-                        <p className="text-lg font-semibold leading-relaxed">{tip}</p>
-                      </div>
-                    </div>)}
-                </div>}
-
-              {currentSlide === totalSlides - 1 && <div className="flex justify-center pt-6">
-                  <Button size="lg" onClick={handleComplete} className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine">
-                    Claim Your Badge
-                    <Award className="h-5 w-5" />
-                  </Button>
-                </div>}
-            </div>}
+              <div className="flex justify-center pt-6">
+                <Button size="lg" onClick={handleComplete} className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine">
+                  Claim Your Badge
+                  <Award className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          )}
 
           {/* Navigation - Inside Card */}
           <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
