@@ -449,7 +449,7 @@ export const Training = () => {
                   <div className="grid md:grid-cols-3 gap-6">
                     {slide.finalTips.map((tip, index) => (
                       <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
-                        <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold block mb-2">
+                        <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold font-serif block mb-2">
                           {index + 1}
                         </span>
                         <p className="text-[#0A1628] font-semibold text-base leading-relaxed">{tip}</p>
