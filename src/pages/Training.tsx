@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
-import { ArrowLeft, ArrowRight, Award, FileText, AlertTriangle, Search } from "lucide-react";
+import { ArrowLeft, ArrowRight, Award, FileText, AlertTriangle, Search, Download, Check } from "lucide-react";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
@@ -16,6 +16,8 @@ import browserIllustration from "@/assets/browser-illustration.png";
 import audioPlayerIllustration from "@/assets/audio-player-illustration.png";
 import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
+import trophyIllustration from "@/assets/trophy-illustration.png";
+import certificateBadge from "@/assets/certificate-badge.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -463,35 +465,130 @@ export const Training = () => {
 
           {slide.type === 'debrief' && currentSlide === totalSlides - 1 && (
             <div className="space-y-8">
-              <div className="text-center space-y-6 mb-8">
-                <div className="inline-block p-6 bg-gradient-badge rounded-full shadow-badge badge-shine animate-scale-in">
-                  <Award className="h-20 w-20 text-secondary-foreground" />
-                </div>
-                <h1 className="text-glow-badge">{slide.title}</h1>
-                <p className="text-xl leading-relaxed max-w-3xl mx-auto">{slide.content}</p>
+              {/* Trophy and Title Section */}
+              <div className="text-center space-y-4">
+                <img 
+                  src={trophyIllustration} 
+                  alt="Trophy" 
+                  className="w-48 h-auto mx-auto"
+                />
+                <span className="inline-block bg-[#F8EDD1] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
+                  MISSION COMPLETE
+                </span>
+                <h2 className="text-[#0A1628] font-serif">{slide.title}</h2>
+                <p className="text-[#52525B]">You've completed your AI Forensics training</p>
               </div>
 
-              <div className="flex justify-center pt-6">
-                <Button size="lg" onClick={handleComplete} className="gap-2 bg-gradient-badge text-secondary-foreground hover:shadow-badge transition-all badge-shine">
-                  Claim Your Badge
-                  <Award className="h-5 w-5" />
+              {/* Continue Your Mission Card */}
+              <div className="bg-[#E6FAFF] rounded-2xl p-6 space-y-4">
+                <h3 className="text-[#0A1628] text-xl font-bold font-serif">Continue Your Mission</h3>
+                <p className="text-[#52525B] text-sm leading-relaxed">
+                  Your training is complete, but your mission continues. Stay vigilant and keep practicing these skills. Share what you've learned with family and friends to help protect them from digital threats.
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#0A1628] text-sm">Review the training anytime to refresh your investigative skills</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#0A1628] text-sm">Practice spotting AI content during your daily online activities</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckIcon className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <span className="text-[#0A1628] text-sm">Recruit others by sharing these critical detection techniques</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Official Certificate Section */}
+              <div className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-6 text-center">
+                <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
+                  OFFICIAL CERTIFICATE
+                </span>
+                
+                <img 
+                  src={certificateBadge} 
+                  alt="Certificate Badge" 
+                  className="w-32 h-auto mx-auto"
+                />
+
+                <div className="space-y-2">
+                  <p className="text-[#52525B] text-sm">This official document certifies that this</p>
+                  <h2 className="text-[#0A1628] text-4xl font-bold font-serif">Digital Detective</h2>
+                  <p className="text-[#52525B] text-sm">has successfully completed the comprehensive</p>
+                </div>
+
+                <span className="inline-block bg-[#00BCD4] text-white text-sm font-semibold tracking-wider uppercase px-6 py-2 rounded">
+                  AI FORENSICS TASKFORCE TRAINING
+                </span>
+
+                <p className="text-[#52525B] text-sm max-w-md mx-auto leading-relaxed">
+                  and has demonstrated mastery in identifying AI-generated content including text, images, audio, and video to protect themselves and others from digital threats.
+                </p>
+
+                {/* Skills Grid */}
+                <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto">
+                  {[
+                    { label: 'Text Analysis', icon: FileTextIcon },
+                    { label: 'Image Detection', icon: ImageIcon },
+                    { label: 'Audio Forensics', icon: Mic },
+                    { label: 'Video Analysis', icon: Video }
+                  ].map((skill, index) => (
+                    <div key={index} className="bg-[#E6FAFF] rounded-xl p-4 space-y-2">
+                      <div className="w-6 h-6 rounded-full bg-[#00BCD4] flex items-center justify-center mx-auto">
+                        <Check className="w-4 h-4 text-white" />
+                      </div>
+                      <p className="text-[#0A1628] text-xs font-medium leading-tight">{skill.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <p className="text-[#0A1628] text-sm">
+                  <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </p>
+
+                <p className="text-[#00BCD4] text-xs font-semibold tracking-wider uppercase">
+                  AI FORENSICS TASKFORCE • CERTIFIED INVESTIGATOR
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex justify-center gap-4 pt-4">
+                <Button 
+                  size="lg" 
+                  onClick={handleComplete} 
+                  className="gap-2 bg-[#0A1628] hover:bg-[#1a2840] text-white"
+                >
+                  <Download className="h-5 w-5" />
+                  Download Badge
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={handleBackToDashboard} 
+                  className="border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628]/5"
+                >
+                  Return to HQ
                 </Button>
               </div>
             </div>
           )}
 
-          {/* Navigation - Inside Card */}
-          <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
-            <Button variant="outline" onClick={handlePrevious} disabled={currentSlide === 0} size="lg" className="hover:shadow-card transition-shadow">
-              <ArrowLeft className="mr-2 h-5 w-5" />
-              {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
-            </Button>
+          {/* Navigation - Inside Card (hidden on final slide which has its own buttons) */}
+          {currentSlide !== totalSlides - 1 && (
+            <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
+              <Button variant="outline" onClick={handlePrevious} disabled={currentSlide === 0} size="lg" className="hover:shadow-card transition-shadow">
+                <ArrowLeft className="mr-2 h-5 w-5" />
+                {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
+              </Button>
 
-            {currentSlide !== totalSlides - 1 && <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
-                {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>}
-          </div>
+              <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
+                  {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
+                  <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </div>
+          )}
         </Card>
       </div>
     </div>;
