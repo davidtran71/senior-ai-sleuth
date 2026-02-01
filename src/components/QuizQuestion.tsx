@@ -250,14 +250,14 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
             {isAnswerCorrect() ? '✓ Correct!' : 'Not quite right — here\'s why:'}
           </p>
           {isAnswerCorrect() ? (
-            <p className="text-base text-[#52525B]">{explanation}</p>
+            <p className="text-base text-[#000000]">{explanation}</p>
           ) : (
             <div className="space-y-2">
               {getIncorrectFeedback().map((feedback, index) => (
-                <p key={index} className="text-base text-[#52525B]">{feedback}</p>
+                <p key={index} className="text-base text-[#000000]">{feedback}</p>
               ))}
               {getIncorrectFeedback().length === 0 && (
-                <p className="text-base text-[#52525B]">
+                <p className="text-base text-[#000000]">
                   {isMultipleChoice && lockedCorrectAnswers.length > 0 
                     ? `You've found ${lockedCorrectAnswers.length} correct answer${lockedCorrectAnswers.length > 1 ? 's' : ''}. Look more carefully to find the remaining ones.`
                     : 'Look more carefully at the content and try again.'}
