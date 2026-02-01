@@ -361,7 +361,7 @@ export const Training = () => {
                       className="p-6 rounded-2xl space-y-4"
                       style={{ backgroundColor: bgColor }}
                     >
-                      <h3 className="text-[#0A1628] text-xl font-bold font-serif">{tool.category}</h3>
+                      <h3 className="text-[#0A1628] text-2xl font-bold font-serif">{tool.category}</h3>
                       <ul className="space-y-4">
                         {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
                             <CheckIcon className="flex-shrink-0 mt-0.5" />
