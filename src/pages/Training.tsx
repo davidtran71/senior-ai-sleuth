@@ -353,13 +353,12 @@ export const Training = () => {
                     'For Audio': '#FBF6E8',
                     'For Videos': '#DAE9FF'
                   };
-                  const bgColor = bgColors[tool.category] || '#F6FEFC';
-                  const hasLeftBorder = tool.category === 'For Text';
+                  const bgColor = bgColors[tool.category] || '#DAE9FF';
                   
                   return (
                     <div 
                       key={index} 
-                      className={`p-6 rounded-2xl space-y-4 ${hasLeftBorder ? 'border-l-4 border-dashed border-[#00A5FE]' : ''}`}
+                      className="p-6 rounded-2xl space-y-4"
                       style={{ backgroundColor: bgColor }}
                     >
                       <h3 className="text-[#0A1628] text-xl font-bold font-serif">{tool.category}</h3>
