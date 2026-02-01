@@ -15,7 +15,7 @@ import personGlasses from "@/assets/person-glasses.png";
 import browserIllustration from "@/assets/browser-illustration.png";
 import audioPlayerIllustration from "@/assets/audio-player-illustration.png";
 import videoPlayerIllustration from "@/assets/video-player-illustration.png";
-import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
+
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
@@ -105,7 +105,7 @@ export const Training = () => {
               <ArrowLeft className="mr-2 h-5 w-5" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && currentSlide !== 13 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
                 <FileText className="h-5 w-5 text-accent" />
                 <span className="text-lg font-bold tracking-wider">
                   {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : currentSlide === 5 || currentSlide === 6 ? 'CASE #2/4' : currentSlide === 7 || currentSlide === 8 ? 'CASE #3/4' : currentSlide === 9 || currentSlide === 10 ? 'CASE #4/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
@@ -378,91 +378,6 @@ export const Training = () => {
               </div>
             </div>}
 
-          {slide.type === 'debrief' && currentSlide === 12 && (
-            <div className="space-y-8">
-              {/* Detective image centered at top */}
-              <div className="flex justify-center">
-                <img 
-                  src={seniorDetectiveMagnifying} 
-                  alt="Senior detective with magnifying glass" 
-                  className="w-64 h-auto"
-                />
-              </div>
-
-              {/* Title and description centered */}
-              <div className="text-center space-y-4">
-                <h2 className="text-[#0A1628] text-4xl md:text-5xl font-bold font-serif">{slide.title}</h2>
-                <p className="text-[#000000] text-lg leading-relaxed max-w-2xl mx-auto">{slide.content}</p>
-              </div>
-
-              {/* Key Detection Signs Recap - 2x2 grid */}
-              {slide.tips && slide.tips.length > 0 && (
-                <div className="bg-[#E6FAFF] rounded-2xl p-6 md:p-8">
-                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif mb-6">Key Detection Signs Recap</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* AI Text */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <FileTextIcon className="h-5 w-5 text-[#00A5FE]" />
-                        <span className="text-[#0A1628] font-semibold">AI text</span>
-                      </div>
-                      <p className="text-[#000000] text-base leading-relaxed">
-                        Look for generic language, urgency tactics, unusual sender addresses, and requests for personal information
-                      </p>
-                    </div>
-                    {/* AI Images */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <ImageIcon className="h-5 w-5 text-[#00A5FE]" />
-                        <span className="text-[#0A1628] font-semibold">AI Images</span>
-                      </div>
-                      <p className="text-[#000000] text-base leading-relaxed">
-                        Check hands, eyes, text, backgrounds, and symmetry for distortions and inconsistencies
-                      </p>
-                    </div>
-                    {/* AI Audio */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Mic className="h-5 w-5 text-[#00A5FE]" />
-                        <span className="text-[#0A1628] font-semibold">AI Audio</span>
-                      </div>
-                      <p className="text-[#000000] text-base leading-relaxed">
-                        Listen for robotic tone, unnatural pauses, lack of emotion, and breathing patterns
-                      </p>
-                    </div>
-                    {/* AI Videos */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2">
-                        <Video className="h-5 w-5 text-[#00A5FE]" />
-                        <span className="text-[#0A1628] font-semibold">AI Videos</span>
-                      </div>
-                      <p className="text-[#000000] text-base leading-relaxed">
-                        Watch for facial movement mismatches, lighting inconsistencies, lip-sync issues, and unnatural blinking
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Final Protocols - 3x2 grid matching homepage style */}
-              {slide.finalTips && (
-                <div className="space-y-6">
-                  <h3 className="text-[#0A1628] text-2xl font-bold font-serif text-center">Final Protocols</h3>
-                  <div className="grid md:grid-cols-3 gap-6">
-                    {slide.finalTips.map((tip, index) => (
-                      <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
-                        <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold font-serif block mb-2">
-                          {index + 1}
-                        </span>
-                        <p className="text-[#0A1628] font-semibold text-base leading-relaxed">{tip}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
-
           {slide.type === 'debrief' && currentSlide === totalSlides - 1 && (
             <div className="space-y-8">
               {/* Trophy and Title Section */}
@@ -580,11 +495,11 @@ export const Training = () => {
             <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
               <Button variant="outline" onClick={handlePrevious} disabled={currentSlide === 0} size="lg" className="hover:shadow-card transition-shadow">
                 <ArrowLeft className="mr-2 h-5 w-5" />
-                {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 || currentSlide === 13 ? 'Back' : 'Previous Case'}
+                {currentSlide === 0 || currentSlide === 1 || currentSlide === 2 || currentSlide === 3 || currentSlide === 4 || currentSlide === 6 || currentSlide === 12 ? 'Back' : 'Previous Case'}
               </Button>
 
               <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
-                  {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge!' : 'Next Case'}
+                  {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
                   <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </div>
