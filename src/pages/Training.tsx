@@ -442,15 +442,17 @@ export const Training = () => {
                 </div>
               )}
 
-              {/* Final Protocols - 3x2 grid */}
+              {/* Final Protocols - 3x2 grid matching homepage style */}
               {slide.finalTips && (
                 <div className="space-y-6">
                   <h3 className="text-[#0A1628] text-2xl font-bold font-serif text-center">Final Protocols</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
+                  <div className="grid md:grid-cols-3 gap-6">
                     {slide.finalTips.map((tip, index) => (
-                      <div key={index} className="bg-[#E6FAFF] rounded-2xl p-5 space-y-3">
-                        <span className="text-[#00A5FE] text-5xl font-bold font-serif italic">{index + 1}</span>
-                        <p className="text-[#0A1628] text-base font-semibold leading-relaxed">{tip}</p>
+                      <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
+                        <span className="text-[#00BCD4] text-5xl lg:text-6xl font-bold block mb-2">
+                          {index + 1}
+                        </span>
+                        <p className="text-[#0A1628] font-semibold text-base leading-relaxed">{tip}</p>
                       </div>
                     ))}
                   </div>
