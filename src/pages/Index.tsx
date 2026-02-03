@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import robotDetective from "@/assets/robot-detective.png";
-import seniorDetective from "@/assets/senior-detective.png";
 import seniorLaptop from "@/assets/senior-laptop.png";
 import heroBackground from "@/assets/hero-background.png";
 
@@ -153,22 +152,12 @@ const Index = () => {
       {/* CTA Section */}
       <section className="px-6 py-16">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-[#F5E6D3] rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8">
-            {/* Left - Illustration */}
-            <div className="flex-shrink-0 relative">
-              <img 
-                src={seniorDetective} 
-                alt="Digital Detective" 
-                className="w-48 lg:w-64 h-auto"
-              />
-            </div>
-
-            {/* Right - Content */}
-            <div className="flex-1 text-center lg:text-left">
+          <div className="bg-[#F5E6D3] rounded-3xl p-8 lg:p-12">
+            <div className="text-center">
               <h2 className="text-[#0A1628] text-5xl font-bold mb-4 font-serif">
                 Ready to become a<br />Digital Detective?
               </h2>
-              <p className="text-[#4A5568] text-base lg:text-lg mb-6">
+              <p className="text-[#4A5568] text-base lg:text-lg mb-6 max-w-xl mx-auto">
                 Start your training now and learn how to protect yourself and your loved ones from AI-powered scams and misinformation.
               </p>
               <Button 
