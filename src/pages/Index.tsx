@@ -7,6 +7,7 @@ import robotDetective from "@/assets/robot-detective.png";
 import seniorDetective from "@/assets/senior-detective.png";
 import seniorLaptop from "@/assets/senior-laptop.png";
 import heroBackground from "@/assets/hero-background.png";
+import ctaBackground from "@/assets/cta-background.png";
 
 
 const Index = () => {
@@ -153,7 +154,7 @@ const Index = () => {
       {/* CTA Section */}
       <section className="px-6 py-16">
         <div className="max-w-5xl mx-auto">
-          <div className="bg-[#F5E6D3] rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8">
+          <div className="rounded-3xl p-8 lg:p-12 flex flex-col lg:flex-row items-center gap-8 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${ctaBackground})` }}>
             {/* Left - Illustration */}
             <div className="flex-shrink-0 relative">
               <img 
