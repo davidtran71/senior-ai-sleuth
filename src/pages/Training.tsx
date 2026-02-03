@@ -18,7 +18,6 @@ import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
-import trainingHeroBg from "@/assets/training-hero-bg.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -128,10 +127,7 @@ export const Training = () => {
         </div>
 
         {/* Slide Content */}
-        <Card 
-          className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl bg-cover bg-center bg-no-repeat' : 'case-file-border'}`}
-          style={slide.type === 'intro' ? { backgroundImage: `url(${trainingHeroBg})` } : undefined}
-        >
+        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
           {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
               {/* Seniors with Tablet Illustration - Top */}
               <div className="flex justify-center">
@@ -160,20 +156,28 @@ export const Training = () => {
           {/* What is AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 1 && <div className="space-y-8">
               {/* Top section: two columns */}
-              <div className="space-y-4">
-                {/* Eyebrow badge */}
-                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
-                  <Search className="h-4 w-4" />
-                  EVIDENCE BRIEFING
-                </span>
+              <div className="flex flex-col md:flex-row gap-8 items-start">
+                {/* Left column: text content */}
+                <div className="flex-1 space-y-4">
+                  {/* Eyebrow badge */}
+                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                    <Search className="h-4 w-4" />
+                    EVIDENCE BRIEFING
+                  </span>
+                  
+                  <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
+                    {slide.title}
+                  </h2>
+                  
+                  {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
+                      {slide.introduction}
+                    </p>}
+                </div>
                 
-                <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
-                  {slide.title}
-                </h2>
-                
-                {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
-                    {slide.introduction}
-                  </p>}
+                {/* Right column: robot image */}
+                <div className="flex-shrink-0">
+                  <img src={robotArtist} alt="Friendly AI robot" className="w-48 md:w-64 lg:w-72 h-auto" />
+                </div>
               </div>
               
               {/* About AI section */}
