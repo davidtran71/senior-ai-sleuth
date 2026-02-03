@@ -6,7 +6,7 @@ import { CareSideLogo } from "@/components/CareSideLogo";
 
 
 import seniorLaptop from "@/assets/senior-laptop.png";
-import heroBackground from "@/assets/hero-background.png";
+
 import ctaBackground from "@/assets/cta-background.png";
 
 
@@ -43,10 +43,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section 
-        className="px-6 pb-16 pt-4 relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBackground})` }}
-      >
+      <section className="px-6 pb-16 pt-4 relative">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Left Content - Card */}
