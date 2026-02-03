@@ -160,28 +160,20 @@ export const Training = () => {
           {/* What is AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 1 && <div className="space-y-8">
               {/* Top section: two columns */}
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                {/* Left column: text content */}
-                <div className="flex-1 space-y-4">
-                  {/* Eyebrow badge */}
-                  <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
-                    <Search className="h-4 w-4" />
-                    EVIDENCE BRIEFING
-                  </span>
-                  
-                  <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
-                    {slide.title}
-                  </h2>
-                  
-                  {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
-                      {slide.introduction}
-                    </p>}
-                </div>
+              <div className="space-y-4">
+                {/* Eyebrow badge */}
+                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
+                  <Search className="h-4 w-4" />
+                  EVIDENCE BRIEFING
+                </span>
                 
-                {/* Right column: robot image */}
-                <div className="flex-shrink-0">
-                  <img src={robotArtist} alt="Friendly AI robot" className="w-48 md:w-64 lg:w-72 h-auto" />
-                </div>
+                <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
+                  {slide.title}
+                </h2>
+                
+                {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
+                    {slide.introduction}
+                  </p>}
               </div>
               
               {/* About AI section */}
