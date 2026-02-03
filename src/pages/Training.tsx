@@ -128,7 +128,7 @@ export const Training = () => {
         </div>
 
         {/* Slide Content */}
-        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
+        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl bg-[#E6FAFF]' : 'case-file-border'}`}>
           {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
               {/* Robot Shield Illustration - Top */}
               <div className="flex justify-center">
