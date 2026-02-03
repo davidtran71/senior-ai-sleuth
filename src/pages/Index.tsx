@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
-import robotDetective from "@/assets/robot-detective.png";
+
 
 import seniorLaptop from "@/assets/senior-laptop.png";
 import heroBackground from "@/assets/hero-background.png";
@@ -49,8 +49,8 @@ const Index = () => {
       >
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8">
-            {/* Left Content - Card */}
-            <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 relative z-10 shadow-sm">
+            {/* Hero Content - Card */}
+            <div className="flex-1 max-w-2xl bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 relative z-10 shadow-sm">
               <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4 inline-block">
                 AI FORENSICS TASKFORCE
               </span>
@@ -67,15 +67,6 @@ const Index = () => {
                 {trainingCompleted ? "Retake Training" : "Begin Training"}
                 <ArrowRight className="h-4 w-4" />
               </Button>
-            </div>
-
-            {/* Right Content - Robot Illustration */}
-            <div className="flex-1 flex justify-center relative">
-              <img 
-                src={robotDetective} 
-                alt="AI Detective Robot" 
-                className="w-80 lg:w-96 h-auto relative z-10"
-              />
             </div>
           </div>
         </div>
