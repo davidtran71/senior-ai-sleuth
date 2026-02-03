@@ -18,6 +18,7 @@ import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
+import robotShield from "@/assets/robot-shield.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -129,9 +130,9 @@ export const Training = () => {
         {/* Slide Content */}
         <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
           {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
-              {/* Seniors with Tablet Illustration - Top */}
+              {/* Robot Shield Illustration - Top */}
               <div className="flex justify-center">
-                <img src="/src/assets/seniors-tablet.png" alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
+                <img src={robotShield} alt="AI Detective Robot with Shield" className="max-w-[300px] lg:max-w-[380px] h-auto" />
               </div>
               
               {/* Eyebrow badge */}
