@@ -378,6 +378,52 @@ export const Training = () => {
               </div>
             </div>}
 
+          {/* Digital Detective Recap Slide */}
+          {slide.type === 'recap' && (
+            <div className="space-y-8">
+              {/* Header section */}
+              <div className="text-center space-y-4">
+                <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
+                  TRAINING COMPLETE
+                </span>
+                <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
+                {slide.introduction && (
+                  <p className="text-[#52525B] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>
+                )}
+              </div>
+
+              {/* Key Detection Signs Recap */}
+              {slide.tips && slide.tips.length > 0 && (
+                <div className="bg-[#E6FAFF] p-8 rounded-2xl">
+                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs Recap</h3>
+                  <ul className="space-y-4">
+                    {slide.tips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckIcon className="flex-shrink-0 mt-0.5" />
+                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Final Tips */}
+              {slide.finalTips && slide.finalTips.length > 0 && (
+                <div className="bg-[#F8EDD1] p-8 rounded-2xl">
+                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Stay Safe Online</h3>
+                  <ul className="space-y-4">
+                    {slide.finalTips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <CheckIcon className="flex-shrink-0 mt-0.5" />
+                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+          )}
+
           {slide.type === 'debrief' && currentSlide === totalSlides - 1 && (
             <div className="space-y-8">
               {/* Trophy and Title Section */}

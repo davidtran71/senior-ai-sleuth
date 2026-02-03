@@ -4,7 +4,7 @@ export interface QuizOption {
 }
 
 export interface TrainingSlide {
-  type: 'intro' | 'lesson' | 'quiz' | 'tools' | 'debrief';
+  type: 'intro' | 'lesson' | 'quiz' | 'tools' | 'recap' | 'debrief';
   title: string;
   content?: string;
   introduction?: string;
@@ -242,7 +242,25 @@ export const trainingSlides: TrainingSlide[] = [
     ],
   },
 
-  // Slide 13: Certificate prompt
+  // Slide 13: Digital Detective Recap
+  {
+    type: 'recap',
+    title: 'You\'re Now a Digital Detective!',
+    introduction: 'You\'ve learned how to spot AI-generated text, images, audio, and video. Remember these final tips to stay safe online:',
+    tips: [
+      'Text: Watch for generic greetings, urgent deadlines, and overly formal language',
+      'Images: Check hands, teeth, eyes, and background text for anomalies',
+      'Audio: Listen for robotic rhythm, emotional mismatch, and unnatural pauses',
+      'Video: Look for rubbery lips, lack of micro-expressions, and frozen backgrounds'
+    ],
+    finalTips: [
+      'When in doubt, verify through a trusted source',
+      'Take your time — scammers rely on urgency',
+      'Share what you\'ve learned with family and friends'
+    ],
+  },
+
+  // Slide 14: Certificate prompt
   {
     type: 'debrief',
     title: 'Congratulations, Digital Detective!',
