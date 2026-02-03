@@ -154,8 +154,12 @@ const Index = () => {
       {/* CTA Section */}
       <section className="px-6 py-16">
         <div className="max-w-5xl mx-auto">
-          <div className="rounded-3xl p-8 lg:p-12 flex justify-end bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${ctaBackground})` }}>
-            <div className="lg:w-1/2 text-center lg:text-left">
+          <div className="rounded-3xl p-8 lg:p-12 flex justify-end bg-[#FBF6E8] relative overflow-hidden">
+            <div 
+              className="absolute inset-0 hidden lg:block bg-cover bg-center bg-no-repeat" 
+              style={{ backgroundImage: `url(${ctaBackground})` }}
+            />
+            <div className="lg:w-1/2 text-center lg:text-left relative z-10">
               <h2 className="text-[#0A1628] text-5xl font-bold mb-4 font-serif">
                 Ready to become a<br />Digital Detective?
               </h2>
