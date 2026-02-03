@@ -18,6 +18,7 @@ import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
+import trainingHeroBg from "@/assets/training-hero-bg.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -127,7 +128,10 @@ export const Training = () => {
         </div>
 
         {/* Slide Content */}
-        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
+        <Card 
+          className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl bg-cover bg-center bg-no-repeat' : 'case-file-border'}`}
+          style={slide.type === 'intro' ? { backgroundImage: `url(${trainingHeroBg})` } : undefined}
+        >
           {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
               {/* Seniors with Tablet Illustration - Top */}
               <div className="flex justify-center">
