@@ -6,7 +6,7 @@ import { CareSideLogo } from "@/components/CareSideLogo";
 
 
 import seniorLaptop from "@/assets/senior-laptop.png";
-import heroBackground from "@/assets/hero-background.png";
+import heroBackground from "@/assets/hero-background-new.png";
 import ctaBackground from "@/assets/cta-background.png";
 
 
