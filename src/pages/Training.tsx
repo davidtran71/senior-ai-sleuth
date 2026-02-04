@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback } from "react";
+import html2canvas from "html2canvas";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -33,6 +34,7 @@ export const Training = () => {
     isCorrect: false
   });
   const quizRef = useRef<QuizQuestionRef>(null);
+  const certificateRef = useRef<HTMLDivElement>(null);
   const slide = trainingSlides[currentSlide];
   const totalSlides = trainingSlides.length;
   const progress = (currentSlide + 1) / totalSlides * 100;
@@ -85,6 +87,25 @@ export const Training = () => {
       handleNext();
     }
   };
+  const handleDownloadBadge = async () => {
+    if (!certificateRef.current) return;
+    
+    try {
+      const canvas = await html2canvas(certificateRef.current, {
+        backgroundColor: '#ffffff',
+        scale: 2,
+        useCORS: true,
+      });
+      
+      const link = document.createElement('a');
+      link.download = 'digital-detective-certificate.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+    } catch (error) {
+      console.error('Failed to generate certificate image:', error);
+    }
+  };
+
   const handleComplete = () => {
     localStorage.setItem('ai-forensics-completed', 'true');
     navigate('/certificate');
@@ -520,7 +541,7 @@ export const Training = () => {
               </div>
 
               {/* Official Certificate Section */}
-              <div className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-6 text-center">
+              <div ref={certificateRef} className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-6 text-center bg-white">
                 <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                   OFFICIAL CERTIFICATE
                 </span>
@@ -576,7 +597,7 @@ export const Training = () => {
               <div className="flex justify-center gap-4 pt-4">
                 <Button 
                   size="lg" 
-                  onClick={handleComplete} 
+                  onClick={handleDownloadBadge} 
                   className="gap-2 bg-[#0A1628] hover:bg-[#1a2840] text-white"
                 >
                   <Download className="h-5 w-5" />
