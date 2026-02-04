@@ -276,7 +276,7 @@ export const Training = () => {
 
               {/* Key Detection Signs card */}
               {slide.tips && slide.tips.length > 0 && <div className="bg-[#E6FAFF] p-8 rounded-2xl">
-                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs</h3>
+                  <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] mb-6">Key Detection Signs</h3>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
@@ -403,7 +403,7 @@ export const Training = () => {
               {/* Key Detection Signs Recap */}
               {slide.tips && slide.tips.length > 0 && (
                 <div className="bg-[#E6FAFF] p-8 rounded-2xl">
-                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs Recap</h3>
+                  <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] mb-6">Key Detection Signs Recap</h3>
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => (
                       <li key={index} className="flex items-start gap-3">
