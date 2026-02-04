@@ -52,7 +52,7 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Hero Content - Card */}
             <div className="flex-1 bg-white/90 backdrop-blur-sm rounded-3xl p-8 lg:p-10 relative z-10 shadow-sm">
-              <span className="bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded mb-4 inline-block">
+              <span className="text-[#007BBD] text-[16px] font-semibold tracking-wider uppercase mb-4 inline-block font-sans">
                 AI FORENSICS TASKFORCE
               </span>
               <h1 className="text-[#0A1628] mb-4">
