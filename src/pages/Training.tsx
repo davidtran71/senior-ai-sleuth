@@ -551,10 +551,14 @@ export const Training = () => {
                 Back
               </button>
 
-              <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
+              <button 
+                onClick={handleNavButtonClick} 
+                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} 
+                className="h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                   {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
-                  <NavigationArrow direction="right" className="ml-2" />
-              </Button>
+                  <NavigationArrow direction="right" />
+              </button>
             </div>
           )}
         </Card>
