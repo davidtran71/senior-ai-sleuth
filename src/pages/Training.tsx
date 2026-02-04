@@ -7,6 +7,7 @@ import { ArrowLeft, ArrowRight, Award, FileText, AlertTriangle, Search, Download
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
+import { DecorativeTopCross } from "@/components/DecorativeTopCross";
 import CheckIcon from "@/components/CheckIcon";
 import robotArtist from "@/assets/robot-artist.png";
 import robotGood from "@/assets/robot-good.png";
@@ -91,6 +92,7 @@ export const Training = () => {
   return <div className="min-h-screen bg-background py-8 px-6 relative overflow-hidden">
       {/* Decorative shapes - show on all slides except intro (first slide) */}
       {currentSlide > 0 && <DecorativeShapes />}
+      {currentSlide > 0 && <DecorativeTopCross />}
       
       <div className="max-w-4xl mx-auto relative z-10">
         {/* CareSide Logo - Top Left */}
