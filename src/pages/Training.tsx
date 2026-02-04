@@ -21,6 +21,7 @@ import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
+import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -389,46 +390,92 @@ export const Training = () => {
           {/* Digital Detective Recap Slide */}
           {slide.type === 'recap' && (
             <div className="space-y-8">
-              {/* Header section */}
-              <div className="text-center space-y-4">
-                <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
-                  TRAINING COMPLETE
-                </span>
-                <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
-                {slide.introduction && (
-                  <p className="text-[#000000] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>
-                )}
+              {/* Hero Image */}
+              <div className="flex justify-center">
+                <img 
+                  src={seniorDetectiveMagnifying} 
+                  alt="Digital Detective with magnifying glass" 
+                  className="max-w-[320px] h-auto"
+                />
               </div>
 
-              {/* Key Detection Signs Recap */}
-              {slide.tips && slide.tips.length > 0 && (
-                <div className="bg-[#E6FAFF] p-8 rounded-2xl">
-                  <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] mb-6">Key Detection Signs Recap</h3>
-                  <ul className="space-y-4">
-                    {slide.tips.map((tip, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
+              {/* Header section */}
+              <div className="text-center space-y-4">
+                <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
+                <p className="text-[#000000] text-lg leading-relaxed max-w-xl mx-auto">
+                  You've learned how to spot AI-generated text, images, audio, and video. Remember these final tips to stay safe online:
+                </p>
+              </div>
 
-              {/* Final Tips */}
-              {slide.finalTips && slide.finalTips.length > 0 && (
-                <div className="bg-[#F8EDD1] p-8 rounded-2xl">
-                  <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Stay Safe Online</h3>
-                  <ul className="space-y-4">
-                    {slide.finalTips.map((tip, index) => (
-                      <li key={index} className="flex items-start gap-3">
-                        <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
-                      </li>
-                    ))}
-                  </ul>
+              {/* Key Detection Signs Recap - 2x2 Grid */}
+              <div className="bg-[#E6FAFF] p-8 rounded-2xl">
+                <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] mb-6">Key Detection Signs Recap</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* AI Text */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <FileTextIcon className="w-5 h-5 text-[#0A1628]" />
+                      <span className="font-sans font-bold text-[16px] text-[#0A1628]">AI text</span>
+                    </div>
+                    <p className="text-[#000000] text-base leading-relaxed">
+                      Look for generic language, urgency tactics, unusual sender addresses, and requests for personal information
+                    </p>
+                  </div>
+                  
+                  {/* AI Images */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <ImageIcon className="w-5 h-5 text-[#0A1628]" />
+                      <span className="font-sans font-bold text-[16px] text-[#0A1628]">AI Images</span>
+                    </div>
+                    <p className="text-[#000000] text-base leading-relaxed">
+                      Check hands, eyes, text, backgrounds, and symmetry for distortions and inconsistencies
+                    </p>
+                  </div>
+                  
+                  {/* AI Audio */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Mic className="w-5 h-5 text-[#0A1628]" />
+                      <span className="font-sans font-bold text-[16px] text-[#0A1628]">AI Audio</span>
+                    </div>
+                    <p className="text-[#000000] text-base leading-relaxed">
+                      Listen for robotic tone, unnatural pauses, lack of emotion, and breathing patterns
+                    </p>
+                  </div>
+                  
+                  {/* AI Videos */}
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Video className="w-5 h-5 text-[#0A1628]" />
+                      <span className="font-sans font-bold text-[16px] text-[#0A1628]">AI Videos</span>
+                    </div>
+                    <p className="text-[#000000] text-base leading-relaxed">
+                      Watch for facial movement mismatches, lighting inconsistencies, lip-sync issues, and unnatural blinking
+                    </p>
+                  </div>
                 </div>
-              )}
+              </div>
+
+              {/* Final Protocols - 3x2 Grid */}
+              <div className="space-y-6">
+                <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] text-center">Final Protocols</h3>
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { num: '1', text: 'Slow down and examine content carefully before believing or sharing' },
+                    { num: '2', text: 'Verify information from multiple trusted sources' },
+                    { num: '3', text: 'When in doubt, ask a trusted family member or friend' },
+                    { num: '4', text: 'Never share personal information or send money based on urgent requests' },
+                    { num: '5', text: 'Trust your instincts—if something feels off, it probably is' },
+                    { num: '6', text: 'Think before you share to avoid spreading misinformation' },
+                  ].map((item, index) => (
+                    <div key={index} className="bg-[#E6FAFF] p-5 rounded-2xl">
+                      <span className="font-serif text-[64px] leading-none text-[#00BCD4] font-bold italic">{item.num}</span>
+                      <p className="text-[#0A1628] text-sm font-semibold leading-relaxed mt-2">{item.text}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           )}
 
