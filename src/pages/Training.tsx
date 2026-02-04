@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
-import { ArrowLeft, ArrowRight, Award, FileText, AlertTriangle, Search, Download, Check } from "lucide-react";
+import { Award, FileText, AlertTriangle, Search, Download, Check } from "lucide-react";
+import { NavigationArrow } from "@/components/NavigationArrow";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
@@ -104,7 +105,7 @@ export const Training = () => {
         <div className="mb-8">
           <div className="flex items-center justify-between mb-4">
             <Button variant="ghost" onClick={handleBackToDashboard}>
-              <ArrowLeft className="mr-2 h-5 w-5" />
+              <NavigationArrow direction="left" className="mr-2" />
               Exit Training
             </Button>
             {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
@@ -546,13 +547,13 @@ export const Training = () => {
                 disabled={currentSlide === 0} 
                 className="w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <ArrowLeft className="h-5 w-5" />
+                <NavigationArrow direction="left" />
                 Back
               </button>
 
               <Button size="lg" onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="hover:shadow-dramatic transition-all">
                   {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <NavigationArrow direction="right" className="ml-2" />
               </Button>
             </div>
           )}
