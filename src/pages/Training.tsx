@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
-import { Award, FileText, AlertTriangle, Search, Download, Check } from "lucide-react";
+import { AlertTriangle, Search, Download, Check } from "lucide-react";
 import { NavigationArrow } from "@/components/NavigationArrow";
+import { CaseFileIcon } from "@/components/CaseFileIcon";
 import { trainingSlides } from "@/data/trainingContent";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { DecorativeShapes } from "@/components/DecorativeShapes";
@@ -109,7 +110,7 @@ export const Training = () => {
               Exit Training
             </Button>
             {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
-                <FileText className="h-5 w-5 text-accent" />
+                <CaseFileIcon className="h-5 w-5 text-[#002B60]" />
                 <span className="text-lg font-bold tracking-wider">
                   {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : currentSlide === 5 || currentSlide === 6 ? 'CASE #2/4' : currentSlide === 7 || currentSlide === 8 ? 'CASE #3/4' : currentSlide === 9 || currentSlide === 10 ? 'CASE #4/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
                 </span>
