@@ -567,7 +567,7 @@ export const Training = () => {
                   <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
 
-                <p className="text-[#00BCD4] text-xs font-semibold tracking-wider uppercase max-w-none">
+                <p className="text-[#8095AF] text-lg font-franklin font-bold max-w-none" style={{ lineHeight: '120%' }}>
                   AI FORENSICS TASKFORCE • CERTIFIED INVESTIGATOR
                 </p>
               </div>
