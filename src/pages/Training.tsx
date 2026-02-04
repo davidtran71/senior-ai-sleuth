@@ -18,6 +18,7 @@ import personGlasses from "@/assets/person-glasses.png";
 import browserIllustration from "@/assets/browser-illustration.png";
 import audioPlayerIllustration from "@/assets/audio-player-illustration.png";
 import videoPlayerIllustration from "@/assets/video-player-illustration.png";
+
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
@@ -108,10 +109,10 @@ export const Training = () => {
               <NavigationArrow direction="left" className="mr-2" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-[6px] bg-[#F6FEFC] px-3 py-1.5 rounded-[6px] border border-[#D3FAF0]">
                 <CaseFileIcon className="h-5 w-5 text-[#002B60]" />
-                <span className="text-lg font-bold tracking-wider">
-                  {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : currentSlide === 5 || currentSlide === 6 ? 'CASE #2/4' : currentSlide === 7 || currentSlide === 8 ? 'CASE #3/4' : currentSlide === 9 || currentSlide === 10 ? 'CASE #4/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
+                <span className="font-sans font-semibold text-[18px] leading-[140%] text-[#002B60]">
+                  {currentSlide === 3 || currentSlide === 4 ? 'Case 1 / 4' : currentSlide === 5 || currentSlide === 6 ? 'Case 2 / 4' : currentSlide === 7 || currentSlide === 8 ? 'Case 3 / 4' : currentSlide === 9 || currentSlide === 10 ? 'Case 4 / 4' : `Case ${currentSlide + 1} / ${totalSlides}`}
                 </span>
               </div>}
           </div>
@@ -122,7 +123,7 @@ export const Training = () => {
               <span className="text-sm text-[#52525B]">{Math.round(progress)}% Investigation Complete</span>
             </div>
             <div className="h-2 bg-[#C5C0DB] rounded-full overflow-hidden">
-              <div className="h-full rounded-full transition-all duration-500 bg-[#00a6ff]" style={{
+              <div className="h-full bg-[#00A5FE] rounded-full transition-all duration-500" style={{
               width: `${progress}%`
             }} />
             </div>
@@ -261,7 +262,11 @@ export const Training = () => {
                 
                 {/* Right column: illustration */}
                 <div className="flex-shrink-0">
-                  <img src={currentSlide === 3 ? browserIllustration : currentSlide === 7 ? audioPlayerIllustration : currentSlide === 9 ? videoPlayerIllustration : personGlasses} alt="Lesson illustration" className="w-40 md:w-52 lg:w-60 h-auto" />
+                  <img 
+                    src={currentSlide === 3 ? browserIllustration : currentSlide === 7 ? audioPlayerIllustration : currentSlide === 9 ? videoPlayerIllustration : personGlasses} 
+                    alt="Lesson illustration"
+                    className="w-40 md:w-52 lg:w-60 h-auto" 
+                  />
                 </div>
               </div>
 
@@ -317,9 +322,11 @@ export const Training = () => {
                     <span className="text-[#00A5FE] font-semibold">Question: </span>
                     <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
                   </p>
-                  {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && <p className="text-sm text-[#52525B] mt-2">
+                  {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
+                    <p className="text-sm text-[#52525B] mt-2">
                       Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
-                    </p>}
+                    </p>
+                  )}
                 </div>
 
                 {/* Image media content */}
@@ -347,17 +354,21 @@ export const Training = () => {
               
               <div className="grid md:grid-cols-2 gap-6">
                 {slide.tools && slide.tools.map((tool, index) => {
-              // Define background colors for each category
-              const bgColors: Record<string, string> = {
-                'For Text': '#E9FCF7',
-                'For Images': '#CCEDFF',
-                'For Audio': '#FBF6E8',
-                'For Videos': '#DAE9FF'
-              };
-              const bgColor = bgColors[tool.category] || '#DAE9FF';
-              return <div key={index} className="p-6 rounded-2xl space-y-4" style={{
-                backgroundColor: bgColor
-              }}>
+                  // Define background colors for each category
+                  const bgColors: Record<string, string> = {
+                    'For Text': '#E9FCF7',
+                    'For Images': '#CCEDFF',
+                    'For Audio': '#FBF6E8',
+                    'For Videos': '#DAE9FF'
+                  };
+                  const bgColor = bgColors[tool.category] || '#DAE9FF';
+                  
+                  return (
+                    <div 
+                      key={index} 
+                      className="p-6 rounded-2xl space-y-4"
+                      style={{ backgroundColor: bgColor }}
+                    >
                       <h3 className="text-[#0A1628] text-2xl font-bold font-serif">{tool.category}</h3>
                       <ul className="space-y-4">
                         {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
@@ -365,49 +376,67 @@ export const Training = () => {
                             <span className="text-[#52525B] text-base leading-relaxed">{example}</span>
                           </li>)}
                       </ul>
-                    </div>;
-            })}
+                    </div>
+                  );
+                })}
               </div>
             </div>}
 
           {/* Digital Detective Recap Slide */}
-          {slide.type === 'recap' && <div className="space-y-8">
+          {slide.type === 'recap' && (
+            <div className="space-y-8">
               {/* Header section */}
               <div className="text-center space-y-4">
                 <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                   TRAINING COMPLETE
                 </span>
                 <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
-                {slide.introduction && <p className="text-[#52525B] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>}
+                {slide.introduction && (
+                  <p className="text-[#52525B] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>
+                )}
               </div>
 
               {/* Key Detection Signs Recap */}
-              {slide.tips && slide.tips.length > 0 && <div className="bg-[#E6FAFF] p-8 rounded-2xl">
+              {slide.tips && slide.tips.length > 0 && (
+                <div className="bg-[#E6FAFF] p-8 rounded-2xl">
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Key Detection Signs Recap</h3>
                   <ul className="space-y-4">
-                    {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
+                    {slide.tips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
-                </div>}
+                </div>
+              )}
 
               {/* Final Tips */}
-              {slide.finalTips && slide.finalTips.length > 0 && <div className="bg-[#F8EDD1] p-8 rounded-2xl">
+              {slide.finalTips && slide.finalTips.length > 0 && (
+                <div className="bg-[#F8EDD1] p-8 rounded-2xl">
                   <h3 className="text-[#0A1628] text-xl font-bold font-serif mb-6">Stay Safe Online</h3>
                   <ul className="space-y-4">
-                    {slide.finalTips.map((tip, index) => <li key={index} className="flex items-start gap-3">
+                    {slide.finalTips.map((tip, index) => (
+                      <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
                         <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
-                      </li>)}
+                      </li>
+                    ))}
                   </ul>
-                </div>}
-            </div>}
+                </div>
+              )}
+            </div>
+          )}
 
-          {slide.type === 'debrief' && currentSlide === totalSlides - 1 && <div className="space-y-8">
+          {slide.type === 'debrief' && currentSlide === totalSlides - 1 && (
+            <div className="space-y-8">
               {/* Trophy and Title Section */}
               <div className="text-center space-y-4">
-                <img src={trophyIllustration} alt="Trophy" className="w-48 h-auto mx-auto" />
+                <img 
+                  src={trophyIllustration} 
+                  alt="Trophy" 
+                  className="w-48 h-auto mx-auto"
+                />
                 <span className="inline-block bg-[#F8EDD1] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                   MISSION COMPLETE
                 </span>
@@ -443,7 +472,11 @@ export const Training = () => {
                   OFFICIAL CERTIFICATE
                 </span>
                 
-                <img src={certificateBadge} alt="Certificate Badge" className="w-32 h-auto mx-auto" />
+                <img 
+                  src={certificateBadge} 
+                  alt="Certificate Badge" 
+                  className="w-32 h-auto mx-auto"
+                />
 
                 <div className="space-y-2">
                   <p className="text-[#52525B] text-sm">This official document certifies that this</p>
@@ -461,32 +494,23 @@ export const Training = () => {
 
                 {/* Skills Grid */}
                 <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto">
-                  {[{
-                label: 'Text Analysis',
-                icon: FileTextIcon
-              }, {
-                label: 'Image Detection',
-                icon: ImageIcon
-              }, {
-                label: 'Audio Forensics',
-                icon: Mic
-              }, {
-                label: 'Video Analysis',
-                icon: Video
-              }].map((skill, index) => <div key={index} className="bg-[#E6FAFF] rounded-xl p-4 space-y-2">
+                  {[
+                    { label: 'Text Analysis', icon: FileTextIcon },
+                    { label: 'Image Detection', icon: ImageIcon },
+                    { label: 'Audio Forensics', icon: Mic },
+                    { label: 'Video Analysis', icon: Video }
+                  ].map((skill, index) => (
+                    <div key={index} className="bg-[#E6FAFF] rounded-xl p-4 space-y-2">
                       <div className="w-6 h-6 rounded-full bg-[#00BCD4] flex items-center justify-center mx-auto">
                         <Check className="w-4 h-4 text-white" />
                       </div>
                       <p className="text-[#0A1628] text-xs font-medium leading-tight">{skill.label}</p>
-                    </div>)}
+                    </div>
+                  ))}
                 </div>
 
                 <p className="text-[#0A1628] text-sm">
-                  <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-              })}
+                  <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
 
                 <p className="text-[#00BCD4] text-xs font-semibold tracking-wider uppercase">
@@ -496,28 +520,48 @@ export const Training = () => {
 
               {/* Action Buttons */}
               <div className="flex justify-center gap-4 pt-4">
-                <Button size="lg" onClick={handleComplete} className="gap-2 bg-[#0A1628] hover:bg-[#1a2840] text-white">
+                <Button 
+                  size="lg" 
+                  onClick={handleComplete} 
+                  className="gap-2 bg-[#0A1628] hover:bg-[#1a2840] text-white"
+                >
                   <Download className="h-5 w-5" />
                   Download Badge
                 </Button>
-                <Button size="lg" variant="outline" onClick={handleBackToDashboard} className="border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628]/5">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  onClick={handleBackToDashboard} 
+                  className="border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628]/5"
+                >
                   Return to HQ
                 </Button>
               </div>
-            </div>}
+            </div>
+          )}
 
           {/* Navigation - Inside Card (hidden on final slide which has its own buttons) */}
-          {currentSlide !== totalSlides - 1 && <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
-              <button onClick={handlePrevious} disabled={currentSlide === 0} className="w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+          {currentSlide !== totalSlides - 1 && (
+            <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
+              <button 
+                onClick={handlePrevious} 
+                disabled={currentSlide === 0} 
+                className="w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                 <NavigationArrow direction="left" />
                 Back
               </button>
 
-              <button onClick={handleNavButtonClick} disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} className="h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+              <button 
+                onClick={handleNavButtonClick} 
+                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} 
+                className="h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
                   {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
                   <NavigationArrow direction="right" />
               </button>
-            </div>}
+            </div>
+          )}
         </Card>
       </div>
     </div>;
