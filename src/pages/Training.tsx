@@ -563,7 +563,7 @@ export const Training = () => {
                   ))}
                 </div>
 
-                <p className="text-[#0A1628] text-sm">
+                <p className="text-[#0A1628] text-sm max-w-none">
                   <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
 
