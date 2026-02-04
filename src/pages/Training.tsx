@@ -222,7 +222,9 @@ export const Training = () => {
                   </div>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
-                        <CheckIcon className="flex-shrink-0 mt-0.5" />
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-1">
+                          <path d="M13.3332 7L5.99984 14.3333L2.6665 11" stroke="#00D0FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
                         <span className="text-[#000000] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
                   </ul>
