@@ -223,7 +223,7 @@ export const Training = () => {
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
                   </ul>
                 </div>
@@ -239,7 +239,7 @@ export const Training = () => {
                         <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#DC2626] flex items-center justify-center mt-0.5">
                           <span className="text-white text-xs font-bold">✕</span>
                         </span>
-                        <span className="text-[#52525B] text-base leading-relaxed">{item.trim()}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
                   </ul>
                 </div>
