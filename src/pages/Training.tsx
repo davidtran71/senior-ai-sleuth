@@ -460,7 +460,7 @@ export const Training = () => {
               {/* Final Protocols - 3x2 Grid */}
               <div className="space-y-6">
                 <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] text-center">Final Protocols</h3>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-3 gap-6">
                   {[
                     { num: '1', text: 'Slow down and examine content carefully before believing or sharing' },
                     { num: '2', text: 'Verify information from multiple trusted sources' },
@@ -469,9 +469,11 @@ export const Training = () => {
                     { num: '5', text: 'Trust your instincts—if something feels off, it probably is' },
                     { num: '6', text: 'Think before you share to avoid spreading misinformation' },
                   ].map((item, index) => (
-                    <div key={index} className="bg-[#E6FAFF] p-5 rounded-2xl">
-                      <span className="font-serif text-[64px] leading-none text-[#00BCD4] font-bold italic">{item.num}</span>
-                      <p className="text-[#0A1628] text-sm font-semibold leading-relaxed mt-2">{item.text}</p>
+                    <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
+                      <span className="text-[#00BCD4] text-[110px] font-bold font-serif block mb-2 leading-none">
+                        {item.num}
+                      </span>
+                      <p className="text-[#0A1628] font-bold text-lg font-serif leading-relaxed">{item.text}</p>
                     </div>
                   ))}
                 </div>
