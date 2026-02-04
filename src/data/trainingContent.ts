@@ -168,7 +168,7 @@ export const trainingSlides: TrainingSlide[] = [
   // Slide 10: Video Content - Lesson
   {
     type: 'lesson',
-    title: 'Spotting Deepfake Videos',
+    title: 'Case #4: Spotting Deepfake Videos',
     introduction: 'AI-generated videos (deepfakes) are becoming more sophisticated, but they still have detectable flaws.',
     tips: [
       'Watch facial movements closely - do expressions look natural?',
