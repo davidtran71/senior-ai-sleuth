@@ -119,13 +119,13 @@ export const Training = () => {
 
           {/* Progress Bar */}
           <div className="relative">
-            <div className="flex justify-end mb-1">
-              <span className="text-sm text-[#52525B]">{Math.round(progress)}% Investigation Complete</span>
-            </div>
             <div className="h-2 bg-[#C5C0DB] rounded-full overflow-hidden">
               <div className="h-full bg-[#00A5FE] rounded-full transition-all duration-500" style={{
               width: `${progress}%`
             }} />
+            </div>
+            <div className="flex justify-center mt-2">
+              <span className="text-sm text-[#52525B] font-semibold">{Math.round(progress)}% Investigation Complete</span>
             </div>
           </div>
         </div>
