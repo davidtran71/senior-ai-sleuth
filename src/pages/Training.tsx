@@ -537,7 +537,7 @@ export const Training = () => {
                   <p className="text-[#000000] text-sm">has successfully completed the comprehensive</p>
                 </div>
 
-                <span className="inline-block bg-[#00BCD4] text-white text-sm font-semibold tracking-wider uppercase px-6 py-2 rounded">
+                <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-2xl px-[10px] py-[10px] rounded-lg" style={{ width: '530px', height: '65px', lineHeight: '120%' }}>
                   AI FORENSICS TASKFORCE TRAINING
                 </span>
 
