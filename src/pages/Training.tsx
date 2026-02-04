@@ -218,7 +218,7 @@ export const Training = () => {
                 <div className="bg-[#F0FDF4] p-6 rounded-2xl border-2 border-[#d1faf0]">
                   <div className="flex items-end justify-between mb-4">
                     <h3 className="text-[#0A1628] text-2xl font-bold font-serif">The Good</h3>
-                    <img src={robotGood} alt="Friendly robot" className="w-16 h-auto" />
+                    <img src={robotGood} alt="Friendly robot" className="w-20 h-20 object-contain" />
                   </div>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
@@ -232,7 +232,7 @@ export const Training = () => {
                 <div className="bg-[#FEF2F2] p-6 rounded-2xl border-2 border-[#DC2626]">
                   <div className="flex items-end justify-between mb-4">
                     <h3 className="text-[#0A1628] text-2xl font-bold font-serif">The Bad</h3>
-                    <img src={robotBad} alt="Malfunctioning robot" className="w-16 h-auto" />
+                    <img src={robotBad} alt="Malfunctioning robot" className="w-20 h-20 object-contain" />
                   </div>
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
