@@ -473,7 +473,7 @@ export const Training = () => {
                       <span className="text-[#00BCD4] text-[110px] font-bold font-serif block mb-2 leading-none">
                         {item.num}
                       </span>
-                      <p className="text-[#0A1628] font-bold text-lg font-serif leading-relaxed">{item.text}</p>
+                      <p className="font-sans font-normal text-[18px] leading-[100%] text-[#0A1628]">{item.text}</p>
                     </div>
                   ))}
                 </div>
