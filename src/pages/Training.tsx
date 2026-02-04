@@ -532,9 +532,9 @@ export const Training = () => {
                 />
 
                 <div className="space-y-2">
-                  <p className="text-[#000000] text-sm">This official document certifies that this</p>
+                  <p className="text-[#000000] text-sm max-w-none">This official document certifies that this</p>
                   <h2 className="text-[#0A1628] text-[64px] font-bold font-serif leading-none">Digital Detective</h2>
-                  <p className="text-[#000000] text-sm">has successfully completed the comprehensive</p>
+                  <p className="text-[#000000] text-sm max-w-none">has successfully completed the comprehensive</p>
                 </div>
 
                 <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-2xl px-[10px] py-[10px] rounded-lg" style={{ width: '530px', height: '65px', lineHeight: '120%' }}>
@@ -567,7 +567,7 @@ export const Training = () => {
                   <span className="font-semibold">Date of Completion:</span> {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
 
-                <p className="text-[#00BCD4] text-xs font-semibold tracking-wider uppercase">
+                <p className="text-[#00BCD4] text-xs font-semibold tracking-wider uppercase max-w-none">
                   AI FORENSICS TASKFORCE • CERTIFIED INVESTIGATOR
                 </p>
               </div>
