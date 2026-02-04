@@ -63,7 +63,7 @@ export const trainingSlides: TrainingSlide[] = [
   // Slide 4: Text Content - Lesson
   {
     type: 'lesson',
-    title: 'Spotting AI-Generated Text',
+    title: 'Case #1: Spotting AI-Generated Text',
     introduction: 'AI text (created by Large Language Models like ChatGPT) has telltale signs you can learn to recognize.',
     tips: [
       'Watch for overly formal or flowery language that doesn\'t sound natural',
