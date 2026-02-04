@@ -152,7 +152,7 @@ export const Training = () => {
               </h2>
               
               {/* Body text */}
-              <p className="text-lg leading-relaxed text-[#52525B] max-w-2xl mx-auto">
+              <p className="text-lg leading-relaxed text-[#000000] max-w-2xl mx-auto">
                 {slide.content}
               </p>
             </div>}
@@ -173,7 +173,7 @@ export const Training = () => {
                     {slide.title}
                   </h2>
                   
-                  {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
+                  {slide.introduction && <p className="text-lg leading-relaxed text-[#000000]">
                       {slide.introduction}
                     </p>}
                 </div>
@@ -190,7 +190,7 @@ export const Training = () => {
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
                       </li>)}
                   </ul>
                 </div>}
@@ -208,7 +208,7 @@ export const Training = () => {
                 {slide.title}
               </h2>
               
-              {slide.introduction && <p className="text-lg leading-relaxed text-[#52525B]">
+              {slide.introduction && <p className="text-lg leading-relaxed text-[#000000]">
                   {slide.introduction}
                 </p>}
 
@@ -261,7 +261,7 @@ export const Training = () => {
                     EVIDENCE BRIEFING
                   </span>
                   <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
-                  {slide.introduction && <p className="text-[#52525B] text-lg leading-relaxed">{slide.introduction}</p>}
+                  {slide.introduction && <p className="text-[#000000] text-lg leading-relaxed">{slide.introduction}</p>}
                 </div>
                 
                 {/* Right column: illustration */}
@@ -280,14 +280,14 @@ export const Training = () => {
                   <ul className="space-y-4">
                     {slide.tips.map((tip, index) => <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
                       </li>)}
                   </ul>
                 </div>}
 
               {/* Content section */}
               {slide.content && <div className="bg-[#F0F9FF] p-8 rounded-2xl">
-                  <p className="text-[#52525B] text-lg leading-relaxed">{slide.content}</p>
+                  <p className="text-[#000000] text-lg leading-relaxed">{slide.content}</p>
                 </div>}
             </div>}
 
@@ -327,7 +327,7 @@ export const Training = () => {
                     <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
                   </p>
                   {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
-                    <p className="text-sm text-[#52525B] mt-2">
+                    <p className="text-sm text-[#000000] mt-2">
                       Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
                     </p>
                   )}
@@ -377,7 +377,7 @@ export const Training = () => {
                       <ul className="space-y-4">
                         {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
                             <CheckIcon className="flex-shrink-0 mt-0.5" />
-                            <span className="text-[#52525B] text-base leading-relaxed">{example}</span>
+                            <span className="text-[#000000] text-base leading-relaxed">{example}</span>
                           </li>)}
                       </ul>
                     </div>
@@ -396,7 +396,7 @@ export const Training = () => {
                 </span>
                 <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
                 {slide.introduction && (
-                  <p className="text-[#52525B] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>
+                  <p className="text-[#000000] text-lg leading-relaxed max-w-2xl mx-auto">{slide.introduction}</p>
                 )}
               </div>
 
@@ -408,7 +408,7 @@ export const Training = () => {
                     {slide.tips.map((tip, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
                       </li>
                     ))}
                   </ul>
@@ -423,7 +423,7 @@ export const Training = () => {
                     {slide.finalTips.map((tip, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <CheckIcon className="flex-shrink-0 mt-0.5" />
-                        <span className="text-[#52525B] text-base leading-relaxed">{tip}</span>
+                        <span className="text-[#000000] text-base leading-relaxed">{tip}</span>
                       </li>
                     ))}
                   </ul>
@@ -445,13 +445,13 @@ export const Training = () => {
                   MISSION COMPLETE
                 </span>
                 <h2 className="text-[#0A1628] font-serif">{slide.title}</h2>
-                <p className="text-[#52525B]">You've completed your AI Forensics training</p>
+                <p className="text-[#000000]">You've completed your AI Forensics training</p>
               </div>
 
               {/* Continue Your Mission Card */}
               <div className="bg-[#E6FAFF] rounded-2xl p-6 space-y-4">
                 <h3 className="text-[#0A1628] text-xl font-bold font-serif">Continue Your Mission</h3>
-                <p className="text-[#52525B] text-sm leading-relaxed">
+                <p className="text-[#000000] text-sm leading-relaxed">
                   Your training is complete, but your mission continues. Stay vigilant and keep practicing these skills. Share what you've learned with family and friends to help protect them from digital threats.
                 </p>
                 <ul className="space-y-3">
@@ -483,16 +483,16 @@ export const Training = () => {
                 />
 
                 <div className="space-y-2">
-                  <p className="text-[#52525B] text-sm">This official document certifies that this</p>
+                  <p className="text-[#000000] text-sm">This official document certifies that this</p>
                   <h2 className="text-[#0A1628] text-4xl font-bold font-serif">Digital Detective</h2>
-                  <p className="text-[#52525B] text-sm">has successfully completed the comprehensive</p>
+                  <p className="text-[#000000] text-sm">has successfully completed the comprehensive</p>
                 </div>
 
                 <span className="inline-block bg-[#00BCD4] text-white text-sm font-semibold tracking-wider uppercase px-6 py-2 rounded">
                   AI FORENSICS TASKFORCE TRAINING
                 </span>
 
-                <p className="text-[#52525B] text-sm max-w-md mx-auto leading-relaxed">
+                <p className="text-[#000000] text-sm max-w-md mx-auto leading-relaxed">
                   and has demonstrated mastery in identifying AI-generated content including text, images, audio, and video to protect themselves and others from digital threats.
                 </p>
 
