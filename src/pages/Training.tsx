@@ -300,6 +300,14 @@ export const Training = () => {
                 <h2 className="text-[#0A1628] text-5xl font-bold font-serif leading-tight">{slide.title}</h2>
               </div>
 
+              {/* Image media content - separate container above quiz */}
+              {slide.quiz.image && <div className="rounded-2xl overflow-hidden relative">
+                  <span className="absolute top-3 left-3 bg-[#0A1628] text-white text-sm font-semibold px-3 py-1.5 rounded z-10">
+                    Evidence Image
+                  </span>
+                  <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full rounded-2xl" />
+                </div>}
+
               {/* Audio player - separate container above quiz */}
               {slide.quiz.audio && <div className="bg-[#FFFFFF] p-6 rounded-2xl shadow-sm">
                   <p className="text-[#0A1628] font-semibold mb-3">Evidence Audio</p>
@@ -318,7 +326,7 @@ export const Training = () => {
                   </video>
                 </div>}
               
-              {/* Quiz card */}
+              {/* Quiz card - Question and answers */}
               <div className="bg-[#FFFFFF] p-8 rounded-2xl shadow-sm">
                 {/* Question */}
                 <div className="mb-6">
@@ -327,19 +335,11 @@ export const Training = () => {
                     <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
                   </p>
                   {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
-                    <p className="text-sm text-[#000000] mt-2">
+                    <p className="text-sm text-[#00A5FE] mt-2">
                       Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
                     </p>
                   )}
                 </div>
-
-                {/* Image media content */}
-                {slide.quiz.image && <div className="mb-6 rounded-xl overflow-hidden border border-[#E5E7EB] relative">
-                    <span className="absolute top-3 left-3 bg-[#B5D2FF] text-[#0A1628] text-sm font-semibold px-3 py-1.5 rounded z-10">
-                      Evidence Image
-                    </span>
-                    <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full" />
-                  </div>}
 
                 
                 <QuizQuestion ref={quizRef} {...slide.quiz} onAnswer={handleQuizAnswer} onStateChange={handleQuizStateChange} />
