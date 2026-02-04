@@ -124,8 +124,8 @@ export const Training = () => {
               width: `${progress}%`
             }} />
             </div>
-            <div className="flex justify-center mt-2">
-              <span className="text-sm text-[#52525B] font-semibold">{Math.round(progress)}% Investigation Complete</span>
+            <div className="flex justify-end mt-2">
+              <span className="font-sans font-normal text-[16px] leading-[140%] text-[#52525B]">{Math.round(progress)}% Investigation Complete</span>
             </div>
           </div>
         </div>
