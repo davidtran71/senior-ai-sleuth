@@ -38,16 +38,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white font-sans">
-      {/* Header */}
-      <header className="py-4 px-6">
-        <CareSideLogo />
-      </header>
-
       {/* Hero Section */}
       <section 
         className="px-6 pb-16 pt-4 relative bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
+        {/* Header - Inside Hero */}
+        <header className="max-w-6xl mx-auto py-4 mb-4">
+          <CareSideLogo />
+        </header>
+
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center gap-8">
             {/* Hero Content - Card */}
