@@ -533,7 +533,7 @@ export const Training = () => {
 
                 <div className="space-y-2">
                   <p className="text-[#000000] text-sm">This official document certifies that this</p>
-                  <h2 className="text-[#0A1628] text-4xl font-bold font-serif">Digital Detective</h2>
+                  <h2 className="text-[#0A1628] text-[64px] font-bold font-serif leading-none">Digital Detective</h2>
                   <p className="text-[#000000] text-sm">has successfully completed the comprehensive</p>
                 </div>
 
