@@ -109,10 +109,10 @@ export const Training = () => {
               <NavigationArrow direction="left" className="mr-2" />
               Exit Training
             </Button>
-            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-2 bg-accent/10 px-4 py-2 rounded-lg border border-accent/20">
+            {slide.type !== 'intro' && currentSlide !== 1 && currentSlide !== 2 && currentSlide !== 11 && currentSlide !== 12 && <div className="flex items-center gap-[6px] bg-[#F6FEFC] px-3 py-1.5 rounded-[6px] border border-[#D3FAF0]">
                 <CaseFileIcon className="h-5 w-5 text-[#002B60]" />
-                <span className="text-lg font-bold tracking-wider">
-                  {currentSlide === 3 || currentSlide === 4 ? 'CASE #1/4' : currentSlide === 5 || currentSlide === 6 ? 'CASE #2/4' : currentSlide === 7 || currentSlide === 8 ? 'CASE #3/4' : currentSlide === 9 || currentSlide === 10 ? 'CASE #4/4' : `CASE #${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`}
+                <span className="font-sans font-semibold text-[18px] leading-[140%] text-[#002B60]">
+                  {currentSlide === 3 || currentSlide === 4 ? 'Case 1 / 4' : currentSlide === 5 || currentSlide === 6 ? 'Case 2 / 4' : currentSlide === 7 || currentSlide === 8 ? 'Case 3 / 4' : currentSlide === 9 || currentSlide === 10 ? 'Case 4 / 4' : `Case ${currentSlide + 1} / ${totalSlides}`}
                 </span>
               </div>}
           </div>
