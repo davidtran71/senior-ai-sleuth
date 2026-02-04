@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* CareSide + Detective theme - Warmer, softer, more approachable */
-    --background: 40 25% 97%; /* Warm off-white */
+    --background: 0 0% 100%; /* Pure white */
     --foreground: 210 20% 20%; /* Softer navy */
 
     --card: 0 0% 100%;
