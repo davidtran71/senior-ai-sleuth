@@ -541,12 +541,12 @@ export const Training = () => {
                   AI FORENSICS TASKFORCE TRAINING
                 </span>
 
-                <p className="text-[#000000] text-lg max-w-md mx-auto leading-relaxed">
+                <p className="text-[#000000] text-lg max-w-xl mx-auto leading-relaxed">
                   and has demonstrated mastery in identifying AI-generated content including text, images, audio, and video to protect themselves and others from digital threats.
                 </p>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-4 gap-4 max-w-lg mx-auto">
+                <div className="grid grid-cols-4 gap-4 max-w-xl mx-auto">
                   {[
                     { label: 'Text Analysis', icon: FileTextIcon },
                     { label: 'Image Detection', icon: ImageIcon },
