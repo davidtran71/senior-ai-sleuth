@@ -96,7 +96,7 @@ export const trainingSlides: TrainingSlide[] = [
   // Slide 6: Image Content - Lesson
   {
     type: 'lesson',
-    title: 'Spotting AI-Generated Images',
+    title: 'Case #2: Spotting AI-Generated Images',
     introduction: 'AI-generated images often look impressive at first glance, but they have consistent flaws when you look closely.',
     tips: [
       'Hands and fingers: Extra digits, melted hands, or unnatural positions',
