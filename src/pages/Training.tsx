@@ -490,7 +490,7 @@ export const Training = () => {
                   alt="Trophy" 
                   className="w-48 h-auto mx-auto"
                 />
-                <span className="inline-block bg-[#F8EDD1] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
+                <span className="inline-flex items-center justify-center h-[32px] bg-[#CCEDFF] rounded-[4px] px-[16px] py-[2px] gap-[6px] font-sans font-bold text-[16px] leading-[20px] tracking-[1.2px] uppercase text-[#002B60]">
                   MISSION COMPLETE
                 </span>
                 <h2 className="text-[#0A1628] font-serif">{slide.title}</h2>
