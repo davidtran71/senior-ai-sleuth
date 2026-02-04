@@ -23,6 +23,7 @@ import videoPlayerIllustration from "@/assets/video-player-illustration.png";
 import trophyIllustration from "@/assets/trophy-illustration.png";
 import certificateBadge from "@/assets/certificate-badge.png";
 import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
+import seniorsTabletImage from "@/assets/seniors-tablet.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
 export const Training = () => {
   const navigate = useNavigate();
@@ -157,7 +158,7 @@ export const Training = () => {
           {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
               {/* Seniors with Tablet Illustration - Top */}
               <div className="flex justify-center">
-                <img src="/src/assets/seniors-tablet.png" alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
+                <img src={seniorsTabletImage} alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
               </div>
               
               {/* Eyebrow badge */}
