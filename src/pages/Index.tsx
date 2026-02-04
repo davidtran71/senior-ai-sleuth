@@ -88,13 +88,11 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left - Image */}
             <div className="flex-1 relative">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src={seniorLaptop} 
-                  alt="Senior using laptop" 
-                  className="w-full h-auto object-cover"
-                />
-              </div>
+              <img 
+                src={seniorLaptop} 
+                alt="Senior using laptop" 
+                className="w-full h-auto object-cover"
+              />
               {/* Decorative Plus */}
               <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-6 right-4 z-10" viewBox="0 0 40 40" fill="currentColor">
                 <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z"/>
