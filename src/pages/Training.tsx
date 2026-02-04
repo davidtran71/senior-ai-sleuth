@@ -335,7 +335,7 @@ export const Training = () => {
                     <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
                   </p>
                   {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
-                    <p className="text-sm text-[#00A5FE] mt-2">
+                    <p className="text-sm text-[#657694] mt-2">
                       Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
                     </p>
                   )}
