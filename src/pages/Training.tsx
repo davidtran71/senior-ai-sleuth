@@ -470,7 +470,7 @@ export const Training = () => {
                     { num: '6', text: 'Think before you share to avoid spreading misinformation' },
                   ].map((item, index) => (
                     <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
-                      <span className="text-[#00BCD4] text-[110px] font-bold font-serif block mb-2 leading-none">
+                      <span className="text-[#00D0FF] text-[110px] font-bold font-serif block mb-2 leading-none">
                         {item.num}
                       </span>
                       <p className="font-sans font-normal text-[18px] leading-[100%] text-[#0A1628]">{item.text}</p>
