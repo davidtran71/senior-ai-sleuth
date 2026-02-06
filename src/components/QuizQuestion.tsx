@@ -242,7 +242,7 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
       </div>
 
       {showResult && (
-        <div className={`p-4 rounded-lg mt-6 ${
+        <div className={`p-4 rounded-lg !mt-8 ${
           isAnswerCorrect() 
             ? 'bg-[#439F6E1A]' 
             : 'bg-destructive/10'
