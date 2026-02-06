@@ -244,8 +244,8 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
       {showResult && (
         <div className={`p-4 rounded-lg ${
           isAnswerCorrect() 
-            ? 'bg-[#439F6E1A] border-2 border-[#439F6E]' 
-            : 'bg-destructive/10 border-2 border-destructive'
+            ? 'bg-[#439F6E1A]' 
+            : 'bg-destructive/10'
         }`}>
           <p className="font-medium mb-2 text-[#0A1628]">
             {isAnswerCorrect() ? '✓ Correct!' : 'Not quite right — here\'s why:'}
