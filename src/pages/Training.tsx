@@ -523,7 +523,7 @@ export const Training = () => {
               {/* Final Protocols - 3x2 Grid */}
               <div className="space-y-6">
                 <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] text-center">Final Protocols</h3>
-                <div className="grid grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-3 gap-6">
                   {[
                     { num: '1', text: 'Slow down and examine content carefully before believing or sharing' },
                     { num: '2', text: 'Verify information from multiple trusted sources' },
