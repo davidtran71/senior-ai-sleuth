@@ -662,11 +662,11 @@ export const Training = () => {
 
           {/* Navigation - Inside Card (hidden on final slide which has its own buttons) */}
           {currentSlide !== totalSlides - 1 && (
-            <div className="flex justify-between items-center gap-4 pt-8 mt-8 border-t border-accent/20">
+            <div className="flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-4 pt-8 mt-8 border-t border-accent/20">
               <button 
                 onClick={handlePrevious} 
                 disabled={currentSlide === 0} 
-                className="w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <NavigationArrow direction="left" />
                 Back
@@ -675,7 +675,7 @@ export const Training = () => {
               <button 
                 onClick={handleNavButtonClick} 
                 disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} 
-                className="h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                   {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : 'Next Case'}
                   <NavigationArrow direction="right" />
