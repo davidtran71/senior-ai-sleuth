@@ -194,7 +194,8 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
           const optionText = getOptionText(option);
           
           // Determine the styling
-          let buttonClasses = 'w-full p-4 text-left rounded-[12px] border transition-all text-base ';
+          // Mobile: smaller padding & no border for unselected, Desktop: full styling
+          let buttonClasses = 'w-full p-3 sm:p-4 text-left rounded-lg sm:rounded-[12px] transition-all text-base ';
           
           if (isLocked) {
             // Locked correct answer - always show green, not clickable
@@ -211,9 +212,9 @@ export const QuizQuestion = forwardRef<QuizQuestionRef, QuizQuestionProps>(({
             }
           } else {
             if (showResult) {
-              buttonClasses += 'border border-[#A7A7A7] bg-white cursor-not-allowed';
+              buttonClasses += 'border-0 sm:border border-[#A7A7A7] bg-[#F5F5F5] sm:bg-white cursor-not-allowed';
             } else {
-              buttonClasses += 'border border-[#A7A7A7] hover:border-[#00A5FE]/50 bg-white cursor-pointer';
+              buttonClasses += 'border-0 sm:border border-[#A7A7A7] hover:border-[#00A5FE]/50 bg-[#F5F5F5] sm:bg-white cursor-pointer';
             }
           }
           
