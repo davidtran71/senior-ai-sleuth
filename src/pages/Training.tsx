@@ -609,7 +609,7 @@ export const Training = () => {
                 </p>
 
                 {/* Skills Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-xl mx-auto">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full md:max-w-xl md:mx-auto">
                   {[
                     { label: 'Text Analysis', icon: FileTextIcon },
                     { label: 'Image Detection', icon: ImageIcon },
