@@ -39,7 +39,7 @@ export const trainingSlides: TrainingSlide[] = [
     title: 'What is AI?',
     introduction: 'AI is fundamentally a statistical process—it does not understand the geometry and physics of the physical world. So we must look for geometric and physical anomalies to find evidence of manipulation or generation.',
     tips: [
-      'AI analyzes patterns in data to make predictions',
+      'AI analyses patterns in data to make predictions',
       'It can create realistic-looking content without understanding reality',
       'Scammers use AI to create convincing fake content',
       'By learning the signs, you can protect yourself and others'
