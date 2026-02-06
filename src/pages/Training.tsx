@@ -556,7 +556,7 @@ export const Training = () => {
                 <span className="inline-flex items-center justify-center h-[32px] bg-[#CCEDFF] rounded-[4px] px-[16px] py-[2px] gap-[6px] font-sans font-bold text-[16px] leading-[20px] tracking-[1.2px] uppercase text-[#002B60]">
                   MISSION COMPLETE
                 </span>
-                <h2 className="text-[#0A1628] font-serif">{slide.title}</h2>
+                <h2 className="text-[#0A1628] font-serif text-3xl md:text-5xl">{slide.title}</h2>
                 <p className="text-[#000000]">You've completed your AI Forensics training</p>
               </div>
 
