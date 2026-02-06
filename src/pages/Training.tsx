@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import html2canvas from "html2canvas";
 import { useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { QuizQuestion, QuizQuestionRef } from "@/components/QuizQuestion";
@@ -25,6 +26,26 @@ import certificateBadge from "@/assets/certificate-badge.png";
 import seniorDetectiveMagnifying from "@/assets/senior-detective-magnifying.png";
 import seniorsTabletImage from "@/assets/seniors-tablet.png";
 import { FileText as FileTextIcon, Image as ImageIcon, Mic, Video } from "lucide-react";
+
+// Animation variants for slide transitions
+const slideVariants = {
+  enter: { opacity: 0, y: 20 },
+  center: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -20 }
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.08 }
+  }
+};
+
+const staggerItem = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } }
+};
+
 export const Training = () => {
   const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -154,31 +175,51 @@ export const Training = () => {
         </div>
 
         {/* Slide Content */}
-        <Card className={`p-8 shadow-dramatic mb-6 animate-fade-in ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
-          {slide.type === 'intro' && <div className="space-y-6 font-sans text-center">
-              {/* Seniors with Tablet Illustration - Top */}
-              <div className="flex justify-center">
-                <img src={seniorsTabletImage} alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
-              </div>
-              
-              {/* Eyebrow badge */}
-              <div className="flex justify-center">
-                <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
-                  <AlertTriangle className="h-4 w-4" />
-                  ATTENTION RECRUIT
-                </span>
-              </div>
-              
-              {/* Title */}
-              <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
-                {slide.title}
-              </h2>
-              
-              {/* Body text */}
-              <p className="text-lg leading-relaxed text-[#000000] max-w-2xl mx-auto">
-                {slide.content}
-              </p>
-            </div>}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <Card className={`p-8 shadow-dramatic mb-6 ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
+              {slide.type === 'intro' && (
+                <motion.div 
+                  className="space-y-6 font-sans text-center"
+                  variants={staggerContainer}
+                  initial="hidden"
+                  animate="visible"
+                >
+                  {/* Seniors with Tablet Illustration - Top */}
+                  <motion.div variants={staggerItem} className="flex justify-center">
+                    <img src={seniorsTabletImage} alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
+                  </motion.div>
+                  
+                  {/* Eyebrow badge */}
+                  <motion.div variants={staggerItem} className="flex justify-center">
+                    <span className="inline-flex items-center gap-2 bg-[#CCEDFF] text-black text-sm font-semibold tracking-wider uppercase px-4 py-2 rounded-full">
+                      <AlertTriangle className="h-4 w-4" />
+                      ATTENTION RECRUIT
+                    </span>
+                  </motion.div>
+                  
+                  {/* Title */}
+                  <motion.div variants={staggerItem}>
+                    <h2 className="text-[#0A1628] text-5xl font-bold leading-tight font-serif">
+                      {slide.title}
+                    </h2>
+                  </motion.div>
+                  
+                  {/* Body text */}
+                  <motion.div variants={staggerItem}>
+                    <p className="text-lg leading-relaxed text-[#000000] max-w-2xl mx-auto">
+                      {slide.content}
+                    </p>
+                  </motion.div>
+                </motion.div>
+              )}
 
           {/* What is AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 1 && <div className="space-y-8">
@@ -641,7 +682,9 @@ export const Training = () => {
               </button>
             </div>
           )}
-        </Card>
+            </Card>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </div>;
 };
