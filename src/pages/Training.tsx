@@ -639,7 +639,7 @@ export const Training = () => {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-center gap-4 pt-4">
+              <div className="flex flex-col md:flex-row justify-center gap-4 pt-4">
                 <Button 
                   size="lg" 
                   onClick={handleDownloadBadge} 
