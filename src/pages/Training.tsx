@@ -135,7 +135,7 @@ export const Training = () => {
   const handleBackToDashboard = () => {
     navigate('/');
   };
-  return <div className="min-h-screen bg-background py-8 px-6 relative overflow-hidden">
+  return <div className="min-h-screen bg-background py-8 px-3 sm:px-6 relative overflow-hidden">
       {/* Decorative shapes - show on all slides except intro (first slide) */}
       <DecorativeShapes />
       <DecorativeTopCross />
@@ -184,7 +184,7 @@ export const Training = () => {
             exit="exit"
             transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
           >
-            <Card className={`p-8 shadow-dramatic mb-6 ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
+            <Card className={`p-4 sm:p-8 shadow-dramatic mb-6 ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
               {slide.type === 'intro' && (
                 <motion.div 
                   className="space-y-6 font-sans text-center"
@@ -355,7 +355,7 @@ export const Training = () => {
                 </div>}
             </div>}
 
-          {slide.type === 'quiz' && slide.quiz && <div className="space-y-6 bg-[#E6FAFF] p-8 rounded-2xl">
+          {slide.type === 'quiz' && slide.quiz && <div className="space-y-6 bg-[#E6FAFF] p-4 sm:p-8 rounded-2xl">
               {/* Header section */}
               <div className="space-y-4">
                 <span className="inline-flex items-center gap-2 bg-[#F8EDD1] text-[#002B60] text-sm font-semibold tracking-wider uppercase px-5 py-2.5 rounded">
