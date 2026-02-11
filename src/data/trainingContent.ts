@@ -42,7 +42,8 @@ export const trainingSlides: TrainingSlide[] = [
       'AI analyses patterns in data to make predictions',
       'It can create realistic-looking content without understanding reality',
       'Scammers use AI to create convincing fake content',
-      'By learning the signs, you can protect yourself and others'
+      'By learning the signs, you can protect yourself and others',
+      'Remember: AI is constantly evolving, so stay alert and always use your best judgement before sharing sensitive information'
     ],
   },
 
