@@ -214,7 +214,7 @@ export const Training = () => {
                   
                   {/* Body text */}
                   <motion.div variants={staggerItem}>
-                    <p className="text-lg leading-relaxed text-[#000000] max-w-2xl mx-auto">
+                    <p className="text-lg leading-relaxed text-[#000000] max-w-2xl mx-auto whitespace-pre-line">
                       {slide.content}
                     </p>
                   </motion.div>

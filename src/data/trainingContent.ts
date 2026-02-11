@@ -30,7 +30,7 @@ export const trainingSlides: TrainingSlide[] = [
   {
     type: 'intro',
     title: 'Greetings, recruit! It\'s training day.',
-    content: 'AI has become ubiquitous in daily life, especially online. You basically have to be a Digital Forensics Expert to distinguish between what\'s real and what isn\'t. This interactive training teaches you how to identify AI-generated content and take your power back. By the end, you\'ll know how to pinpoint AI text, images, audio, and videos so you can stay safe online.',
+    content: 'AI has become ubiquitous in daily life, especially online. It\'s almost like you have to be a Digital Forensics Expert to distinguish between what\'s real and what isn\'t.\n\nThis interactive training is not an academic tool—it\'s a playful way for you to learn about AI-generated content so you can stay safe online. AI is constantly evolving, so while this training is helpful, it is by no means comprehensive. The goal is for you to "graduate" today with some foundational knowledge of how to stay safe and alert in an AI-driven world.\n\nSo, recruit...are you ready to test your skills?\n\nGive it a try and be sure to share your results at the end!',
   },
 
   // Slide 2: What is AI - Part 1
