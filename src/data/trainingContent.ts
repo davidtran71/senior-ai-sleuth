@@ -100,7 +100,6 @@ export const trainingSlides: TrainingSlide[] = [
     title: 'Case #2: Spotting AI-Generated Images',
     introduction: 'AI-generated images often look impressive at first glance, but they have consistent flaws when you look closely.',
     tips: [
-      'Hands and fingers: Extra digits, melted hands, or unnatural positions',
       'Teeth and smiles: Too uniform, gummy, or blurred together',
       'Eyes: Asymmetrical irises, inconsistent reflections, or "off" pupils',
       'Background text: Signs, logos, or text appear as gibberish',
