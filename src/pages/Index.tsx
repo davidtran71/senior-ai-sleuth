@@ -107,7 +107,7 @@ const Index = () => {
                 CRITICAL MISSION
               </span>
               <h2 className="text-[#0A1628] text-5xl font-bold mb-4 font-serif">
-                Why This Training Matters
+                Why This AI Training Matters
               </h2>
               <p className="text-[#4A5568] text-base lg:text-lg mb-4">
                 Scammers use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. This fun, but helpful training will help you develop skills to recognise digital threats and stay safe online.
