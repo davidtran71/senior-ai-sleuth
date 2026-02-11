@@ -130,7 +130,7 @@ const Index = () => {
                   TRAINING BRIEFING
                 </span>
                 <h2 className="text-[#0A1628] text-5xl font-bold font-serif">
-                  What You'll Investigate
+                  Training Day Rundown 
                 </h2>
               </div>
 
