@@ -45,7 +45,7 @@ const Index = () => {
   }, {
     num: 6,
     title: "Detection Tips",
-    desc: "Tips to verify suspicious content"
+    desc: "Final tips for verifying suspicious content"
   }];
   return <div className="min-h-screen bg-white font-sans">
       {/* Hero Section */}
