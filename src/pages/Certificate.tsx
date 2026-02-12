@@ -59,11 +59,11 @@ export const Certificate = () => {
       url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`
     },
     {
-      name: 'Bluesky',
+      name: 'Threads',
       icon: (
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.785 2.627 3.6 3.476 6.178 3.126-4.443.766-7.13 2.629-4.005 7.59C5.753 25.504 11.216 18.606 12 15.69c.784 2.916 5.38 9.222 9.203 5.273 3.126-4.961.438-6.824-4.005-7.59 2.578.35 5.393-.499 6.178-3.126C23.622 9.418 24 4.458 24 3.768c0-.69-.139-1.861-.902-2.203-.659-.3-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8z"/></svg>
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.96-.065-1.187.408-2.26 1.33-3.017.88-.724 2.107-1.127 3.553-1.166 1.076-.03 2.06.097 2.943.378.018-.96-.094-1.794-.332-2.47-.342-.972-.952-1.455-1.813-1.455h-.063c-.61.02-1.12.247-1.513.678l-1.45-1.41c.728-.75 1.672-1.16 2.81-1.22h.106c1.572 0 2.767.658 3.448 1.9.555 1.012.83 2.426.818 4.203v.05c.013.14.013.28 0 .42-.08 2.864-1.164 4.58-3.222 5.106v.02c.596.288 1.097.702 1.47 1.223.63.879.907 2.073.82 3.546-.034.578-.132 1.126-.294 1.638l.002-.003zM12.42 13.64c-1.548.043-2.457.546-2.392 1.652.033.6.36 1.622 2.195 1.622h.09c1.407-.075 2.121-.84 2.339-1.958-.633-.288-1.38-.467-2.232-.467v.15z"/></svg>
       ),
-      url: `https://bsky.app/intent/compose?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`
+      url: `https://www.threads.net/intent/post?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`
     },
   ];
 
@@ -133,7 +133,7 @@ export const Certificate = () => {
                 <p className="text-[#000000] text-lg max-w-none">has successfully completed the comprehensive</p>
               </div>
 
-              <span className="flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-6 py-4 rounded-lg w-full md:w-[530px] min-h-[65px] text-center" style={{ lineHeight: '120%' }}>
+              <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%' }}>
                 AI FORENSICS TASKFORCE TRAINING
               </span>
 
