@@ -116,7 +116,7 @@ export const Certificate = () => {
             </div>
 
             {/* Official Certificate Section */}
-            <div ref={certificateRef} className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-6 text-center bg-white">
+            <div ref={certificateRef} className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-8 text-center bg-white">
               <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                 OFFICIAL CERTIFICATE
               </span>
@@ -127,10 +127,10 @@ export const Certificate = () => {
                 className="w-32 h-auto mx-auto"
               />
 
-              <div className="space-y-4">
-                <p className="text-[#000000] text-lg max-w-none mb-0">This official document certifies that this</p>
-                <h2 className="text-[#0A1628] text-4xl md:text-[64px] font-bold font-serif leading-none my-4">Digital Detective</h2>
-                <p className="text-[#000000] text-lg max-w-none mt-0">has successfully completed the comprehensive</p>
+              <div className="space-y-6">
+                <p className="text-[#000000] text-lg max-w-none">This official document certifies that this</p>
+                <h2 className="text-[#0A1628] text-4xl md:text-[64px] font-bold font-serif leading-none">Digital Detective</h2>
+                <p className="text-[#000000] text-lg max-w-none">has successfully completed the comprehensive</p>
               </div>
 
               <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%' }}>
@@ -149,13 +149,12 @@ export const Certificate = () => {
                   { label: 'Audio Forensics', icon: Mic },
                   { label: 'Video Analysis', icon: Video }
                 ].map((skill, index) => (
-                  <div key={index} className="bg-[#E9FCF7] rounded-xl p-4 space-y-2 text-center">
+                  <div key={index} className="bg-[#E9FCF7] rounded-xl p-4 flex flex-col items-center justify-center gap-2">
                     <img 
                       src="data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12Z' fill='%2300A5FE'/%3E%3Cpath d='M16 10L10.5 15L8 12.7273' stroke='white' stroke-width='1.33333' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
                       alt="Completed"
                       width="24"
                       height="24"
-                      className="mx-auto"
                     />
                     <p className="text-[#0A1628] text-xs font-medium leading-tight text-center">{skill.label}</p>
                   </div>
