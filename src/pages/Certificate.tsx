@@ -133,7 +133,7 @@ export const Certificate = () => {
                 <p className="text-[#000000] text-lg max-w-none">has successfully completed the comprehensive</p>
               </div>
 
-              <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%', marginTop: '-10px' }}>
+              <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%' }}>
                 AI FORENSICS TASKFORCE TRAINING
               </span>
 
