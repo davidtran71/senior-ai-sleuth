@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { CareSideLogo } from "@/components/CareSideLogo";
 import { AnimatedElement, StaggerContainer, StaggerItem } from "@/components/AnimatedElement";
-import seniorLaptop from "@/assets/senior-laptop.png";
+import seniorDetectiveCloseup from "@/assets/senior-detective-closeup.png";
 import heroBackground from "@/assets/hero-background-new.png";
 import ctaBackground from "@/assets/cta-background.png";
 import robotShield from "@/assets/robot-shield.png";
@@ -94,7 +94,7 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             {/* Left - Image */}
             <AnimatedElement type="slideLeft" className="flex-1 relative">
-              <img src={seniorLaptop} alt="Senior using laptop" className="w-full h-auto object-cover" />
+              <img src={seniorDetectiveCloseup} alt="Senior detective with magnifying glass" className="w-full h-auto object-cover rounded-2xl" />
               {/* Decorative Plus */}
               <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-6 right-4 z-10" viewBox="0 0 40 40" fill="currentColor">
                 <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z" />
