@@ -18,6 +18,8 @@ export const Certificate = () => {
 
   const handleDownloadBadge = async () => {
     if (!certificateRef.current) return;
+    const banner = certificateRef.current.querySelector('[data-banner]') as HTMLElement | null;
+    if (banner) banner.style.paddingTop = '0';
     try {
       const canvas = await html2canvas(certificateRef.current, {
         backgroundColor: '#ffffff',
@@ -30,6 +32,8 @@ export const Certificate = () => {
       link.click();
     } catch (error) {
       console.error('Failed to generate certificate image:', error);
+    } finally {
+      if (banner) banner.style.paddingTop = '';
     }
   };
 
@@ -133,7 +137,7 @@ export const Certificate = () => {
                 <p className="text-[#000000] text-lg max-w-none">has successfully completed the comprehensive</p>
               </div>
 
-              <span className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%' }}>
+              <span data-banner className="inline-flex items-center justify-center bg-[#80D2FE] text-[#000000] font-franklin font-bold text-base md:text-2xl px-4 md:px-[10px] py-[10px] rounded-lg w-full md:w-[530px] h-auto md:h-[65px]" style={{ lineHeight: '120%' }}>
                 AI FORENSICS TASKFORCE TRAINING
               </span>
 
