@@ -71,7 +71,7 @@ const Index = () => {
                   AI Training Tool<br />for Seniors
                 </h1>
                 <p className="text-[#4A5568] text-base lg:text-lg mb-6 max-w-md">
-                  Join the digital detective academy and learn to spot AI-generated scams, deepfakes, and misinformation. Protect yourself and your loved ones online.
+                  Have you ever daydreamed of being an eagle-eyed investigator? Well, here’s your shot! Put on your detective cap and try your hand at cracking these tricky AI cases—and learn a few tips about online safety along the way.
                 </p>
                 <Button onClick={handleStartTraining} className="bg-[#0A1628] hover:bg-[#1a2840] text-white rounded-lg px-6 py-3 text-base font-medium inline-flex items-center gap-2">
                   {trainingCompleted ? "Retake Training" : "Begin Training"}
@@ -131,7 +131,7 @@ const Index = () => {
               </div>
 
               <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8" staggerDelay={0.08}>
-                {modules.map(item => <StaggerItem key={item.num}>
+                {modules.map((item) => <StaggerItem key={item.num}>
                     <div className="text-left bg-[#F6FEFC] rounded-2xl p-6 h-full">
                       <span className="text-[#00BCD4] text-[110px] font-bold font-serif block mb-2 leading-none">
                         {item.num}
