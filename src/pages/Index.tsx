@@ -109,7 +109,7 @@ const Index = () => {
                 Scammers use AI to create convincing fake emails, voice calls, images, and videos targeting seniors. This fun, but helpful training will help you develop skills to recognise digital threats and stay safe online.
               </p>
               <p className="text-[#0A1628] font-semibold text-base lg:text-lg">
-                Complete your training to earn an official Digital Detective Badge!
+                Complete your training to earn a Digital Detective Badge!
               </p>
             </AnimatedElement>
           </div>
