@@ -19,7 +19,7 @@ export const Certificate = () => {
   const handleDownloadBadge = async () => {
     if (!certificateRef.current) return;
     const banner = certificateRef.current.querySelector('[data-banner]') as HTMLElement | null;
-    if (banner) banner.style.paddingTop = '0';
+    if (banner) banner.style.marginTop = '-5px';
     try {
       const canvas = await html2canvas(certificateRef.current, {
         backgroundColor: '#ffffff',
@@ -33,7 +33,7 @@ export const Certificate = () => {
     } catch (error) {
       console.error('Failed to generate certificate image:', error);
     } finally {
-      if (banner) banner.style.paddingTop = '';
+      if (banner) banner.style.marginTop = '';
     }
   };
 
