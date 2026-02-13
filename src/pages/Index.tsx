@@ -44,7 +44,7 @@ const Index = () => {
     desc: "Identify manipulated and AI-generated video content"
   }, {
     num: 6,
-    title: "Detection Tips",
+    title: "Debriefing",
     desc: "Final tips for verifying suspicious content"
   }];
   return <div className="min-h-screen bg-white font-sans">
