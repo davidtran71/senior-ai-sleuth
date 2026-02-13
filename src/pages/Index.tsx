@@ -95,10 +95,6 @@ const Index = () => {
             {/* Left - Image */}
             <AnimatedElement type="slideLeft" className="flex-1 relative">
               <img src={seniorDetectiveCloseup} alt="Senior detective with magnifying glass" className="w-full h-auto object-cover rounded-2xl" />
-              {/* Decorative Plus */}
-              <svg className="w-16 h-16 text-[#00BCD4] absolute -bottom-6 right-4 z-10" viewBox="0 0 40 40" fill="currentColor">
-                <path d="M17 0h6v17h17v6H23v17h-6V23H0v-6h17V0z" />
-              </svg>
             </AnimatedElement>
 
             {/* Right - Content */}
