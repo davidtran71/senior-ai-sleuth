@@ -63,7 +63,7 @@ export const Training = () => {
       return;
     }
     if (currentSlide < totalSlides - 1) {
-      setCurrentSlide(prev => prev + 1);
+      setCurrentSlide((prev) => prev + 1);
       setQuizState({
         canSubmit: false,
         hasSubmitted: false,
@@ -74,7 +74,7 @@ export const Training = () => {
   };
   const handlePrevious = () => {
     if (currentSlide > 0) {
-      setCurrentSlide(prev => prev - 1);
+      setCurrentSlide((prev) => prev - 1);
       setQuizState({
         canSubmit: false,
         hasSubmitted: false,
@@ -150,21 +150,21 @@ export const Training = () => {
         {/* Slide Content */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={currentSlide}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-          >
+          key={currentSlide}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}>
+
             <Card className={`p-4 sm:p-8 shadow-dramatic mb-6 ${slide.type === 'intro' ? 'border-2 border-[#00BCD4]/30 rounded-2xl' : 'case-file-border'}`}>
-              {slide.type === 'intro' && (
-                <motion.div 
-                  className="space-y-6 font-sans text-center"
-                  variants={staggerContainer}
-                  initial="hidden"
-                  animate="visible"
-                >
+              {slide.type === 'intro' &&
+            <motion.div
+              className="space-y-6 font-sans text-center"
+              variants={staggerContainer}
+              initial="hidden"
+              animate="visible">
+
                   {/* Seniors with Tablet Illustration - Top */}
                   <motion.div variants={staggerItem} className="flex justify-center">
                     <img src={seniorsTabletImage} alt="Seniors learning on a tablet" className="max-w-[300px] lg:max-w-[380px] h-auto" />
@@ -192,7 +192,7 @@ export const Training = () => {
                     </p>
                   </motion.div>
                 </motion.div>
-              )}
+            }
 
           {/* What is AI slide - special layout */}
           {slide.type === 'lesson' && currentSlide === 1 && <div className="space-y-8">
@@ -260,7 +260,7 @@ export const Training = () => {
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[0].replace('THE GOOD:', '').trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-1">
-                          <path d="M13.3332 7L5.99984 14.3333L2.6665 11" stroke="#00D0FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M13.3332 7L5.99984 14.3333L2.6665 11" stroke="#00D0FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <span className="text-[#000000] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
@@ -276,9 +276,9 @@ export const Training = () => {
                   <ul className="space-y-3">
                     {slide.content?.split('THE BAD:')[1]?.trim().split('|').map((item, index) => <li key={index} className="flex items-start gap-3">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" className="flex-shrink-0 mt-0.5">
-                          <path d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M11.25 6.75L6.75 11.25" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
-                          <path d="M6.75 6.75L11.25 11.25" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M9 16.5C13.1421 16.5 16.5 13.1421 16.5 9C16.5 4.85786 13.1421 1.5 9 1.5C4.85786 1.5 1.5 4.85786 1.5 9C1.5 13.1421 4.85786 16.5 9 16.5Z" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M11.25 6.75L6.75 11.25" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
+                          <path d="M6.75 6.75L11.25 11.25" stroke="#D70000" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                         <span className="text-[#000000] text-base leading-relaxed">{item.trim()}</span>
                       </li>)}
@@ -303,11 +303,11 @@ export const Training = () => {
                 
                 {/* Right column: illustration */}
                 <div className="flex-shrink-0">
-                  <img 
-                    src={currentSlide === 3 ? browserIllustration : currentSlide === 7 ? audioPlayerIllustration : currentSlide === 9 ? videoPlayerIllustration : personGlasses} 
+                  <img
+                    src={currentSlide === 3 ? browserIllustration : currentSlide === 7 ? audioPlayerIllustration : currentSlide === 9 ? videoPlayerIllustration : personGlasses}
                     alt="Lesson illustration"
-                    className="w-40 md:w-52 lg:w-60 h-auto" 
-                  />
+                    className="w-40 md:w-52 lg:w-60 h-auto" />
+
                 </div>
               </div>
 
@@ -339,7 +339,7 @@ export const Training = () => {
 
               {/* Image media content - separate container above quiz */}
               {slide.quiz.image && <div className="rounded-2xl overflow-hidden relative">
-                  <span className="absolute top-3 left-3 bg-[#0A1628] text-white text-sm font-semibold px-3 py-1.5 rounded z-10">
+                  <span className="absolute top-3 left-3 text-sm font-semibold px-3 py-1.5 rounded z-10 bg-[#b3d1ff] text-black">
                     Evidence Image
                   </span>
                   <img src={slide.quiz.image} alt="Evidence for analysis" className="w-full rounded-2xl" />
@@ -371,11 +371,11 @@ export const Training = () => {
                     <span className="text-[#00A5FE] font-semibold">Question: </span>
                     <span className="text-[#0A1628] font-semibold">{slide.quiz.question}</span>
                   </p>
-                  {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) && (
-                    <p className="text-sm text-[#657694] mt-2">
+                  {slide.quiz.correctAnswer && Array.isArray(slide.quiz.correctAnswer) &&
+                  <p className="text-sm text-[#657694] mt-2">
                       Select all that apply ({(slide.quiz.correctAnswer as number[]).length} correct answers)
                     </p>
-                  )}
+                  }
                 </div>
 
                 
@@ -403,13 +403,13 @@ export const Training = () => {
                     'For Videos': '#DAE9FF'
                   };
                   const bgColor = bgColors[tool.category] || '#DAE9FF';
-                  
+
                   return (
-                    <div 
-                      key={index} 
+                    <div
+                      key={index}
                       className="p-6 rounded-2xl space-y-4"
-                      style={{ backgroundColor: bgColor }}
-                    >
+                      style={{ backgroundColor: bgColor }}>
+
                       <h3 className="text-[#0A1628] text-2xl font-bold font-serif">{tool.category}</h3>
                       <ul className="space-y-4">
                         {tool.examples.map((example, idx) => <li key={idx} className="flex items-start gap-3">
@@ -417,22 +417,22 @@ export const Training = () => {
                             <span className="text-[#000000] text-base leading-relaxed">{example}</span>
                           </li>)}
                       </ul>
-                    </div>
-                  );
+                    </div>);
+
                 })}
               </div>
             </div>}
 
           {/* Digital Detective Recap Slide */}
-          {slide.type === 'recap' && (
+          {slide.type === 'recap' &&
             <div className="space-y-8">
               {/* Hero Image */}
               <div className="flex justify-center">
-                <img 
-                  src={seniorDetectiveMagnifying} 
-                  alt="Digital Detective with magnifying glass" 
-                  className="max-w-[320px] h-auto"
-                />
+                <img
+                  src={seniorDetectiveMagnifying}
+                  alt="Digital Detective with magnifying glass"
+                  className="max-w-[320px] h-auto" />
+
               </div>
 
               {/* Header section */}
@@ -498,48 +498,48 @@ export const Training = () => {
                 <h3 className="font-sans font-bold text-[24px] leading-[120%] text-[#000000] text-center">Final Protocols</h3>
                 <div className="grid md:grid-cols-3 gap-6">
                   {[
-                    { num: '1', text: 'Slow down and examine content carefully before believing or sharing' },
-                    { num: '2', text: 'Verify information from multiple trusted sources' },
-                    { num: '3', text: 'When in doubt, ask a trusted family member or friend' },
-                    { num: '4', text: 'Never share personal information or send money based on urgent requests' },
-                    { num: '5', text: 'Trust your instincts—if something feels off, it probably is' },
-                    { num: '6', text: 'Think before you share to avoid spreading misinformation' },
-                  ].map((item, index) => (
-                    <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
+                  { num: '1', text: 'Slow down and examine content carefully before believing or sharing' },
+                  { num: '2', text: 'Verify information from multiple trusted sources' },
+                  { num: '3', text: 'When in doubt, ask a trusted family member or friend' },
+                  { num: '4', text: 'Never share personal information or send money based on urgent requests' },
+                  { num: '5', text: 'Trust your instincts—if something feels off, it probably is' },
+                  { num: '6', text: 'Think before you share to avoid spreading misinformation' }].
+                  map((item, index) =>
+                  <div key={index} className="text-left bg-[#F6FEFC] rounded-2xl p-6">
                       <span className="text-[#00D0FF] text-[110px] font-bold font-serif block mb-2 leading-none">
                         {item.num}
                       </span>
                       <p className="font-sans font-normal text-[18px] leading-[100%] text-[#0A1628]">{item.text}</p>
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             </div>
-          )}
+            }
 
 
           {/* Navigation - Inside Card (hidden on final slide which has its own buttons) */}
-          {currentSlide !== totalSlides - 1 && (
+          {currentSlide !== totalSlides - 1 &&
             <div className="flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-4 pt-8 mt-8 border-t border-accent/20">
-              <button 
-                onClick={handlePrevious} 
-                disabled={currentSlide === 0} 
-                className="w-full sm:w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button
+                onClick={handlePrevious}
+                disabled={currentSlide === 0}
+                className="w-full sm:w-[190px] h-[60px] flex items-center justify-center gap-[10px] bg-white border-2 border-[#00D0FF] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-[#0A1628] hover:bg-[#00D0FF]/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+
                 <NavigationArrow direction="left" />
                 Back
               </button>
 
-              <button 
-                onClick={handleNavButtonClick} 
-                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted} 
-                className="w-full sm:w-auto h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button
+                onClick={handleNavButtonClick}
+                disabled={slide.type === 'quiz' && !quizState.canSubmit && !quizState.hasSubmitted}
+                className="w-full sm:w-auto h-[60px] flex items-center justify-center gap-[10px] bg-[#002B60] rounded-[39px] px-[30px] py-[13px] font-sans font-bold text-[24px] leading-[24px] text-white hover:bg-[#001a3d] transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+
                   {slide.type === 'quiz' ? quizState.hasSubmitted ? quizState.isCorrect ? 'Next Case' : 'Try Again' : 'Submit Answer' : slide.type === 'intro' ? 'AI Briefing' : currentSlide === 1 ? 'AI Uses' : currentSlide === 2 ? 'Case 1: AI Text' : currentSlide === 3 || currentSlide === 5 || currentSlide === 7 || currentSlide === 9 || currentSlide === 11 ? 'Next' : currentSlide === 12 ? 'Claim Your Badge' : 'Next Case'}
                   <NavigationArrow direction="right" />
               </button>
             </div>
-          )}
+            }
             </Card>
           </motion.div>
         </AnimatePresence>
