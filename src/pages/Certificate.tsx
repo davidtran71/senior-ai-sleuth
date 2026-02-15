@@ -20,7 +20,10 @@ export const Certificate = () => {
     if (!certificateRef.current) return;
     const banner = certificateRef.current.querySelector('[data-banner]') as HTMLElement | null;
     const certLabel = certificateRef.current.querySelector('[data-cert-label]') as HTMLElement | null;
-    if (banner) banner.style.paddingTop = '0';
+    if (banner) {
+      banner.style.paddingTop = '0';
+      banner.style.paddingBottom = '20px';
+    }
     if (certLabel) {
       certLabel.style.lineHeight = 'normal';
       certLabel.style.paddingBottom = '1.25rem';
