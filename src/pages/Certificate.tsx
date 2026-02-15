@@ -175,7 +175,7 @@ export const Certificate = () => {
                 <Share2 className="h-5 w-5 text-[#002B60]" />
                 <h3 className="text-[#0A1628] text-xl font-bold font-serif">Share Your Badge</h3>
               </div>
-              <p className="text-[#000000] text-sm leading-relaxed text-center">
+              <p className="text-[#000000] text-sm leading-relaxed text-center max-w-none">
                 Challenge your friends and family to test their AI detection skills!
               </p>
               <div className="flex flex-wrap justify-center gap-3">
