@@ -110,7 +110,7 @@ export const Certificate = () => {
 
             {/* Official Certificate Section */}
             <div ref={certificateRef} className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-8 text-center bg-white">
-              <span data-cert-label className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 pt-1 pb-5 rounded">
+              <span data-cert-label className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                 OFFICIAL CERTIFICATE
               </span>
               
