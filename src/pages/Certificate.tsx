@@ -19,7 +19,9 @@ export const Certificate = () => {
   const handleDownloadBadge = async () => {
     if (!certificateRef.current) return;
     const banner = certificateRef.current.querySelector('[data-banner]') as HTMLElement | null;
+    const certLabel = certificateRef.current.querySelector('[data-cert-label]') as HTMLElement | null;
     if (banner) banner.style.paddingTop = '0';
+    if (certLabel) certLabel.style.lineHeight = 'normal';
     try {
       const canvas = await html2canvas(certificateRef.current, {
         backgroundColor: '#ffffff',
@@ -34,6 +36,7 @@ export const Certificate = () => {
       console.error('Failed to generate certificate image:', error);
     } finally {
       if (banner) banner.style.paddingTop = '';
+      if (certLabel) certLabel.style.lineHeight = '';
     }
   };
 
@@ -121,7 +124,7 @@ export const Certificate = () => {
 
             {/* Official Certificate Section */}
             <div ref={certificateRef} className="border-2 border-[#E5E7EB] rounded-2xl p-8 space-y-8 text-center bg-white">
-              <span className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
+              <span data-cert-label className="inline-block bg-[#CCEDFF] text-[#002B60] text-xs font-semibold tracking-wider uppercase px-3 py-1 rounded">
                 OFFICIAL CERTIFICATE
               </span>
               
