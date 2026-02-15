@@ -205,10 +205,18 @@ export const Certificate = () => {
               <Button 
                 size="lg" 
                 variant="outline"
-                onClick={() => navigate('/')} 
+                onClick={() => navigate('/training')} 
                 className="border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628]/5"
               >
-                Return to HQ
+                Retake Training
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                onClick={() => window.open('https://www.thecareside.com.au', '_blank', 'noopener,noreferrer')} 
+                className="border-[#0A1628] text-[#0A1628] hover:bg-[#0A1628]/5"
+              >
+                Visit The CareSide
               </Button>
             </div>
           </div>
